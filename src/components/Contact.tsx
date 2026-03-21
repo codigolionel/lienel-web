@@ -55,13 +55,12 @@ const Contact = () => {
                     <div className="flex flex-col gap-6 text-white/80 font-mono text-[11px] sm:text-xs uppercase tracking-widest pl-4 border-l border-white/10">
                         <div className="group">
                             <span className="text-[10px] text-cyan-400 font-bold mb-1 block">Dirección</span>
-                            <p className="group-hover:text-white transition-colors text-sm text-pretty">Mirave 1700/1800 Ituzaingo<br />Buenos Aires, Argentina</p>
+                            <p className="group-hover:text-white transition-colors text-sm text-pretty">Ituzaingó | Castelar<br />Buenos Aires, Argentina</p>
                         </div>
 
                         <div className="group">
                             <span className="text-[10px] text-cyan-400 font-bold mb-1 block">Teléfono / WhatsApp</span>
-                            <p className="group-hover:text-white transition-colors text-sm">+54 9 11 6565-7297</p>
-                            <p className="group-hover:text-white transition-colors text-sm">+54 9 11 6565-7291</p>
+                            <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" className="group-hover:text-white transition-colors text-sm block">+54 9 11 6565-7291</a>
                         </div>
 
                         <div className="group">
@@ -76,12 +75,12 @@ const Contact = () => {
                     </div>
 
                     <div className="mt-12 pt-6 border-t border-white/10 flex items-center justify-between">
-                        <span className="font-sans font-bold text-xl tracking-tight text-white">Linel.</span>
+                        <span className="font-sans font-bold text-xl tracking-tight text-white">Linel</span>
                         <div className="flex items-center gap-3">
-                            <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110">
+                            <a href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 transition-all duration-300">
                                 <Facebook className="w-4 h-4" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110">
+                            <a href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 transition-all duration-300">
                                 <Instagram className="w-4 h-4" />
                             </a>
                         </div>
@@ -102,7 +101,7 @@ const Contact = () => {
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="Nombre completo"
+                                placeholder="Nombre y Apellido"
                                 className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-white/30 peer"
                                 required
                             />

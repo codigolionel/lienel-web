@@ -28,14 +28,14 @@ const Footer = () => {
                         <div className="flex gap-3">
 
                             <a
-                                href="#"
+                                href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer"
                                 className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
                             >
                                 <Facebook className="w-4 h-4" />
                             </a>
 
                             <a
-                                href="#"
+                                href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer"
                                 className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
                             >
                                 <Instagram className="w-4 h-4" />
@@ -48,12 +48,16 @@ const Footer = () => {
                     {/* Navegación */}
                     <div className="flex flex-col gap-4 text-sm">
 
-                        <h4 className="text-white/30 font-mono text-xs uppercase tracking-widest mb-3">
+                        <h4 className="text-white/30 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Navegación
                         </h4>
 
                         <a href="#inicio" className="text-white/60 hover:text-primary transition">
                             Inicio
+                        </a>
+
+                        <a href="#nosotros" className="text-white/60 hover:text-primary transition">
+                            Nosotros
                         </a>
 
                         <a href="#servicios" className="text-white/60 hover:text-primary transition">
@@ -74,7 +78,7 @@ const Footer = () => {
                     {/* Servicios */}
                     <div className="flex flex-col gap-4 text-sm">
 
-                        <h4 className="text-white/30 font-mono text-xs uppercase tracking-widest mb-3">
+                        <h4 className="text-white/30 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Servicios
                         </h4>
 
@@ -90,14 +94,14 @@ const Footer = () => {
                     {/* Contacto */}
                     <div className="flex flex-col gap-5 text-sm">
 
-                        <h4 className="text-white/30 font-mono text-xs uppercase tracking-widest mb-3">
+                        <h4 className="text-white/30 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Contacto
                         </h4>
 
                         <div className="flex gap-3 items-start group">
                             <MapPin className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
                             <p className="text-white/60 leading-relaxed">
-                                Mirave 1700/1800 Ituzaingó<br />
+                                Ituzaingó | Castelar<br />
                                 Buenos Aires, Argentina
                             </p>
                         </div>
@@ -152,14 +156,14 @@ const Footer = () => {
                         <div className="flex gap-3">
 
                             <a
-                                href="#"
+                                href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
                             >
                                 <Facebook className="w-4 h-4" />
                             </a>
 
                             <a
-                                href="#"
+                                href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
                             >
                                 <Instagram className="w-4 h-4" />

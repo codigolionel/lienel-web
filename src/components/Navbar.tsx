@@ -2,7 +2,9 @@ import { useRef, useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Facebook, Instagram } from 'lucide-react';
+import perfilAgus from '../assets/perfilAgus.png';
+import logoIcon from '../assets/solo-logo.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +12,7 @@ const Navbar = () => {
     const navRef = useRef<HTMLDivElement>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
-    const menuItemsRef = useRef<(HTMLLIElement | null)[]>([]);
+    const menuItemsRef = useRef<(HTMLElement | null)[]>([]);
 
     useGSAP(() => {
         ScrollTrigger.create({
@@ -95,8 +97,18 @@ const Navbar = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-    const handleLinkClick = () => {
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        // Restore scroll so scrollIntoView can work
+        document.body.style.overflow = '';
         setIsMobileMenuOpen(false);
+        // Wait for menu close animation, then scroll
+        setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 350);
     };
 
     const mobileLinks = [
@@ -114,10 +126,11 @@ const Navbar = () => {
                     className="flex items-center justify-between w-full max-w-5xl px-6 md:px-8 py-4 rounded-full border border-transparent text-primary transition-colors duration-300"
                 >
                     <div className="flex items-center gap-2 cursor-pointer font-bold text-lg tracking-normal normal-case group relative z-50">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110 duration-500 ease-out">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
+                        <img 
+                            src={logoIcon} 
+                            alt="Linel Logo" 
+                            className="w-8 h-8 object-contain transition-transform group-hover:scale-110 duration-500 ease-out" 
+                        />
                         <span className={isMobileMenuOpen ? "text-[#fcf9f2]" : ""}>Linel</span>
                     </div>
 
@@ -151,47 +164,84 @@ const Navbar = () => {
                 </nav>
             </div>
 
-            {/* Mobile Menu Fullscreen Overlay */}
+            {/* Fullscreen Overlay Menu */}
             <div
                 ref={mobileMenuRef}
-                className="fixed inset-0 z-40 bg-[#1A1A1A] opacity-0 pointer-events-none flex flex-col justify-center items-center backdrop-blur-md"
+                className="fixed inset-0 z-40 bg-[#0a0a0a]/95 opacity-0 pointer-events-none flex flex-col justify-center items-center backdrop-blur-xl overflow-y-auto"
             >
                 {/* Noise overlay for texture */}
-                <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '16px 16px' }}></div>
+                <div className="fixed inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '16px 16px' }}></div>
 
-                <ul className="flex flex-col items-center gap-8 relative z-10 w-full px-6 text-[#fcf9f2]">
-                    {mobileLinks.map((link, index) => (
-                        <li
-                            key={link.label}
-                            ref={el => { menuItemsRef.current[index] = el; }}
-                            className="w-full text-center"
-                        >
-                            <a
-                                href={link.href}
-                                onClick={handleLinkClick}
-                                className="block text-4xl sm:text-5xl font-serif italic hover:text-accent transition-colors py-2"
-                            >
-                                {link.label}
+                <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-0 flex flex-col md:flex-row relative z-10 min-h-[100dvh]">
+
+                    {/* Left Column: Navigation */}
+                    <div className="flex-1 flex flex-col justify-center items-start md:border-r border-white/10 md:pr-12 lg:pr-24 pt-12 md:pt-0 pb-12 md:pb-0">
+                        <ul className="flex flex-col items-start gap-4 sm:gap-6 w-full">
+                            {mobileLinks.map((link, index) => (
+                                <li
+                                    key={link.label}
+                                    ref={el => { menuItemsRef.current[index] = el as HTMLLIElement | null; }}
+                                    className="w-full text-left"
+                                >
+                                    <a
+                                        href={link.href}
+                                        onClick={(e) => handleLinkClick(e, link.href)}
+                                        className="inline-block text-2xl sm:text-3xl lg:text-4xl font-serif italic text-white/50 hover:text-white hover:translate-x-4 transition-transform duration-300"
+                                    >
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+
+                        </ul>
+                    </div>
+
+                    {/* Right Column: Contact & Info */}
+                    <div className="flex-1 flex flex-col justify-center items-start md:pl-12 lg:pl-24 relative pb-24 md:pb-0 pt-3 md:pt-0" ref={el => { menuItemsRef.current[mobileLinks.length + 1] = el as HTMLLIElement | null; }}>
+
+                        <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border border-white/20 mb-6 shrink-0 bg-white/5">
+                            <img src={perfilAgus} alt="Augusto Lionel" className="w-full h-full object-cover" />
+                        </div>
+
+                        <div className="flex flex-col gap-1 mb-6">
+                            <h3 className="font-sans font-bold text-base sm:text-xl text-white tracking-widest uppercase">Lastre Augusto Lionel</h3>
+                            <p className="text-accent font-mono text-[10px] sm:text-sm uppercase tracking-widest">Diseñador Web</p>
+                        </div>
+
+                        <div className="flex flex-col gap-3 sm:gap-4 text-white/50 font-mono text-[10px] sm:text-xs">
+                            <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-3">
+                                <span className="text-cyan-400 font-bold min-w-[70px]">WHATSAPP</span> +54 9 11 6565 7291
                             </a>
-                        </li>
-                    ))}
+                            <a href="mailto:proyectos.linel@gmail.com" className="hover:text-white transition-colors flex items-center gap-3">
+                                <span className="text-cyan-400 font-bold min-w-[70px]">EMAIL</span> proyectos.linel@gmail.com
+                            </a>
+                            <a href="https://linel.com.ar" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-3">
+                                <span className="text-cyan-400 font-bold min-w-[70px]">WEB</span> https://linel.com.ar
+                            </a>
+                        </div>
 
-                    <li
-                        ref={el => { menuItemsRef.current[mobileLinks.length] = el; }}
-                        className="mt-8"
-                    >
-                        <a
-                            href="https://wa.me/1234567890"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleLinkClick}
-                            className="flex items-center gap-3 px-8 py-4 rounded-full bg-accent text-white font-sans font-bold tracking-tight text-lg hover:scale-105 transition-transform"
-                        >
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            Agendar Llamada
-                        </a>
-                    </li>
-                </ul>
+                        <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10 w-full max-w-xs">
+                            <a href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-white/5 transition-all duration-300 hover:scale-110">
+                                <Facebook className="w-4 h-4" />
+                            </a>
+                            <a href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-white/5 transition-all duration-300 hover:scale-110">
+                                <Instagram className="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom CTA Button */}
+                <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 w-full flex justify-center z-20" ref={el => { menuItemsRef.current[mobileLinks.length] = el as HTMLDivElement | null; }}>
+                    <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 sm:px-8 py-3 rounded-full font-medium tracking-normal normal-case bg-base text-primary hover:text-base border border-charcoal/20 transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
+                        <span className="relative z-10 flex items-center gap-2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            WhatsApp
+                        </span>
+                        <div className="absolute inset-0 bg-[#25D366] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                    </a>
+                </div>
+
             </div>
         </>
     );

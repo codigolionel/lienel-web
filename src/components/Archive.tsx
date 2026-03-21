@@ -2,20 +2,21 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import soloLogo from "../assets/solo-logo.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Archive = () => {
 
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef(null);
 
-    const card1Ref = useRef<HTMLDivElement>(null);
-    const card2Ref = useRef<HTMLDivElement>(null);
-    const card3Ref = useRef<HTMLDivElement>(null);
+    const card1Ref = useRef(null);
+    const card2Ref = useRef(null);
+    const card3Ref = useRef(null);
 
-    const cursorRef = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
-    const panelRef = useRef<HTMLDivElement>(null);
+    const cursorRef = useRef(null);
+    const buttonRef = useRef(null);
+    const panelRef = useRef(null);
 
     useGSAP(() => {
 
@@ -53,20 +54,24 @@ const Archive = () => {
 
         });
 
-
         const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: card2Ref.current,
-                start: "top center"
-            }
+            repeat: -1,
+            repeatDelay: 0.8,
+            paused: true,
         });
 
-        tl.from(".terminal-line", {
-            opacity: 0,
-            y: 10,
-            stagger: 0.4,
-            duration: 0.5
-        })
+        tl
+            .set(".terminal-line", { opacity: 0, y: 10 })
+            .set(buttonRef.current, { opacity: 0 })
+            .set(cursorRef.current, { x: 0, y: 0, scale: 1 })
+            .set(panelRef.current, { opacity: 0, scale: 0.9 })
+
+            .to(".terminal-line", {
+                opacity: 1,
+                y: 0,
+                stagger: 0.4,
+                duration: 0.5
+            })
 
             .to(buttonRef.current, {
                 opacity: 1,
@@ -91,23 +96,37 @@ const Archive = () => {
                 opacity: 1,
                 scale: 1,
                 duration: 0.5
+            })
+
+            .to({}, { duration: 2.5 })
+
+            .to(panelRef.current, {
+                opacity: 0,
+                duration: 0.4
             });
 
-    }, { scope: containerRef });
+        ScrollTrigger.create({
+            trigger: card2Ref.current,
+            start: "top bottom",
+            end: "bottom top",
+            onEnter: () => tl.play(),
+            onLeave: () => tl.pause(),
+            onEnterBack: () => tl.play(),
+            onLeaveBack: () => tl.pause(),
+        });
 
+    }, { scope: containerRef });
 
     return (
 
         <section ref={containerRef} id="servicios" className="relative w-full bg-base">
 
             {/* CARD 1 */}
-
             <div ref={card1Ref} className="h-[100dvh] w-full flex items-center justify-center p-8 bg-[#fcf9f2] text-charcoal border-b border-black/10 origin-top">
 
                 <div className="max-w-4xl w-full flex flex-col md:flex-row gap-12 items-center justify-between">
 
                     <div className="flex-1 text-center md:text-left">
-
                         <h2 className="text-4xl sm:text-6xl font-sans font-bold tracking-tight mb-6">
                             Diseño Web, <span className="font-serif italic text-accent">sin limites</span>
                         </h2>
@@ -115,9 +134,7 @@ const Archive = () => {
                         <p className="text-lg opacity-80">
                             Desarrollamos páginas escalables, seguras y fáciles de administrar garantizando la expansión y rendimiento a largo plazo.
                         </p>
-
                     </div>
-
 
                     <div className="w-64 h-64 relative flex items-center justify-center">
 
@@ -125,25 +142,20 @@ const Archive = () => {
 
                         <div className="absolute inset-4 border-4 border-accent rounded-full animate-[spin_7s_linear_infinite_reverse]"></div>
 
-                        <div className="w-20 h-20 bg-charcoal rounded-full text-white flex items-center justify-center font-mono text-sm shadow-2xl">
-                            Linel
+                        {/* ✅ LOGO CORREGIDO */}
+                        <div className="w-20 h-20 flex items-center justify-center">
+                            <img src={soloLogo} alt="Logo" className="h-12" />
                         </div>
 
                     </div>
 
                 </div>
-
             </div>
 
-
-
             {/* CARD 2 */}
-
             <div ref={card2Ref} className="h-[100dvh] w-full flex items-center justify-center p-8 bg-charcoal text-primary border-b border-white/5 origin-top shadow-2xl">
 
                 <div className="max-w-4xl w-full flex flex-col md:flex-row gap-12 items-center">
-
-                    {/* TERMINAL */}
 
                     <div className="w-full md:flex-1 order-2 md:order-1 flex justify-center">
 
@@ -161,15 +173,10 @@ const Archive = () => {
                                 CLICK
                             </button>
 
-                            {/* Cursor verde */}
-
                             <div
                                 ref={cursorRef}
                                 className="absolute top-10 left-10 w-4 h-4 bg-green-500 rounded-full"
                             ></div>
-
-
-                            {/* Overlay final */}
 
                             <div
                                 ref={panelRef}
@@ -179,14 +186,9 @@ const Archive = () => {
                             </div>
 
                         </div>
-
                     </div>
 
-
-                    {/* TEXTO */}
-
                     <div className="w-full md:flex-1 order-1 md:order-2 text-center md:text-left">
-
                         <h2 className="text-4xl sm:text-6xl font-sans font-bold tracking-tight mb-6">
                             Velocidad y <span className="font-serif italic text-accent">Rendimiento</span>
                         </h2>
@@ -194,17 +196,12 @@ const Archive = () => {
                         <p className="text-lg opacity-80">
                             Optimizamos la carga de tu web para que tus visitantes naveguen rápido, fácil y sin interrupciones ni demoras.
                         </p>
-
                     </div>
 
                 </div>
-
             </div>
 
-
-
             {/* CARD 3 */}
-
             <div ref={card3Ref} className="h-[100dvh] w-full flex items-center justify-center p-8 bg-[#333530] text-[#fcf9f2] origin-top shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
 
                 <div className="max-w-4xl w-full flex flex-col items-center text-center gap-12">
@@ -212,44 +209,37 @@ const Archive = () => {
                     <div className="w-full h-32 relative overflow-hidden flex items-center justify-center">
 
                         <svg viewBox="0 0 500 100" className="w-[150%] h-full stroke-accent fill-none stroke-[3]">
-
                             <path
                                 className="animate-[dash_2s_linear_infinite]"
                                 strokeDasharray="20 40 20 500"
                                 d="M 0 50 L 100 50 L 120 20 L 140 80 L 160 50 L 500 50"
                             />
-
                         </svg>
 
                         <style>{`
-                        @keyframes dash {
-                            0% { stroke-dashoffset: 580; }
-                            100% { stroke-dashoffset: 0; }
-                        }
+                            @keyframes dash {
+                                0% { stroke-dashoffset: 580; }
+                                100% { stroke-dashoffset: 0; }
+                            }
                         `}</style>
 
                     </div>
 
                     <div>
-
                         <h2 className="text-4xl sm:text-6xl font-sans font-bold tracking-tight mb-6">
-                            El pulso de tu <span className="font-serif italic text-primary">Vocación</span>
+                            Démosle vida a tus <span className="font-serif italic text-primary">Ideas</span>
                         </h2>
 
                         <p className="text-lg opacity-80 max-w-2xl mx-auto">
-                            Dotamos de vida a tus ideas. Creamos ecosistemas digitales que laten, respiran y se adaptan al entorno del mercado en tiempo real.
+                            Diseñamos ecosistemas digitales que se adaptan, evolucionan y generan resultados reales.
                         </p>
-
                     </div>
 
                 </div>
-
             </div>
 
         </section>
-
     );
-
 };
 
 export default Archive;

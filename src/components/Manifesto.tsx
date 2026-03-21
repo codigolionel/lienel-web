@@ -24,26 +24,20 @@ const Manifesto = () => {
             }
         });
 
-        // Split text reveal effect (simulated split by animating whole phrase with clip-path/opacity)
-        // A true split text requires a plugin or custom splitting function. Here we use an elegant fade/slide up.
-        const tl = gsap.timeline({
+        // Animación de aparición de texto (mucho más robusta usando gsap.from array)
+        gsap.from([textRef1.current, textRef2.current], {
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: 'top 60%',
-                end: 'top 20%',
-                toggleActions: 'play md reverse md', // Optional: play reverse
-            }
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            clipPath: 'inset(100% 0 0 0)',
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
         });
-
-        tl.fromTo(textRef1.current,
-            { y: 50, opacity: 0, clipPath: 'inset(100% 0 0 0)' },
-            { y: 0, opacity: 1, clipPath: 'inset(0% 0 0 0)', duration: 1, ease: 'power3.out' }
-        )
-            .fromTo(textRef2.current,
-                { y: 50, opacity: 0, clipPath: 'inset(100% 0 0 0)' },
-                { y: 0, opacity: 1, clipPath: 'inset(0% 0 0 0)', duration: 1, ease: 'power3.out' },
-                "-=0.6"
-            );
 
     }, { scope: containerRef });
 
