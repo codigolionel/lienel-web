@@ -32,11 +32,11 @@ const Navbar = () => {
                         yPercent: 0,
                         duration: 0.4,
                         ease: 'power3.out',
-                        backgroundColor: self.scroll() > 50 ? 'rgba(255, 252, 242, 0.7)' : 'transparent',
+                        backgroundColor: self.scroll() > 50 ? 'rgba(11, 11, 16, 0.9)' : 'transparent',
                         backdropFilter: self.scroll() > 50 ? 'blur(16px)' : 'blur(0px)',
-                        borderColor: self.scroll() > 50 ? 'rgba(107, 112, 92, 0.15)' : 'transparent',
-                        color: self.scroll() > 50 ? 'var(--color-moss)' : 'var(--color-primary)',
-                        boxShadow: self.scroll() > 50 ? '0 10px 40px -10px rgba(0,0,0,0.1)' : 'none',
+                        borderColor: self.scroll() > 50 ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                        color: self.scroll() > 50 ? '#FFFFFF' : 'var(--color-primary)',
+                        boxShadow: self.scroll() > 50 ? '0 10px 40px -10px rgba(0,0,0,0.5)' : 'none',
                     });
                 }
             }
@@ -82,11 +82,11 @@ const Navbar = () => {
             // Re-evalute navbar styling based on scroll
             if (window.scrollY > 50) {
                 gsap.to(navRef.current, {
-                    backgroundColor: 'rgba(255, 252, 242, 0.7)',
+                    backgroundColor: 'rgba(11, 11, 16, 0.9)',
                     backdropFilter: 'blur(16px)',
-                    borderColor: 'rgba(107, 112, 92, 0.15)',
-                    color: 'var(--color-moss)',
-                    boxShadow: '0 10px 40px -10px rgba(0,0,0,0.1)',
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    color: '#FFFFFF',
+                    boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)',
                     duration: 0.3
                 });
             }
@@ -126,20 +126,40 @@ const Navbar = () => {
                     className="flex items-center justify-between w-full max-w-5xl px-6 md:px-8 py-4 rounded-full border border-transparent text-primary transition-colors duration-300"
                 >
                     <div className="flex items-center gap-2 cursor-pointer font-bold text-lg tracking-normal normal-case group relative z-50">
-                        <img 
-                            src={logoIcon} 
-                            alt="Linel Logo" 
-                            className="w-8 h-8 object-contain transition-transform group-hover:scale-110 duration-500 ease-out" 
+                        <img
+                            src={logoIcon}
+                            alt="Linel Logo"
+                            className="w-[60px] h-[60px] object-contain transition-transform group-hover:scale-110 duration-500 ease-out"
                         />
                         <span className={isMobileMenuOpen ? "text-[#fcf9f2]" : ""}>Linel</span>
                     </div>
 
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex items-center gap-8">
-                        <li><a href="#inicio" className="hover:opacity-70 transition-opacity">Inicio</a></li>
-                        <li><a href="#nosotros" className="hover:opacity-70 transition-opacity">Nosotros</a></li>
-                        <li><a href="#servicios" className="hover:opacity-70 transition-opacity">Servicios</a></li>
-                        <li><a href="#contacto" className="hover:opacity-70 transition-opacity">Contacto</a></li>
+                        <li>
+                            <a href="#inicio" className="relative group pb-1 transition-opacity">
+                                Inicio
+                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#nosotros" className="relative group pb-1 transition-opacity">
+                                Nosotros
+                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" className="relative group pb-1 transition-opacity">
+                                Servicios
+                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contacto" className="relative group pb-1 transition-opacity">
+                                Contacto
+                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
                     </ul>
 
                     {/* Desktop CTA */}

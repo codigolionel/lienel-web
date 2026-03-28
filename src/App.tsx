@@ -6,6 +6,7 @@ import Archive from './components/Archive';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AbautUs from './components/AbautUs';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
       <main>
         <Hero />
+        <AbautUs />
         <Features />
         <Manifesto />
         <Archive />

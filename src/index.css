@@ -12,9 +12,8 @@
   /* clay */
 
   --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-outfit: 'Outfit', sans-serif;
+  --font-outfit: 'Outfit', serif;
   --font-serif: 'Cormorant Garamond', serif;
-  --font-mono: 'JetBrains Mono', monospace;
 
   --radius-xl: 2rem;
   --radius-2xl: 3rem;
@@ -48,7 +47,5 @@
     font-family: var(--font-serif);
   }
 
-  .text-mono {
-    font-family: var(--font-mono);
-  }
+
 }

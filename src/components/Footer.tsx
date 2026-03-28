@@ -19,7 +19,7 @@ const Footer = () => {
 
                         <h3 className="text-2xl font-bold">Linel</h3>
 
-                        <p className="text-white/60 text-sm leading-relaxed">
+                        <p className="text-white/80 text-sm leading-relaxed">
                             Diseños modernos y adaptables que muestran lo mejor de tu marca
                             y funcionan en todos los dispositivos.
                         </p>
@@ -48,27 +48,27 @@ const Footer = () => {
                     {/* Navegación */}
                     <div className="flex flex-col gap-4 text-sm">
 
-                        <h4 className="text-white/30 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Navegación
                         </h4>
 
-                        <a href="#inicio" className="text-white/60 hover:text-primary transition">
+                        <a href="#inicio" className="text-white/80 hover:text-primary transition">
                             Inicio
                         </a>
 
-                        <a href="#nosotros" className="text-white/60 hover:text-primary transition">
+                        <a href="#nosotros" className="text-white/80 hover:text-primary transition">
                             Nosotros
                         </a>
 
-                        <a href="#servicios" className="text-white/60 hover:text-primary transition">
+                        <a href="#servicios" className="text-white/80 hover:text-primary transition">
                             Servicios
                         </a>
 
-                        <a href="#trabajos" className="text-white/60 hover:text-primary transition">
+                        <a href="#trabajos" className="text-white/80 hover:text-primary transition">
                             Trabajos
                         </a>
 
-                        <a href="#contacto" className="text-white/60 hover:text-primary transition">
+                        <a href="#contacto" className="text-white/80 hover:text-primary transition">
                             Contacto
                         </a>
 
@@ -78,15 +78,15 @@ const Footer = () => {
                     {/* Servicios */}
                     <div className="flex flex-col gap-4 text-sm">
 
-                        <h4 className="text-white/30 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Servicios
                         </h4>
 
-                        <span className="text-white/60">Diseño Web</span>
-                        <span className="text-white/60">SEO</span>
-                        <span className="text-white/60">Hosting</span>
-                        <span className="text-white/60">Dominio</span>
-                        <span className="text-white/60">Mantenimiento</span>
+                        <span className="text-white/80">Diseño Web</span>
+                        <span className="text-white/80">SEO</span>
+                        <span className="text-white/80">Hosting</span>
+                        <span className="text-white/80">Dominio</span>
+                        <span className="text-white/80">Mantenimiento</span>
 
                     </div>
 
@@ -94,13 +94,13 @@ const Footer = () => {
                     {/* Contacto */}
                     <div className="flex flex-col gap-5 text-sm">
 
-                        <h4 className="text-white/30 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Contacto
                         </h4>
 
                         <div className="flex gap-3 items-start group">
                             <MapPin className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
-                            <p className="text-white/60 leading-relaxed">
+                            <p className="text-white/80 leading-relaxed">
                                 Ituzaingó | Castelar<br />
                                 Buenos Aires, Argentina
                             </p>
@@ -108,7 +108,7 @@ const Footer = () => {
 
                         <div className="flex gap-3 items-start group">
                             <Phone className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
-                            <p className="text-white/60">
+                            <p className="text-white/80">
                                 +54 9 11 6565-7291
 
                             </p>
@@ -116,21 +116,21 @@ const Footer = () => {
 
                         <div className="flex gap-3 items-start group">
                             <MessageCircle className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
-                            <p className="text-white/60">
+                            <p className="text-white/80">
                                 WhatsApp: 11 6565-7291
                             </p>
                         </div>
 
                         <div className="flex gap-3 items-start group">
                             <Clock className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
-                            <p className="text-white/60">
+                            <p className="text-white/80">
                                 Lun a Vie de 9 a 17hs
                             </p>
                         </div>
 
                         <div className="flex gap-3 items-start group">
                             <Mail className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
-                            <p className="text-white/60">
+                            <p className="text-white/80">
                                 proyectos.linel@gmail.com
                             </p>
                         </div>
@@ -141,7 +141,7 @@ const Footer = () => {
 
 
                 {/* Bottom */}
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10 text-xs font-mono uppercase tracking-widest text-white/40">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10 text-xs font-mono uppercase tracking-widest text-white/60">
 
                     <p>
                         © {new Date().getFullYear()} Linel. Todos los derechos reservados.
@@ -149,7 +149,7 @@ const Footer = () => {
 
                     <div className="flex items-center gap-4">
 
-                        <span className="text-white/50">
+                        <span className="text-white/70">
                             Linel.com.ar
                         </span>
 

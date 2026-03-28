@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Méndez — Plomero Profesional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #f8fafc; color: #1e293b; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up  { animation: fadeUp 0.75s ease both; }
+    .delay-1  { animation-delay: 0.15s; }
+    .delay-2  { animation-delay: 0.3s; }
+    .delay-3  { animation-delay: 0.45s; }
+
+    .hero-bg {
+      background-image:
+        linear-gradient(to right, rgba(15,30,60,0.85) 45%, rgba(15,30,60,0.38) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-slash::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 100%; height: 70px;
+      background: #f8fafc;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: #1d4ed8;
+      transition: width 0.25s;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .service-card { transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; }
+    .service-card:hover {
+      border-color: #1d4ed8;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(29,78,216,0.10);
+    }
+    .service-card:hover .svc-icon-wrap { background: #1d4ed8; }
+    .service-card:hover .svc-icon-wrap svg { stroke: #ffffff; }
+
+    .contact-row { transition: border-color 0.2s, background 0.2s; }
+    .contact-row:hover { border-color: #1d4ed8; background: #eff6ff; }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ══════════ NAV ══════════ -->
+  <nav id="inicio" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <a href="#inicio" class="flex items-center gap-2">
+        <!-- Ícono gota / plomería -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6 8.5 4 12.5 4 15a8 8 0 0 0 16 0c0-2.5-2-6.5-8-13z"/>
+        </svg>
+        <span class="font-['Bebas_Neue'] text-xl tracking-widest text-slate-800">
+          MÉNDEZ <span class="text-[#1d4ed8]">PLOMERÍA</span>
+        </span>
+      </a>
+
+      <ul class="hidden sm:flex items-center gap-8 text-sm font-medium text-slate-500">
+        <li><a href="#inicio"    class="nav-link hover:text-slate-800 transition-colors">Inicio</a></li>
+        <li><a href="#quien-soy" class="nav-link hover:text-slate-800 transition-colors">Quién soy</a></li>
+        <li><a href="#servicios" class="nav-link hover:text-slate-800 transition-colors">Servicios</a></li>
+        <li><a href="#contacto"  class="nav-link hover:text-slate-800 transition-colors">Contacto</a></li>
+        <li>
+          <a href="https://wa.me/5491156789012" target="_blank"
+             class="flex items-center gap-2 bg-[#1d4ed8] text-white text-sm font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="relative hero-bg hero-slash pt-40 pb-44 overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#1d4ed8]"></div>
+
+    <div class="relative max-w-5xl mx-auto px-6">
+      <p class="fade-up text-blue-300 font-['Bebas_Neue'] tracking-[0.35em] text-sm mb-4">
+        PLOMERO MATRICULADO — BUENOS AIRES
+      </p>
+
+      <h1 class="fade-up delay-1 font-['Bebas_Neue'] text-6xl sm:text-8xl leading-none text-white mb-6">
+        SOLUCIONES<br/><span class="text-[#60a5fa]">SIN GOTERAS.</span>
+      </h1>
+
+      <p class="fade-up delay-2 text-slate-300 text-lg max-w-md mb-10">
+        Instalaciones, reparaciones y emergencias. Trabajo rápido, limpio y con garantía escrita.
+      </p>
+
+      <div class="fade-up delay-3 flex flex-wrap gap-4">
+        <a href="tel:+5491156789012"
+           class="flex items-center gap-2 bg-[#1d4ed8] text-white font-semibold px-7 py-3 rounded-lg hover:bg-blue-700 transition-colors text-base shadow-lg shadow-blue-900/30">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 5.99 5.99l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ QUIÉN SOY ══════════ -->
+  <section id="quien-soy" class="py-28 bg-[#f8fafc]">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 gap-16 items-center">
+
+        <div class="reveal-left">
+          <p class="text-[#1d4ed8] font-['Bebas_Neue'] tracking-[0.25em] text-sm mb-3">QUIÉN SOY</p>
+          <h2 class="font-['Bebas_Neue'] text-5xl text-slate-800 leading-tight mb-6">
+            20 AÑOS<br/>EN EL OFICIO.
+          </h2>
+          <p class="text-slate-500 leading-relaxed mb-5">
+            Soy <strong class="text-slate-800">Carlos Méndez</strong>, plomero matriculado con más de dos décadas de experiencia en el Gran Buenos Aires. Trabajo solo o con mi equipo en obras chicas y grandes.
+          </p>
+          <p class="text-slate-500 leading-relaxed">
+            Me diferencio por la <span class="text-[#1d4ed8] font-semibold">puntualidad</span>, el orden en el trabajo y la
+            <span class="text-[#1d4ed8] font-semibold">garantía de 6 meses</span> en todas las reparaciones.
+          </p>
+
+          <div class="mt-10 flex gap-10">
+            <div>
+              <p class="font-['Bebas_Neue'] text-4xl text-[#1d4ed8]">+500</p>
+              <p class="text-sm text-slate-400 mt-1">Trabajos realizados</p>
+            </div>
+            <div>
+              <p class="font-['Bebas_Neue'] text-4xl text-[#1d4ed8]">6 m</p>
+              <p class="text-sm text-slate-400 mt-1">Garantía escrita</p>
+            </div>
+            <div>
+              <p class="font-['Bebas_Neue'] text-4xl text-[#1d4ed8]">24h</p>
+              <p class="text-sm text-slate-400 mt-1">Emergencias</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual decorativo -->
+        <div class="relative hidden sm:block reveal-right">
+          <div class="w-full aspect-square bg-blue-50 rounded-2xl border border-blue-100 flex items-center justify-center overflow-hidden">
+            <svg width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" class="opacity-10">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <div class="absolute bottom-6 left-6 right-6 bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+              <p class="text-slate-800 font-semibold text-sm">Carlos Méndez</p>
+              <p class="text-slate-400 text-xs mt-0.5">Matrícula N° 4827 — GCBA</p>
+            </div>
+          </div>
+          <div class="absolute -top-3 -right-3 w-14 h-14 bg-[#1d4ed8] opacity-15 rounded-xl"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ SERVICIOS ══════════ -->
+  <section id="servicios" class="py-28 bg-white border-t border-slate-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="reveal text-[#1d4ed8] font-['Bebas_Neue'] tracking-[0.25em] text-sm mb-3">SERVICIOS</p>
+      <h2 class="reveal text-5xl text-slate-800 mb-3 font-['Bebas_Neue']">LO QUE HAGO.</h2>
+      <p class="reveal text-slate-400 mb-14 max-w-lg">Desde una canilla que gotea hasta la instalación completa de un baño. Si es de plomería, lo resuelvo.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Instalaciones -->
+        <div class="service-card reveal reveal-delay-1 border border-slate-200 rounded-xl p-6 bg-[#f8fafc]">
+          <div class="svc-icon-wrap w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center mb-5 transition-colors duration-25">
+            <svg class="svc-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke 0.25s">
+              <!-- Shower head icon -->
+              <path d="M4 12a8 8 0 0 1 16 0"/>
+              <line x1="12" y1="12" x2="12" y2="20"/>
+              <line x1="9"  y1="20" x2="15" y2="20"/>
+              <line x1="8"  y1="15" x2="7"  y2="17"/>
+              <line x1="12" y1="15" x2="12" y2="17"/>
+              <line x1="16" y1="15" x2="17" y2="17"/>
+            </svg>
+          </div>
+          <h3 class="font-['Bebas_Neue'] text-xl text-slate-800 mb-2 tracking-wide">INSTALACIONES</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Baños, cocinas, termotanques y calefones. Instalación desde cero con materiales de primera.</p>
+        </div>
+
+        <!-- Reparaciones -->
+        <div class="service-card reveal reveal-delay-2 border border-slate-200 rounded-xl p-6 bg-[#f8fafc]">
+          <div class="svc-icon-wrap w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center mb-5 transition-colors duration-25">
+            <svg class="svc-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke 0.25s">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="font-['Bebas_Neue'] text-xl text-slate-800 mb-2 tracking-wide">REPARACIONES</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Pérdidas, cañerías rotas, válvulas, sifones, flotantes. Diagnóstico y solución el mismo día.</p>
+        </div>
+
+        <!-- Emergencias -->
+        <div class="service-card reveal reveal-delay-3 border border-slate-200 rounded-xl p-6 bg-[#f8fafc]">
+          <div class="svc-icon-wrap w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center mb-5 transition-colors duration-25">
+            <svg class="svc-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke 0.25s">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8"  x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3 class="font-['Bebas_Neue'] text-xl text-slate-800 mb-2 tracking-wide">EMERGENCIAS</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Atención las 24 horas para pérdidas graves, roturas de caño o inundaciones.</p>
+        </div>
+
+        <!-- Obra nueva -->
+        <div class="service-card reveal reveal-delay-1 border border-slate-200 rounded-xl p-6 bg-[#f8fafc]">
+          <div class="svc-icon-wrap w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center mb-5 transition-colors duration-25">
+            <svg class="svc-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke 0.25s">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="8"  y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="font-['Bebas_Neue'] text-xl text-slate-800 mb-2 tracking-wide">OBRA NUEVA</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Tendido de cañerías en construcciones nuevas o refacciones. Con plano y certificación.</p>
+        </div>
+
+        <!-- Gas y calefacción -->
+        <div class="service-card reveal reveal-delay-2 border border-slate-200 rounded-xl p-6 bg-[#f8fafc]">
+          <div class="svc-icon-wrap w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center mb-5 transition-colors duration-25">
+            <svg class="svc-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke 0.25s">
+              <path d="M12 2c-4 4.5-4 8-4 10a4 4 0 0 0 8 0c0-2-.8-5-4-10z"/>
+              <path d="M12 12c-1 1.5-1 2.5-1 3a1 1 0 0 0 2 0c0-.5-.3-1.5-1-3z"/>
+            </svg>
+          </div>
+          <h3 class="font-['Bebas_Neue'] text-xl text-slate-800 mb-2 tracking-wide">GAS Y CALEFACCIÓN</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Calefones, termotanques, radiadores y llave de paso. Instalación y reparación.</p>
+        </div>
+
+        <!-- Detección de pérdidas -->
+        <div class="service-card reveal reveal-delay-3 border border-slate-200 rounded-xl p-6 bg-[#f8fafc]">
+          <div class="svc-icon-wrap w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center mb-5 transition-colors duration-25">
+            <svg class="svc-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke 0.25s">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3 class="font-['Bebas_Neue'] text-xl text-slate-800 mb-2 tracking-wide">DETECCIÓN DE PÉRDIDAS</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Buscamos la pérdida sin romper paredes. Tecnología de detección acústica y presión.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ CONTACTO ══════════ -->
+  <section id="contacto" class="relative py-28 border-t border-slate-100 overflow-hidden"
+           style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80&auto=format&fit=crop');
+                  background-attachment: fixed;
+                  background-size: cover;
+                  background-position: center;">
+    <!-- Overlay azul oscuro -->
+    <div class="absolute inset-0 bg-[#0b1e3d]/80 backdrop-blur-[1px]"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 gap-16 items-start">
+
+        <div class="reveal-left">
+          <p class="text-blue-300 font-['Bebas_Neue'] tracking-[0.25em] text-sm mb-3">CONTACTO</p>
+          <h2 class="font-['Bebas_Neue'] text-5xl text-white leading-tight mb-6">
+            HABLEMOS<br/>HOY MISMO.
+          </h2>
+          <p class="text-slate-300 leading-relaxed mb-10">
+            Llamame, escribime por WhatsApp. Respondo en menos de 1 hora en horario laboral.
+          </p>
+
+          <div class="space-y-4">
+
+            <a href="tel:+5491156789012"
+               class="flex items-center gap-4 border border-white/20 rounded-xl p-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-blue-300 transition-all group">
+              <div class="w-10 h-10 bg-blue-500/30 rounded-lg flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 5.99 5.99l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-blue-300 uppercase tracking-wider">Teléfono</p>
+                <p class="text-white font-semibold group-hover:text-blue-300 transition-colors">+54 9 11 5678-9012</p>
+              </div>
+            </a>
+
+            <a href="https://wa.me/5491156789012" target="_blank"
+               class="flex items-center gap-4 border border-white/20 rounded-xl p-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-blue-300 transition-all group">
+              <div class="w-10 h-10 bg-blue-500/30 rounded-lg flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-blue-300 uppercase tracking-wider">WhatsApp</p>
+                <p class="text-white font-semibold group-hover:text-blue-300 transition-colors">Escribirme ahora</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 border border-white/20 rounded-xl p-4 bg-white/10 backdrop-blur-sm">
+              <div class="w-10 h-10 bg-blue-500/30 rounded-lg flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-blue-300 uppercase tracking-wider">Horario</p>
+                <p class="text-white font-semibold">Lun–Sáb 8:00–20:00 <span class="text-blue-300">|</span> Emergencias 24h</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 border border-white/20 rounded-xl p-4 bg-white/10 backdrop-blur-sm">
+              <div class="w-10 h-10 bg-blue-500/30 rounded-lg flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-blue-300 uppercase tracking-wider">Zona de trabajo</p>
+                <p class="text-white font-semibold">CABA y GBA Norte / Oeste</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="flex flex-col gap-5 sm:mt-16 reveal-right">
+          <div class="border border-white/20 rounded-xl p-6 text-center bg-white/10 backdrop-blur-sm">
+            <div class="flex items-center justify-center gap-2 mb-2">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#60a5fa" stroke="none">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <p class="font-['Bebas_Neue'] text-4xl text-white">4.9</p>
+            </div>
+            <p class="text-white font-semibold">Calificación promedio</p>
+            <p class="text-blue-300 text-sm mt-1">Basado en 148 reseñas de Google</p>
+          </div>
+          <div class="border border-blue-400/40 rounded-xl p-6 bg-blue-900/40 backdrop-blur-sm">
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <p class="text-blue-300 font-['Bebas_Neue'] tracking-wider text-sm">GARANTÍA INCLUIDA</p>
+            </div>
+            <p class="text-white font-semibold text-lg mb-1">6 meses en toda reparación</p>
+            <p class="text-slate-300 text-sm">Si el problema vuelve, lo resuelvo sin costo adicional.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ MAPA ══════════ -->
+  <section class="w-full border-t border-slate-200">
+    <div class="max-w-5xl mx-auto px-6 pt-10 pb-4">
+      <p class="text-slate-400 text-sm mb-4 font-['Bebas_Neue'] tracking-widest">ZONA DE COBERTURA — CABA Y GBA</p>
+    </div>
+    <div class="w-full h-[380px]">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105258.74679588!2d-58.563800!3d-34.616800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b03ba91a3%3A0x7a8c6b8c2dc80f60!2sBuenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sar!4v1700000000000"
+        width="100%" height="100%"
+        style="border:0;"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="bg-white border-t border-slate-200 py-5 text-center">
+    <p class="text-slate-400 text-sm">© 2025 Carlos Méndez Plomería. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+      .forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

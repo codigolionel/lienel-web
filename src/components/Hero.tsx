@@ -1,6 +1,7 @@
 import { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import wallpaper from "../assets/wallpaper_linel.webp"
 
 const Hero = () => {
 
@@ -39,9 +40,9 @@ const Hero = () => {
         const typeTl = gsap.timeline({ repeat: -1, delay: 1.5 });
         const messages = [
             "tu negocio necesita.",
-            "trabaja por vos 24/7.",
+            "siempre trabaja 24/7.",
             "te muestra al Mercado.",
-            "tu necesitas hoy !",
+            "Tú necesitas hoy !",
         ];
 
         if (animatedTextRef.current) {
@@ -81,13 +82,28 @@ const Hero = () => {
         <section
             id="inicio"
             ref={containerRef}
-            className="relative w-full p-6 sm:p-8 pt-20 bg-charcoal text-primary overflow-hidden flex flex-col items-center justify-center min-h-[100dvh]"
+            style={{
+                backgroundImage: `url(${wallpaper})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
+
+
+            }}
+            className="relative w-full p-6 sm:p-8 pt-20 text-primary overflow-hidden flex flex-col items-center justify-center min-h-[100dvh]"
         >
+            {/* CAPA OSCURA */}
+            <div className="absolute inset-0 bg-black/50 z-0"></div>
+
+            {/* CONTENIDO */}
+            <div className="relative z-10">
+                {/* todo tu contenido */}
+            </div>
 
             {/* content */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-8 md:gap-12 mt-32 md:mt-40 font-serif">
 
-                <div className="flex flex-col gap-4 text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight">
+                <div className="flex flex-col gap-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
 
                     <div ref={textRef1} className="text-primary font-medium inline-flex flex-col md:flex-row items-center text-left mx-auto relative w-full md:w-auto">
                         {/* Plantilla invisible para bloquear el ancho y evitar saltos */}
@@ -100,19 +116,19 @@ const Hero = () => {
                         <div className="absolute inset-0 flex flex-col md:flex-row items-center w-full">
                             <span className="md:mr-3 text-center md:text-left w-full md:w-auto">La Web que</span>
                             <span className="flex items-center justify-center md:justify-start w-full md:w-auto">
-                                <span ref={animatedTextRef} className="text-accent italic whitespace-nowrap"></span>
-                                <span className="inline-block w-[3px] md:w-[5px] h-[35px] sm:h-[50px] md:h-[65px] lg:h-[80px] bg-accent ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
+                                <span ref={animatedTextRef} className="text-[#00D2D3] italic whitespace-nowrap"></span>
+                                <span className="inline-block w-[2px] sm:w-[3px] md:w-[5px] h-[32px] sm:h-[42px] md:h-[55px] lg:h-[70px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
                             </span>
                         </div>
                     </div>
 
-                    <p ref={textRef2} className="text-white/80 italic text-4xl sm:text-5xl md:text-6xl mt-2 sm:mt-4">
+                    <p ref={textRef2} className="text-white/80 italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 sm:mt-4">
                         Lista para vos.
                     </p>
 
                 </div>
 
-                <p ref={textRef3} className="text-white/60 font-sans text-base md:text-xl max-w-2xl mx-auto font-medium mt-4">
+                <p ref={textRef3} className="text-white/80 font-sans text-base sm:text-lg md:text-lg lg:text-xl max-w-2xl mx-auto font-medium mt-4">
                     Sin complicaciones. Diseño de sitios claros, rápidos y adaptados a tu necesidad.
                 </p>
 
@@ -121,9 +137,9 @@ const Hero = () => {
                         href="https://wa.me/1234567890"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-4 text-base sm:text-lg md:px-6 md:py-3 md:text-base font-semibold text-white transition-all duration-300 hover:scale-105 group hover:border-white/40"
+                        className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#EE32A0] backdrop-blur-sm px-8 py-4 text-base sm:text-lg md:px-6 md:py-3 md:text-base font-semibold text-white transition-all duration-300 hover:scale-105 group"
                     >
-                        <span className="absolute inset-0 bg-accent translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 z-0"></span>
+                        <span className="absolute inset-0 bg-[#00D2D3] translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 z-0"></span>
                         <span className="relative z-10 flex items-center gap-2 text-white">
                             Cotizar mi web
                             <svg
