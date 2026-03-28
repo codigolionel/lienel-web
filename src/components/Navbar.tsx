@@ -113,8 +113,9 @@ const Navbar = () => {
 
     const mobileLinks = [
         { href: '#inicio', label: 'Inicio' },
-        { href: '#nosotros', label: 'Nosotros' },
         { href: '#servicios', label: 'Servicios' },
+        { href: '#sobre-linel', label: 'Proceso' },
+        { href: '#nosotros', label: 'Nosotros' },
         { href: '#contacto', label: 'Contacto' },
     ];
 
@@ -123,7 +124,7 @@ const Navbar = () => {
             <div className="fixed top-0 left-0 right-0 z-50 flex justify-center mt-6 uppercase text-sm tracking-widest font-sans font-medium px-4">
                 <nav
                     ref={navRef}
-                    className="flex items-center justify-between w-full max-w-5xl px-6 md:px-8 py-4 rounded-full border border-transparent text-primary transition-colors duration-300"
+                    className="flex items-center justify-between w-full max-w-7xl px-6 md:px-8 py-4 rounded-full border border-transparent text-primary transition-colors duration-300"
                 >
                     <div className="flex items-center gap-2 cursor-pointer font-bold text-lg tracking-normal normal-case group relative z-50">
                         <img
@@ -143,14 +144,20 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="#nosotros" className="relative group pb-1 transition-opacity">
-                                Nosotros
+                            <a href="#servicios" className="relative group pb-1 transition-opacity">
+                                Servicios
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#servicios" className="relative group pb-1 transition-opacity">
-                                Servicios
+                            <a href="#sobre-linel" className="relative group pb-1 transition-opacity">
+                                Proceso
+                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#nosotros" className="relative group pb-1 transition-opacity">
+                                Nosotros
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         </li>

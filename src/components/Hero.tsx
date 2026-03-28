@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
-import wallpaper from "../assets/wallpaper_linel.webp"
+import wallpaper from "../assets/background-violet-blue.webp"
 
 const Hero = () => {
 
@@ -39,10 +39,10 @@ const Hero = () => {
 
         const typeTl = gsap.timeline({ repeat: -1, delay: 1.5 });
         const messages = [
-            "tu negocio necesita.",
-            "siempre trabaja 24/7.",
-            "te muestra al Mercado.",
-            "Tú necesitas hoy !",
+            "generar consultas.",
+            "conseguir clientes.",
+            "atender las 24 hs.",
+            "aumentar tus ventas.",
         ];
 
         if (animatedTextRef.current) {
@@ -105,43 +105,62 @@ const Hero = () => {
 
                 <div className="flex flex-col gap-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
 
-                    <div ref={textRef1} className="text-primary font-medium inline-flex flex-col md:flex-row items-center text-left mx-auto relative w-full md:w-auto">
+                    <div ref={textRef1} className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full">
                         {/* Plantilla invisible para bloquear el ancho y evitar saltos */}
-                        <div className="opacity-0 pointer-events-none select-none flex flex-col md:flex-row items-center w-full md:w-fit mx-auto" aria-hidden="true">
-                            <span className="md:mr-3 text-center md:text-left w-full md:w-auto">La Web que</span>
-                            <span className="italic flex items-center justify-center md:justify-start w-full md:w-auto">te muestra al Mercado.<span className="inline-block w-[3px] md:w-[5px] ml-1 sm:ml-2"></span></span>
+                        <div className="opacity-0 pointer-events-none select-none flex flex-col items-center w-full" aria-hidden="true">
+                            {/* Line 1: mobile/tablet="Tu negocio en internet," desktop="Tu negocio en internet, listo" */}
+                            <span className="w-full">
+                                <span>Tu negocio en internet,</span>
+                                <span className="hidden lg:inline"> listo</span>
+                            </span>
+                            {/* Line 2: mobile/tablet="listo para:" desktop="para + slider" */}
+                            <span className="flex flex-col lg:flex-row items-center justify-center w-full">
+                                <span className="lg:hidden">listo para:</span>
+                                <span className="hidden lg:inline lg:mr-3">para</span>
+                                <span className="italic flex items-center justify-center">aumentar tus ventas.<span className="inline-block w-[3px] lg:w-[5px] ml-1 sm:ml-2"></span></span>
+                            </span>
                         </div>
 
                         {/* Texto animado visible */}
-                        <div className="absolute inset-0 flex flex-col md:flex-row items-center w-full">
-                            <span className="md:mr-3 text-center md:text-left w-full md:w-auto">La Web que</span>
-                            <span className="flex items-center justify-center md:justify-start w-full md:w-auto">
-                                <span ref={animatedTextRef} className="text-[#00D2D3] italic whitespace-nowrap"></span>
-                                <span className="inline-block w-[2px] sm:w-[3px] md:w-[5px] h-[32px] sm:h-[42px] md:h-[55px] lg:h-[70px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
+                        <div className="absolute inset-0 flex flex-col items-center w-full">
+                            {/* Line 1 */}
+                            <span className="w-full">
+                                <span>Tu negocio en internet,</span>
+                                <span className="hidden lg:inline"> listo</span>
+                            </span>
+                            {/* Line 2 (+ line 3 on mobile) */}
+                            <span className="flex flex-col lg:flex-row items-center justify-center w-full">
+                                <span className="lg:hidden">listo para:</span>
+                                <span className="hidden lg:inline lg:mr-3">para</span>
+                                <span className="flex items-center justify-center lg:relative lg:inline-flex lg:justify-start">
+                                    {/* Desktop: invisible spacer reserves width of longest message so "para" stays fixed */}
+                                    <span className="hidden lg:inline invisible italic whitespace-nowrap">aumentar tus ventas.<span className="inline-block w-[5px] ml-2"></span></span>
+                                    <span className="flex items-center lg:absolute lg:left-0 lg:top-0 lg:h-full justify-center lg:justify-start">
+                                        <span ref={animatedTextRef} className="text-[#00D2D3] italic whitespace-nowrap"></span>
+                                        <span className="inline-block w-[2px] sm:w-[3px] lg:w-[5px] h-[32px] sm:h-[42px] md:h-[55px] lg:h-[70px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
+                                    </span>
+                                </span>
                             </span>
                         </div>
                     </div>
 
-                    <p ref={textRef2} className="text-white/80 italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 sm:mt-4">
-                        Lista para vos.
-                    </p>
 
                 </div>
 
                 <p ref={textRef3} className="text-white/80 font-sans text-base sm:text-lg md:text-lg lg:text-xl max-w-2xl mx-auto font-medium mt-4">
-                    Sin complicaciones. Diseño de sitios claros, rápidos y adaptados a tu necesidad.
+                    Creamos páginas web para negocios, profesionales y emprendedores que quieren dar el paso a internet. Nos encargamos de todo.
                 </p>
 
-                <div ref={btnRef} className="mt-8 font-sans">
+                <div ref={btnRef} className="mt-8 font-sans flex flex-col sm:flex-row items-center gap-4">
                     <a
                         href="https://wa.me/1234567890"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#EE32A0] backdrop-blur-sm px-8 py-4 text-base sm:text-lg md:px-6 md:py-3 md:text-base font-semibold text-white transition-all duration-300 hover:scale-105 group"
+                        className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#EE32A0] backdrop-blur-sm px-5 py-2.5 text-sm md:px-6 md:py-3 md:text-base font-semibold text-white transition-all duration-300 hover:scale-105 group"
                     >
                         <span className="absolute inset-0 bg-[#00D2D3] translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 z-0"></span>
-                        <span className="relative z-10 flex items-center gap-2 text-white">
-                            Cotizar mi web
+                        <span className="relative z-10 flex items-center gap-2 text-white transition-colors duration-300 group-hover:text-black">
+                            Empezar ahora
                             <svg
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -149,12 +168,20 @@ const Hero = () => {
                                 strokeWidth="2.5"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                className="w-5 h-5 md:w-[18px] md:h-[18px] transition-transform group-hover:translate-x-1"
+                                className="w-4 h-4 md:w-[18px] md:h-[18px] transition-transform group-hover:translate-x-1"
                             >
                                 <path d="M5 12h14" />
                                 <path d="m12 5 7 7-7 7" />
                             </svg>
                         </span>
+                    </a>
+
+                    <a
+                        href="#sobre-linel"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 backdrop-blur-sm px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-semibold transition-all duration-300 hover:bg-white/20 hover:border-transparent hover:scale-105"
+                        style={{ color: '#ffffff' }}
+                    >
+                        Cómo trabajamos
                     </a>
                 </div>
 
