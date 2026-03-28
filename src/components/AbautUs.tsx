@@ -124,13 +124,15 @@ export default function AbautUs() {
                 revealRefs.current,
                 {
                     y: 40,
+                    opacity: 0,
                 },
                 {
                     y: 0,
+                    opacity: 1,
                     duration: 0.9,
                     stagger: 0.15,
                     ease: "power3.out",
-                    clearProps: "transform",
+                    clearProps: "all",
                     scrollTrigger: {
                         trigger: sectionRef.current,
                         start: "top 85%",
@@ -144,7 +146,7 @@ export default function AbautUs() {
 
     return (
         <section
-            id="sobre-linel"
+            id="nosotros"
             ref={sectionRef}
             className="relative overflow-hidden bg-[#09090E] px-6 py-24 text-[#F2F2F4] md:px-10 font-sans"
         >
@@ -152,17 +154,17 @@ export default function AbautUs() {
             <div className="pointer-events-none absolute -bottom-32 -right-20 h-[400px] w-[400px] rounded-full bg-pink-500/10 blur-[100px]" />
 
             <div className="relative z-10 mx-auto max-w-7xl">
-                <div ref={addToRefs} className="mb-20 text-center">
+                <div ref={addToRefs} className="mb-20 text-center" style={{ opacity: 1 }}>
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400">
                         <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
                         Quienes somos
                     </div>
 
-                    <h1 className="mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                    <h1 className="mb-5 text-4xl sm:text-4xl md:text-5xl lg:text-[70px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                         Sobre Linel
                     </h1>
 
-                    <p className="mx-auto max-w-2xl text-sm sm:text-base leading-7 text-white md:text-lg md:leading-8" style={{opacity: 1}}>
+                    <p className="mx-auto max-w-2xl text-sm sm:text-base leading-7 text-white md:text-lg md:leading-8" style={{ opacity: 1 }}>
                         Creamos páginas web claras, rápidas y pensadas para generar resultados.
                     </p>
                 </div>
@@ -174,12 +176,12 @@ export default function AbautUs() {
                             <span className="bg-[#00D2D3] to-pink-500 bg-clip-text text-transparent"> online.</span>
                         </h2>
 
-                        <p className="mb-4 text-sm sm:text-base font-medium leading-7 text-white md:text-lg md:leading-8" style={{opacity: 1}}>
+                        <p className="mb-4 text-sm sm:text-base font-medium leading-7 text-white md:text-lg md:leading-8" style={{ opacity: 1 }}>
                             Ayudamos a personas y negocios que todavía no tienen presencia online
                             a dar ese primer paso de forma profesional.
                         </p>
 
-                        <p className="text-sm sm:text-base font-medium leading-7 text-white md:text-lg md:leading-8" style={{opacity: 1}}>
+                        <p className="text-sm sm:text-base font-medium leading-7 text-white md:text-lg md:leading-8" style={{ opacity: 1 }}>
                             Hacemos webs que representan bien tu negocio, generan confianza y
                             ayudan a conseguir clientes. Te acompañamos en todo el proceso,
                             incluso si no tenés experiencia.
@@ -246,15 +248,13 @@ export default function AbautUs() {
                             Nuestra diferencia
                         </div>
 
-                        <h2 className="mb-3 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
-                            Por qué elegir
-                            <br />
-                            <span className="bg-[#EE32A0] bg-clip-text text-transparent">
-                                Linel
-                            </span>
+                        <h2 className="mb-3 text-4xl sm:text-4xl md:text-5xl lg:text-[70px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                            Por qué
+
+                            <span className="bg-[#EE32A0] bg-clip-text text-transparent"> elegirnos</span>
                         </h2>
 
-                        <p className="text-sm sm:text-base font-medium leading-7 text-white md:text-lg" style={{opacity: 1}}>
+                        <p className="text-sm leading-7 text-white/70 md:text-lg" style={{ opacity: 1 }}>
                             Trabajamos distinto. No hacemos webs en serie, acompañamos tu
                             proceso de principio a fin.
                         </p>
@@ -285,14 +285,14 @@ export default function AbautUs() {
                     </div>
                 </div>
 
-                <div ref={addToRefs} className="mb-20">
+                <div id="proceso" ref={addToRefs} className="mb-20">
                     <div className="mb-14 text-center">
-                        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
-                            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+                            <span className="h-1.5 w-1.5 rounded-full bg-black" />
                             El proceso
                         </div>
 
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                        <h2 className="text-5xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                             Cómo{" "}
                             <span className="bg-cyan-400 bg-clip-text text-transparent">
                                 trabajamos
@@ -304,21 +304,20 @@ export default function AbautUs() {
                         {steps.map((step) => (
                             <div key={step.number} className="text-center">
                                 <div
-                                    className={`relative mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-full border ${step.highlight
-                                        ? "border-cyan-400/30 bg-gradient-to-br from-cyan-400/15 to-pink-500/15"
-                                        : "border-white/10 bg-[#16161F]"
-                                        }`}
+                                    className="relative mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-full border border-cyan-400/30 bg-gradient-to-br from-cyan-400/15 to-pink-500/15"
                                 >
                                     <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-xl font-extrabold text-transparent">
                                         {step.number}
                                     </span>
                                 </div>
 
-                                <h4 className="mb-3 text-lg sm:text-xl font-serif italic font-semibold text-white">
+                                <h4 className="mb-2 text-xl sm:text-2xl font-serif italic font-semibold text-white">
                                     {step.title}
                                 </h4>
 
-                                <p className="text-base leading-7 text-white/70">{step.text}</p>
+                                <p className="text-sm sm:text-base leading-relaxed text-white/70">
+                                    {step.text}
+                                </p>
 
                                 {step.highlight && (
                                     <span className="mt-5 inline-block rounded-full bg-[#EE32A0] px-5 py-1.5 text-xs font-bold tracking-[0.08em] text-white">
@@ -341,26 +340,16 @@ export default function AbautUs() {
                     </div>
 
                     <div className="relative z-10 mx-auto max-w-3xl">
-                        <p className="mb-20 text-2xl sm:text-3xl md:text-4xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-snug lg:leading-[75px]">
-                            Quien no se muestra, no crece.
-                            Tu web es tu primer paso.
+                        <p className="mb-20 pt-10 text-2xl sm:text-3xl md:text-4xl lg:text-[60px] font-serif font-normal text-[#FFFCF2] leading-snug lg:leading-[75px]">
+                            “Quien no se muestra, no vende. Tu web es el primer paso.”
 
                         </p>
 
                         <a
                             href="#contacto"
-                            className="inline-flex items-center gap-3 rounded-full bg-[#EE32A0] px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg md:text-xl font-serif italic font-normal tracking-[0.04em] text-[#f8f8f8ff] transition duration-300 hover:-translate-y-0.5"
+                            className="inline-flex items-center gap-3 rounded-full bg-[#EE32A0] px-8 py-3 sm:px-10 sm:py-4 text-lg sm:text-xl md:text-2xl font-serif italic font-normal tracking-[0.04em] text-white transition duration-300 hover:-translate-y-0.5"
                         >
                             Quiero mi web
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                                <path
-                                    d="M5 12h14M12 5l7 7-7 7"
-                                    stroke="#f8f8f8ff"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
                         </a>
                     </div>
                 </div>

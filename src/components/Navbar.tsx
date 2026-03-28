@@ -111,10 +111,18 @@ const Navbar = () => {
         }, 350);
     };
 
+    const handleDesktopLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const mobileLinks = [
         { href: '#inicio', label: 'Inicio' },
         { href: '#servicios', label: 'Servicios' },
-        { href: '#sobre-linel', label: 'Proceso' },
+        { href: '#proceso', label: 'Proceso' },
         { href: '#nosotros', label: 'Nosotros' },
         { href: '#contacto', label: 'Contacto' },
     ];
@@ -138,31 +146,31 @@ const Navbar = () => {
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex items-center gap-8">
                         <li>
-                            <a href="#inicio" className="relative group pb-1 transition-opacity">
+                            <a href="#inicio" onClick={(e) => handleDesktopLinkClick(e, '#inicio')} className="relative group pb-1 transition-opacity">
                                 Inicio
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#servicios" className="relative group pb-1 transition-opacity">
+                            <a href="#servicios" onClick={(e) => handleDesktopLinkClick(e, '#servicios')} className="relative group pb-1 transition-opacity">
                                 Servicios
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#sobre-linel" className="relative group pb-1 transition-opacity">
+                            <a href="#proceso" onClick={(e) => handleDesktopLinkClick(e, '#proceso')} className="relative group pb-1 transition-opacity">
                                 Proceso
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#nosotros" className="relative group pb-1 transition-opacity">
+                            <a href="#nosotros" onClick={(e) => handleDesktopLinkClick(e, '#nosotros')} className="relative group pb-1 transition-opacity">
                                 Nosotros
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#contacto" className="relative group pb-1 transition-opacity">
+                            <a href="#contacto" onClick={(e) => handleDesktopLinkClick(e, '#contacto')} className="relative group pb-1 transition-opacity">
                                 Contacto
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#EE32A0] transition-all duration-300 group-hover:w-full"></span>
                             </a>
@@ -170,12 +178,12 @@ const Navbar = () => {
                     </ul>
 
                     {/* Desktop CTA */}
-                    <a href="https://wa.me/1165657291" target="_blank" rel="noopener noreferrer" className="hidden md:flex relative overflow-hidden group px-6 py-2 rounded-full font-medium tracking-normal normal-case bg-base text-primary hover:text-base border border-charcoal/20 transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
+                    <a href="https://wa.me/1165657291" target="_blank" rel="noopener noreferrer" className="hidden md:flex relative overflow-hidden group px-6 py-2 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
                         <span className="relative z-10 flex items-center gap-2">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             WhatsApp
                         </span>
-                        <div className="absolute inset-0 bg-[#25D366] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                        <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
                     </a>
 
                     {/* Mobile Menu Toggle button */}
@@ -232,7 +240,7 @@ const Navbar = () => {
 
                         <div className="flex flex-col gap-1 mb-6">
                             <h3 className="font-sans font-bold text-base sm:text-xl text-white tracking-widest uppercase">Lastre Augusto Lionel</h3>
-                            <p className="text-accent font-mono text-[10px] sm:text-sm uppercase tracking-widest">Diseñador Web</p>
+                            <p className="text-[#EE32A0] font-mono text-[10px] sm:text-sm uppercase tracking-widest">Diseñador Web</p>
                         </div>
 
                         <div className="flex flex-col gap-3 sm:gap-4 text-white/50 font-mono text-[10px] sm:text-xs">
@@ -260,12 +268,12 @@ const Navbar = () => {
 
                 {/* Bottom CTA Button */}
                 <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 w-full flex justify-center z-20" ref={el => { menuItemsRef.current[mobileLinks.length] = el as HTMLDivElement | null; }}>
-                    <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 sm:px-8 py-3 rounded-full font-medium tracking-normal normal-case bg-base text-primary hover:text-base border border-charcoal/20 transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
+                    <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 sm:px-8 py-3 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
                         <span className="relative z-10 flex items-center gap-2">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             WhatsApp
                         </span>
-                        <div className="absolute inset-0 bg-[#25D366] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                        <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
                     </a>
                 </div>
 

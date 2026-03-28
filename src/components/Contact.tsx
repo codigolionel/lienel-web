@@ -50,7 +50,7 @@ const Contact = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif italic text-[#FFFCF2] tracking-tight leading-tight mb-4 text-pretty">
                         Consultas<span className="text-[#00D2D3]">.</span>
                     </h2>
-                    <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-sans font-light mb-12" style={{opacity: 1}}>
+                    <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-sans font-light mb-12" style={{ opacity: 1 }}>
                         Completa el formulario y daremos vida a tu proyecto.
                     </p>
 

@@ -3,7 +3,7 @@
 @theme {
   --color-primary: #fffcf2;
   --color-accent: #eb5e28;
-  --color-base: #252422;
+  --color-surface: #252422;
   /* black */
   --color-charcoal: #1A1A1A;
   --color-moss: #6b705c;
@@ -21,7 +21,7 @@
 
 @layer base {
   body {
-    @apply bg-base text-primary font-sans antialiased overflow-x-hidden;
+    @apply bg-surface text-primary font-sans antialiased overflow-x-hidden;
   }
 
   /* Global noise overlay */

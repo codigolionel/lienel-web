@@ -217,11 +217,11 @@ const Pricing = () => {
         if (!carouselRef.current) return;
         const container = carouselRef.current;
         const cardNode = container.children[0] as HTMLDivElement;
-        
+
         // Includes margin/gap if any, here we use clientWidth
         const cardWidth = cardNode.clientWidth + 24; // 24 is gap-6
         const maxScroll = container.scrollWidth - container.clientWidth;
-        
+
         if (container.scrollLeft >= maxScroll - 10) {
             container.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
@@ -235,7 +235,7 @@ const Pricing = () => {
         const cardNode = container.children[0] as HTMLDivElement;
         const cardWidth = cardNode.clientWidth + 24;
         const maxScroll = container.scrollWidth - container.clientWidth;
-        
+
         if (container.scrollLeft <= 10) {
             container.scrollTo({ left: maxScroll, behavior: 'smooth' });
         } else {
@@ -253,10 +253,10 @@ const Pricing = () => {
     return (
         <section id="pricing" className="w-full py-32 sm:py-48 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
             <div className="max-w-6xl mx-auto relative group"
-                 onMouseEnter={() => setIsHovered(true)}
-                 onMouseLeave={() => setIsHovered(false)}
-                 onTouchStart={() => setIsHovered(true)}
-                 onTouchEnd={() => setIsHovered(false)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={() => setIsHovered(true)}
+                onTouchEnd={() => setIsHovered(false)}
             >
 
                 {/* TÍTULO */}
@@ -264,20 +264,20 @@ const Pricing = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px] mb-6">
                         Planes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0]">Web</span>
                     </h2>
-                    <p className="text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto font-medium" style={{opacity: 1}}>
+                    <p className="text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto font-medium" style={{ opacity: 1 }}>
                         Elegí el plan ideal para lanzar o escalar tu presencia digital.
                     </p>
                 </div>
 
                 {/* CARRUSEL CONTENEDOR (Nativo) */}
-                <div 
+                <div
                     ref={carouselRef}
                     onScroll={handleScroll}
                     className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 items-stretch py-8"
                 >
                     {plans.map((plan) => (
-                        <div 
-                            key={plan.name} 
+                        <div
+                            key={plan.name}
                             // 1 carta móbile (100% ancho), 2 cartas tablet, 3 cartas desktop
                             className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-center flex"
                         >
@@ -288,7 +288,7 @@ const Pricing = () => {
 
                 {/* CONTROLES MÓVIL (Flechas y Puntos debajo) */}
                 <div className="flex justify-center items-center gap-4 sm:gap-6 mt-6">
-                    <button 
+                    <button
                         onClick={scrollPrev}
                         className="p-3 rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition shadow-lg"
                     >
@@ -300,20 +300,19 @@ const Pricing = () => {
                             <button
                                 key={i}
                                 onClick={() => {
-                                    if(!carouselRef.current) return;
+                                    if (!carouselRef.current) return;
                                     const cardNode = carouselRef.current.children[0] as HTMLDivElement;
                                     const cardWidth = cardNode.clientWidth + 24;
                                     carouselRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
                                 }}
-                                className={`w-2 h-2 rounded-full transition-all ${
-                                    activeIndex === i ? 'bg-[#00D2D3] w-6' : 'bg-white/20'
-                                }`}
+                                className={`w-2 h-2 rounded-full transition-all ${activeIndex === i ? 'bg-[#00D2D3] w-6' : 'bg-white/20'
+                                    }`}
                                 aria-label={`Ir a tarjeta ${i + 1}`}
                             />
                         ))}
                     </div>
 
-                    <button 
+                    <button
                         onClick={scrollNext}
                         className="p-3 rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition shadow-lg"
                     >
