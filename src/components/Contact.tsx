@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,6 +10,38 @@ const Contact = () => {
     const containerRef = useRef<HTMLElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
     const infoRef = useRef<HTMLDivElement>(null);
+
+    const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '', telefono: '' });
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+        setErrorMessage('');
+        
+        const API_URL = import.meta.env.VITE_URL_BACKEND || "http://localhost:3000/api/contact";
+
+        try {
+            const resp = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const data = await resp.json();
+            if (!resp.ok) throw new Error(data.error || 'Ocurrió un error al enviar tu consulta.');
+            
+            setStatus('success');
+            setFormData({ nombre: '', email: '', mensaje: '', telefono: '' });
+            
+            // Revert success UI after a few seconds
+            setTimeout(() => setStatus('idle'), 5000);
+        } catch (err: any) {
+            console.error(err);
+            setStatus('error');
+            setErrorMessage(err.message);
+        }
+    };
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -93,17 +125,30 @@ const Contact = () => {
                 <form
                     ref={formRef}
                     className="bg-white/5 backdrop-blur-xl border border-[#00D2D3]/20 p-8 sm:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden group/form"
-                    onSubmit={(e) => e.preventDefault()}
+                    onSubmit={handleSubmit}
                 >
                     <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00D2D3] to-transparent opacity-100"></div>
+
+                    {/* HONEYPOT INVISIBLE */}
+                    <input
+                        type="text"
+                        name="telefono"
+                        value={formData.telefono}
+                        onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
+                        className="hidden opacity-0 mx-[-9999px]"
+                        tabIndex={-1}
+                        autoComplete="off"
+                    />
 
                     <div className="flex flex-col gap-6 w-full">
                         <div className="relative group/input">
                             <input
                                 type="text"
-                                id="name"
-                                name="name"
+                                id="nombre"
+                                name="nombre"
                                 placeholder="Nombre y Apellido"
+                                value={formData.nombre}
+                                onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer"
                                 required
                             />
@@ -114,6 +159,8 @@ const Contact = () => {
                                 type="email"
                                 id="email"
                                 name="email"
+                                value={formData.email}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 placeholder="Correo electrónico"
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer"
                                 required
@@ -121,12 +168,15 @@ const Contact = () => {
                         </div>
 
                         <div className="relative group/input">
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="Teléfono"
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer"
+                            <textarea
+                                id="mensaje"
+                                name="mensaje"
+                                placeholder="Cuéntanos un poco sobre tu negocio o idea..."
+                                value={formData.mensaje}
+                                onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer resize-none"
+                                rows={4}
+                                required
                             />
                         </div>
 
@@ -142,14 +192,28 @@ const Contact = () => {
                             </div>
                         </div>
 
+                        {status === 'error' && (
+                            <p className="text-sm text-red-400 text-center font-bold tracking-tight">{errorMessage}</p>
+                        )}
+                        {status === 'success' && (
+                            <p className="text-sm text-[#00D2D3] text-center font-bold tracking-tight">¡Gracias! Hemos recibido tu mensaje. Pronto te contactaremos.</p>
+                        )}
+
                         <button
                             type="submit"
-                            className="relative max-w-xs mx-auto w-full mt-4 flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-[#00D2D3] backdrop-blur-sm px-8 py-4 font-sans font-bold uppercase tracking-widest text-[13px] sm:text-sm text-black hover:text-white transition-colors duration-300 hover:scale-105 group/btn"
+                            disabled={status === 'loading'}
+                            className="relative max-w-xs mx-auto w-full mt-4 flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-[#00D2D3] backdrop-blur-sm px-8 py-4 font-sans font-bold uppercase tracking-widest text-[13px] sm:text-sm text-black hover:text-white transition-colors duration-300 hover:scale-105 group/btn disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <span className="absolute inset-0 bg-[#EE32A0] translate-y-full transition-transform duration-300 ease-in-out group-hover/btn:translate-y-0 z-0"></span>
                             <span className="relative z-10 flex items-center gap-2">
-                                <Send className="w-4 h-4 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
-                                Enviar Mensaje
+                                {status === 'loading' ? (
+                                    <>Enviando...</>
+                                ) : (
+                                    <>
+                                        <Send className="w-4 h-4 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
+                                        Enviar Mensaje
+                                    </>
+                                )}
                             </span>
                         </button>
                     </div>
