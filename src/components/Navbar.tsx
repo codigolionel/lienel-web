@@ -268,9 +268,6 @@ const Navbar = () => {
                                     </span>
                                     <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
                                 </a>
-                                <span className="text-xs font-bold text-[#EE32A0] tracking-tight mt-1 leading-none">
-                                    +54 911-6565-7291
-                                </span>
                             </div>
                             <a href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-[#00D2D3] hover:text-[#00D2D3]/80 hover:border-[#00D2D3] hover:bg-white/5 transition-all duration-300 hover:scale-110 shrink-0">
                                 <Facebook className="w-4 h-4" />
