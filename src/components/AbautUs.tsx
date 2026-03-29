@@ -21,8 +21,8 @@ type Step = {
 
 const differentiators: Differentiator[] = [
     {
-        title: "Te guiamos, no solo diseñamos",
-        text: "Estamos en todo el proceso, no solo entregamos el archivo.",
+        title: "Te guiamos en todo el proceso.",
+        text: "De la idea a la web lista.",
         icon: (
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
                 <path
@@ -37,7 +37,7 @@ const differentiators: Differentiator[] = [
     },
     {
         title: "Pensamos en tu negocio",
-        text: "Priorizamos que la web funcione para vos, no solo que se vea bonita.",
+        text: "Priorizamos que la web funcione para vos.",
         icon: (
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
                 <path
@@ -52,7 +52,7 @@ const differentiators: Differentiator[] = [
     },
     {
         title: "Claridad y confianza primero",
-        text: "Webs que generan confianza y convierten visitas en clientes.",
+        text: "Para que te entiendan y te escriban.",
         icon: (
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
                 <path
@@ -67,7 +67,7 @@ const differentiators: Differentiator[] = [
     },
     {
         title: "Para quienes empiezan desde cero",
-        text: "Nuestro cliente ideal no tiene experiencia digital. Eso no es un problema.",
+        text: "Esto ya  no es un problema.",
         icon: (
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
                 <path
@@ -190,7 +190,7 @@ export default function AbautUs() {
 
                     <div
                         ref={addToRefs}
-                        className="rounded-[20px] bg-gradient-to-br from-cyan-400/40 to-pink-500/40 p-[1px]"
+                        className="rounded-[20px] bg-white/10 p-[1px]"
                     >
                         <div className="h-full rounded-[19px] border border-white/5 bg-[#111118] p-8">
                             <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400/15 to-pink-500/15">
@@ -222,19 +222,10 @@ export default function AbautUs() {
 
                             <div className="mt-7 grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
                                 <div>
-                                    <div className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl sm:text-3xl font-extrabold text-transparent">
-                                        100%
+                                    <div className="bg-cyan-400 bg-clip-text text-1xl sm:text-1xl font-extrabold text-transparent">
+                                        100% Acompañamiento
                                     </div>
-                                    <div className="mt-1 text-xs text-white/70">Acompañamiento</div>
-                                </div>
-
-                                <div>
-                                    <div className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl sm:text-3xl font-extrabold text-transparent">
-                                        0
-                                    </div>
-                                    <div className="mt-1 text-xs text-white/70">
-                                        Experiencia previa necesaria
-                                    </div>
+                                    <div className="mt-1 text-xs text-white/70">completo</div>
                                 </div>
                             </div>
                         </div>
@@ -243,8 +234,8 @@ export default function AbautUs() {
 
                 <div className="mb-20 grid items-start gap-8 md:grid-cols-2">
                     <div ref={addToRefs}>
-                        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
-                            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+                            <span className="h-1.5 w-1.5 rounded-full bg-black" />
                             Nuestra diferencia
                         </div>
 
@@ -292,7 +283,7 @@ export default function AbautUs() {
                             El proceso
                         </div>
 
-                        <h2 className="text-5xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                        <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                             Cómo{" "}
                             <span className="bg-cyan-400 bg-clip-text text-transparent">
                                 trabajamos

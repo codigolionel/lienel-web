@@ -178,13 +178,18 @@ const Navbar = () => {
                     </ul>
 
                     {/* Desktop CTA */}
-                    <a href="https://wa.me/1165657291" target="_blank" rel="noopener noreferrer" className="hidden md:flex relative overflow-hidden group px-6 py-2 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
-                        <span className="relative z-10 flex items-center gap-2">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            WhatsApp
+                    <div className="hidden md:flex flex-col items-center">
+                        <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden group px-6 py-2 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
+                            <span className="relative z-10 flex items-center gap-2">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                WhatsApp
+                            </span>
+                            <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                        </a>
+                        <span className="text-xs font-bold text-[#EE32A0] tracking-tight mt-1 leading-none">
+                            +54 911-6565-7291
                         </span>
-                        <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-                    </a>
+                    </div>
 
                     {/* Mobile Menu Toggle button */}
                     <button
@@ -240,7 +245,7 @@ const Navbar = () => {
 
                         <div className="flex flex-col gap-1 mb-6">
                             <h3 className="font-sans font-bold text-base sm:text-xl text-white tracking-widest uppercase">Lastre Augusto Lionel</h3>
-                            <p className="text-[#EE32A0] font-mono text-[10px] sm:text-sm uppercase tracking-widest">Diseñador Web</p>
+                            <p className="text-[#EE32A0] font-mono text-[10px] sm:text-sm uppercase tracking-widest">Diseñador Web Full Stack</p>
                         </div>
 
                         <div className="flex flex-col gap-3 sm:gap-4 text-white/50 font-mono text-[10px] sm:text-xs">
@@ -255,27 +260,32 @@ const Navbar = () => {
                             </a>
                         </div>
 
-                        <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10 w-full max-w-xs">
-                            <a href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-white/5 transition-all duration-300 hover:scale-110">
+                        <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10 w-full max-w-xs pl-8">
+                            <div className="flex flex-col items-center">
+                                <a 
+                                    ref={el => { menuItemsRef.current[mobileLinks.length] = el as HTMLAnchorElement | null; }}
+                                    href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 py-3 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2 shrink-0">
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                        WhatsApp
+                                    </span>
+                                    <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                                </a>
+                                <span className="text-xs font-bold text-[#EE32A0] tracking-tight mt-1 leading-none">
+                                    +54 911-6565-7291
+                                </span>
+                            </div>
+                            <a href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-white/5 transition-all duration-300 hover:scale-110 shrink-0">
                                 <Facebook className="w-4 h-4" />
                             </a>
-                            <a href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-white/5 transition-all duration-300 hover:scale-110">
+                            <a href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-white/5 transition-all duration-300 hover:scale-110 shrink-0">
                                 <Instagram className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom CTA Button */}
-                <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 w-full flex justify-center z-20" ref={el => { menuItemsRef.current[mobileLinks.length] = el as HTMLDivElement | null; }}>
-                    <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 sm:px-8 py-3 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
-                        <span className="relative z-10 flex items-center gap-2">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            WhatsApp
-                        </span>
-                        <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-                    </a>
-                </div>
+
 
             </div>
         </>

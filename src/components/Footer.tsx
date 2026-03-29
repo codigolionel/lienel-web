@@ -1,9 +1,16 @@
 import { MapPin, Phone, Clock, Mail, MessageCircle, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <footer
-            id="contacto"
             className="w-full bg-charcoal text-primary rounded-t-[3rem] px-8 pt-24 pb-12 mt-12 overflow-hidden relative border-t border-white/5"
         >
             {/* Glow superior */}
@@ -28,7 +35,7 @@ const Footer = () => {
                         <div className="flex gap-3">
 
                             <a
-                                href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer"
+                                href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer"
                                 className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
                             >
                                 <Facebook className="w-4 h-4" />
@@ -52,23 +59,23 @@ const Footer = () => {
                             Navegación
                         </h4>
 
-                        <a href="#inicio" className="text-white/80 hover:text-primary transition">
+                        <a href="#inicio" onClick={(e) => handleScroll(e, '#inicio')} className="text-white/80 hover:text-primary transition">
                             Inicio
                         </a>
 
-                        <a href="#nosotros" className="text-white/80 hover:text-primary transition">
-                            Nosotros
-                        </a>
-
-                        <a href="#servicios" className="text-white/80 hover:text-primary transition">
+                        <a href="#servicios" onClick={(e) => handleScroll(e, '#servicios')} className="text-white/80 hover:text-primary transition">
                             Servicios
                         </a>
 
-                        <a href="#trabajos" className="text-white/80 hover:text-primary transition">
-                            Trabajos
+                        <a href="#proceso" onClick={(e) => handleScroll(e, '#proceso')} className="text-white/80 hover:text-primary transition">
+                            Proceso
                         </a>
 
-                        <a href="#contacto" className="text-white/80 hover:text-primary transition">
+                        <a href="#nosotros" onClick={(e) => handleScroll(e, '#nosotros')} className="text-white/80 hover:text-primary transition">
+                            Nosotros
+                        </a>
+
+                        <a href="#contacto" onClick={(e) => handleScroll(e, '#contacto')} className="text-white/80 hover:text-primary transition">
                             Contacto
                         </a>
 
@@ -156,7 +163,7 @@ const Footer = () => {
                         <div className="flex gap-3">
 
                             <a
-                                href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer"
+                                href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
                             >
                                 <Facebook className="w-4 h-4" />

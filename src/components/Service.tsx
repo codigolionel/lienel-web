@@ -114,7 +114,7 @@ export default function Service() {
 
     const featureCards = [
         { id: 0, title: 'Landing Pages', desc: 'enfocadas en captar clientes y generar conversiones.', color: 'bg-[#1A1A24]', border: 'border-white/5' },
-        { id: 1, title: 'Sitios Corporativos', desc: 'presencia online para empresas y profesionales.', color: 'bg-[#1A1A24]', border: 'border-white/10' },
+        { id: 1, title: 'Corporativos', desc: 'presencia online para empresas y profesionales.', color: 'bg-[#1A1A24]', border: 'border-white/10' },
         { id: 2, title: 'Portfolios', desc: 'presentación visual de proyectos, trabajos o servicios.', color: 'bg-[#1A1A24]', border: 'border-[#00D2D3]/30' }
     ];
 

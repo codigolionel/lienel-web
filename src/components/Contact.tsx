@@ -47,11 +47,11 @@ const Contact = () => {
 
                 {/* Left Column: Contact Info */}
                 <div ref={infoRef} className="flex flex-col">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif italic text-[#FFFCF2] tracking-tight leading-tight mb-4 text-pretty">
-                        Consultas<span className="text-[#00D2D3]">.</span>
+                    <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-serif italic text-[#FFFCF2] tracking-tight leading-tight mb-4 text-pretty">
+                        Contame tu proyecto
                     </h2>
                     <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-sans font-light mb-12" style={{ opacity: 1 }}>
-                        Completa el formulario y daremos vida a tu proyecto.
+                        Te ayudaremos a definir la mejor opción para tu Web.
                     </p>
 
                     <div className="flex flex-col gap-6 text-white/80 font-mono text-[11px] sm:text-xs uppercase tracking-widest pl-4 border-l border-white/10">
@@ -79,7 +79,7 @@ const Contact = () => {
                     <div className="mt-12 pt-6 border-t border-white/10 flex items-center justify-between">
                         <span className="font-sans font-bold text-xl tracking-tight text-white">Linel</span>
                         <div className="flex items-center gap-3">
-                            <a href="https://www.facebook.com/linelDigital" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#00D2D3] hover:text-[#00D2D3]/80 hover:border-[#00D2D3] transition-all duration-300">
+                            <a href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#00D2D3] hover:text-[#00D2D3]/80 hover:border-[#00D2D3] transition-all duration-300">
                                 <Facebook className="w-4 h-4" />
                             </a>
                             <a href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#00D2D3] hover:text-[#00D2D3]/80 hover:border-[#00D2D3] transition-all duration-300">

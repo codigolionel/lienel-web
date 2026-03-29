@@ -93,7 +93,7 @@ const Hero = () => {
             className="relative w-full p-6 sm:p-8 pt-20 text-primary overflow-hidden flex flex-col items-center justify-center min-h-[100dvh]"
         >
             {/* CAPA OSCURA */}
-            <div className="absolute inset-0 bg-black/50 z-0"></div>
+            <div className="absolute inset-0 bg-black/40 md:bg-black/60 z-0"></div>
 
             {/* CONTENIDO */}
             <div className="relative z-10">
@@ -103,7 +103,7 @@ const Hero = () => {
             {/* content */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-8 md:gap-12 mt-32 md:mt-40 font-serif">
 
-                <div className="flex flex-col gap-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+                <div className="flex flex-col gap-4 text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
 
                     <div ref={textRef1} className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full">
                         {/* Plantilla invisible para bloquear el ancho y evitar saltos */}
@@ -148,7 +148,7 @@ const Hero = () => {
                 </div>
 
                 <p ref={textRef3} className="text-white/80 font-sans text-base sm:text-lg md:text-lg lg:text-xl max-w-2xl mx-auto font-medium mt-4">
-                    Creamos páginas web para negocios, profesionales y emprendedores que quieren dar el paso a internet. Nos encargamos de todo.
+                    Creamos páginas web para negocios, profesionales y emprendedores que quieren dar el paso a internet.
                 </p>
 
                 <div ref={btnRef} className="mt-8 font-sans flex flex-col sm:flex-row items-center gap-4">

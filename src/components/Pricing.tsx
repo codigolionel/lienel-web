@@ -133,7 +133,7 @@ const PlanCard = ({ plan }: { plan: typeof plans[0] }) => {
         >
             {/* Badge */}
             {plan.badge && (
-                <div className="absolute top-0 right-8 -translate-y-1/2 bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">
+                <div className="absolute top-0 right-8 -translate-y-1/2 bg-black border border-[#00D2D3] text-[#00D2D3] text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">
                     {plan.badge}
                 </div>
             )}
@@ -188,7 +188,7 @@ const PlanCard = ({ plan }: { plan: typeof plans[0] }) => {
                 className={`
                     mt-8 w-full py-4 rounded-xl font-bold transition-all
                     ${isFeatured
-                        ? 'bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] text-white hover:scale-[1.02] shadow-[0_0_20px_rgba(0,210,211,0.2)]'
+                        ? 'border border-[#00D2D3] text-[#00D2D3] bg-transparent hover:bg-[#00D2D3]/10 hover:scale-[1.02] shadow-[0_0_15px_rgba(0,210,211,0.1)]'
                         : 'border border-[#EE32A0]/30 text-[#EE32A0] hover:bg-[#EE32A0]/10 hover:border-[#EE32A0]/70'}
                 `}
             >
@@ -262,7 +262,7 @@ const Pricing = () => {
                 {/* TÍTULO */}
                 <div className="text-center mb-16 md:mb-24">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px] mb-6">
-                        Planes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0]">Web</span>
+                        Planes Web
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto font-medium" style={{ opacity: 1 }}>
                         Elegí el plan ideal para lanzar o escalar tu presencia digital.
