@@ -24,7 +24,7 @@ const differentiators: Differentiator[] = [
         title: "Te guiamos en todo el proceso.",
         text: "De la idea a la web lista.",
         icon: (
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
                     stroke="#00D2D3"
@@ -39,7 +39,7 @@ const differentiators: Differentiator[] = [
         title: "Pensamos en tu negocio",
         text: "Priorizamos que la web funcione para vos.",
         icon: (
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
                     d="M22 12h-4l-3 9L9 3l-3 9H2"
                     stroke="#00D2D3"
@@ -54,7 +54,7 @@ const differentiators: Differentiator[] = [
         title: "Claridad y confianza primero",
         text: "Para que te entiendan y te escriban.",
         icon: (
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     stroke="#00D2D3"
@@ -69,7 +69,7 @@ const differentiators: Differentiator[] = [
         title: "Para quienes empiezan desde cero",
         text: "Esto ya  no es un problema.",
         icon: (
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
                     d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
                     stroke="#00D2D3"
@@ -234,7 +234,7 @@ export default function AbautUs() {
 
                 <div className="mb-20 grid items-start gap-8 md:grid-cols-2">
                     <div ref={addToRefs}>
-                        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+                        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
                             <span className="h-1.5 w-1.5 rounded-full bg-black" />
                             Nuestra diferencia
                         </div>
@@ -253,23 +253,23 @@ export default function AbautUs() {
 
                     <div
                         ref={addToRefs}
-                        className="overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl"
+                        className="overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl"
                     >
                         {differentiators.map((item, index) => (
                             <div
                                 key={index}
-                                className={`flex gap-4 py-4 ${index !== differentiators.length - 1 ? "border-b border-white/5" : ""
+                                className={`flex gap-5 py-6 ${index !== differentiators.length - 1 ? "border-b border-white/10" : ""
                                     }`}
                             >
-                                <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-[9px] bg-white/5">
+                                <div className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-xl bg-white/5 border border-white/10">
                                     {item.icon}
                                 </div>
 
                                 <div>
-                                    <p className="mb-1 text-[15px] font-semibold text-white">
+                                    <p className="mb-2 text-[17px] font-semibold text-white">
                                         {item.title}
                                     </p>
-                                    <p className="text-sm leading-6 text-white/70">{item.text}</p>
+                                    <p className="text-[15px] leading-7 text-white/70">{item.text}</p>
                                 </div>
                             </div>
                         ))}
@@ -291,22 +291,22 @@ export default function AbautUs() {
                         </h2>
                     </div>
 
-                    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid gap-12 sm:gap-14 sm:grid-cols-2 lg:grid-cols-4">
                         {steps.map((step) => (
                             <div key={step.number} className="text-center">
                                 <div
-                                    className="relative mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-full border border-cyan-400/30 bg-gradient-to-br from-cyan-400/15 to-pink-500/15"
+                                    className="relative mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-full border border-cyan-400/30 bg-gradient-to-br from-cyan-400/15 to-pink-500/15"
                                 >
-                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-xl font-extrabold text-transparent">
+                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent">
                                         {step.number}
                                     </span>
                                 </div>
 
-                                <h4 className="mb-2 text-xl sm:text-2xl font-serif italic font-semibold text-white">
+                                <h4 className="mb-3 text-xl sm:text-2xl font-serif italic font-semibold text-white">
                                     {step.title}
                                 </h4>
 
-                                <p className="text-sm sm:text-base leading-relaxed text-white/70">
+                                <p className="text-sm sm:text-base leading-relaxed text-white/85">
                                     {step.text}
                                 </p>
 

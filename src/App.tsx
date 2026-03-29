@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import AbautUs from './components/AbautUs';
 import Service from './components/Service';
 import ScrollToTop from './components/ScrollToTop';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
       <Navbar />
       <ScrollToTop />
+      <WhatsAppFloat />
 
       <main>
         <Hero />

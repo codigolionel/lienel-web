@@ -147,7 +147,7 @@ export default function Service() {
             const messages = [
                 "Que se vea profesional 😎",
                 "Que se entienda rápido 😉",
-                "Que funcione en todos lados 🙂",
+                "Que funcione donde sea 🙂",
                 "Que genere consultas 😄"
             ];
             const targetElement = telemetryRef.current;
@@ -226,7 +226,7 @@ export default function Service() {
                         <div
                             key={index}
                             ref={addToRefs}
-                            className="bg-[#111118] border border-white/5 rounded-3xl p-8 sm:p-10 hover:bg-white/[0.03] transition-colors duration-300 flex flex-col items-start relative group overflow-hidden"
+                            className="bg-[#111118] border border-white/10 rounded-3xl p-8 sm:p-10 hover:bg-white/[0.03] transition-colors duration-300 flex flex-col items-start relative group overflow-hidden"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-[#00D2D3]/5 to-[#EE32A0]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -244,14 +244,14 @@ export default function Service() {
 
                             <div className="w-full h-[1px] bg-white/10 mb-6" />
 
-                            <p className="text-lg font-outfit tracking-wide text-[#EE32A0]">
+                            <p className="text-lg font-outfit tracking-wide text-[#00D2D3]/80">
                                 {service.tagline}
                             </p>
                         </div>
                     ))}
 
                     {/* PANEL 1 DINAMICO (DE FEATURES) */}
-                    <div ref={addToRefs} className="feature-panel relative bg-white/5 rounded-[2rem] p-8 md:p-10 border border-white/10 hover:border-[#EE32A0]/50 transition-colors duration-500 shadow-sm h-[400px] flex flex-col items-center justify-end overflow-hidden group">
+                    <div ref={addToRefs} className="feature-panel relative bg-[#111118] rounded-3xl p-8 sm:p-10 border border-white/10 hover:border-[#EE32A0]/50 transition-colors duration-500 shadow-sm h-[340px] flex flex-col items-center justify-end overflow-hidden group">
                         <div className="absolute top-8 left-8 flex items-center gap-3 z-20">
                             <Layers className="w-6 h-6 text-[#00D2D3]" />
                             <span className="font-bold text-sm tracking-widest uppercase text-white">Servicios</span>
@@ -285,7 +285,7 @@ export default function Service() {
                     </div>
 
                     {/* PANEL 2 DINAMICO (DE FEATURES) */}
-                    <div ref={addToRefs} className="feature-panel relative bg-[#12121A] text-white rounded-[2rem] p-8 md:p-10 border border-white/10 hover:border-[#EE32A0]/50 transition-colors duration-500 shadow-xl h-[400px] flex flex-col justify-center overflow-hidden group">
+                    <div ref={addToRefs} className="feature-panel relative bg-[#111118] text-white rounded-3xl p-8 sm:p-10 border border-white/10 hover:border-[#EE32A0]/50 transition-colors duration-500 shadow-xl h-[340px] flex flex-col justify-center overflow-hidden group">
                         <div className="absolute top-8 left-8 right-8 flex items-center justify-between z-20">
                             <div className="flex items-center gap-3 text-white">
                                 <Activity className="w-6 h-6 text-[#00D2D3]" />
@@ -311,7 +311,7 @@ export default function Service() {
                     </div>
 
                     {/* PANEL 3 DINAMICO (DE FEATURES) */}
-                    <div ref={addToRefs} className="feature-panel relative bg-white/5 rounded-[2rem] p-8 md:p-10 border border-white/10 hover:border-[#EE32A0]/50 transition-colors duration-500 shadow-sm h-[400px] flex flex-col overflow-hidden group">
+                    <div ref={addToRefs} className="feature-panel relative bg-[#111118] rounded-3xl p-8 sm:p-10 border border-white/10 hover:border-[#EE32A0]/50 transition-colors duration-500 shadow-sm h-[340px] flex flex-col overflow-hidden group">
                         <div className="flex items-center gap-3 z-20 mb-8">
                             <CodeXml className="w-6 h-6 text-[#00D2D3]" />
                             <span className="font-bold text-sm tracking-widest uppercase text-white">
@@ -375,6 +375,20 @@ export default function Service() {
                     </div>
                 </div>
 
+            </div>
+
+            {/* Wave divider for smooth transition to AbautUs */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden z-10 leading-[0]">
+                <svg
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="relative block w-full h-[60px] sm:h-[80px] md:h-[100px]"
+                >
+                    <path
+                        d="M0,0 C300,100 900,20 1200,80 L1200,120 L0,120 Z"
+                        fill="#09090E"
+                    />
+                </svg>
             </div>
         </section>
     );

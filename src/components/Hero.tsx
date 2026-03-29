@@ -148,7 +148,7 @@ const Hero = () => {
                 </div>
 
                 <p ref={textRef3} className="text-white/80 font-sans text-base sm:text-lg md:text-lg lg:text-xl max-w-2xl mx-auto font-medium mt-4">
-                    Creamos páginas web para negocios, profesionales y emprendedores que quieren dar el paso a internet.
+                    Creamos páginas web para negocios, profesionales y emprendedores que quieren conseguir más clientes desde internet.
                 </p>
 
                 <div ref={btnRef} className="mt-8 font-sans flex flex-col sm:flex-row items-center gap-4">

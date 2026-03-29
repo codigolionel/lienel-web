@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock, Mail, MessageCircle, Facebook, Instagram } from "lucide-react";
+import logoIcon from '../assets/solo-logo.svg';
 
 const Footer = () => {
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -11,7 +12,7 @@ const Footer = () => {
 
     return (
         <footer
-            className="w-full bg-charcoal text-primary rounded-t-[3rem] px-8 pt-24 pb-12 mt-12 overflow-hidden relative border-t border-white/5"
+            className="w-full bg-charcoal text-primary px-8 pt-24 pb-8 overflow-hidden relative border-t border-white/10"
         >
             {/* Glow superior */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-1 bg-moss shadow-[0_0_100px_30px_#6b705c] opacity-30"></div>
@@ -19,12 +20,15 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto flex flex-col gap-20">
 
                 {/* GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-4">
 
                     {/* Marca */}
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-6 lg:col-span-4 lg:pr-10">
 
-                        <h3 className="text-2xl font-bold">Linel</h3>
+                        <div className="flex items-center gap-3">
+                            <img src={logoIcon} alt="Linel Logo" className="w-10 h-10 object-contain" />
+                            <h3 className="text-xl font-bold tracking-wide text-white">Linel</h3>
+                        </div>
 
                         <p className="text-white/80 text-sm leading-relaxed">
                             Diseños modernos y adaptables que muestran lo mejor de tu marca
@@ -32,20 +36,20 @@ const Footer = () => {
                         </p>
 
                         {/* Redes */}
-                        <div className="flex gap-3">
+                        <div className="flex gap-5">
 
                             <a
                                 href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
+                                className="text-[#00D2D3] hover:text-white transition-colors"
                             >
-                                <Facebook className="w-4 h-4" />
+                                <Facebook className="w-5 h-5" />
                             </a>
 
                             <a
                                 href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
+                                className="text-[#00D2D3] hover:text-white transition-colors"
                             >
-                                <Instagram className="w-4 h-4" />
+                                <Instagram className="w-5 h-5" />
                             </a>
 
                         </div>
@@ -53,7 +57,7 @@ const Footer = () => {
 
 
                     {/* Navegación */}
-                    <div className="flex flex-col gap-4 text-sm">
+                    <div className="flex flex-col gap-4 text-sm lg:col-span-2">
 
                         <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Navegación
@@ -83,7 +87,7 @@ const Footer = () => {
 
 
                     {/* Servicios */}
-                    <div className="flex flex-col gap-4 text-sm">
+                    <div className="flex flex-col gap-4 text-sm lg:col-span-2">
 
                         <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Servicios
@@ -99,14 +103,14 @@ const Footer = () => {
 
 
                     {/* Contacto */}
-                    <div className="flex flex-col gap-5 text-sm">
+                    <div className="flex flex-col gap-5 text-sm lg:col-span-4">
 
                         <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Contacto
                         </h4>
 
                         <div className="flex gap-3 items-start group">
-                            <MapPin className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
+                            <MapPin className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
                             <p className="text-white/80 leading-relaxed">
                                 Ituzaingó | Castelar<br />
                                 Buenos Aires, Argentina
@@ -114,7 +118,7 @@ const Footer = () => {
                         </div>
 
                         <div className="flex gap-3 items-start group">
-                            <Phone className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
+                            <Phone className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
                             <p className="text-white/80">
                                 +54 9 11 6565-7291
 
@@ -122,21 +126,21 @@ const Footer = () => {
                         </div>
 
                         <div className="flex gap-3 items-start group">
-                            <MessageCircle className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
+                            <MessageCircle className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
                             <p className="text-white/80">
                                 WhatsApp: 11 6565-7291
                             </p>
                         </div>
 
                         <div className="flex gap-3 items-start group">
-                            <Clock className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
+                            <Clock className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
                             <p className="text-white/80">
                                 Lun a Vie de 9 a 17hs
                             </p>
                         </div>
 
                         <div className="flex gap-3 items-start group">
-                            <Mail className="w-4 h-4 text-sky-400 group-hover:text-sky-300 transition mt-1" />
+                            <Mail className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
                             <p className="text-white/80">
                                 proyectos.linel@gmail.com
                             </p>
@@ -148,38 +152,17 @@ const Footer = () => {
 
 
                 {/* Bottom */}
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10 text-xs font-mono uppercase tracking-widest text-white/60">
-
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 pt-6 mt-6 border-t border-white/10 text-sm text-white/40 text-center">
                     <p>
                         © {new Date().getFullYear()} Linel. Todos los derechos reservados.
                     </p>
-
-                    <div className="flex items-center gap-4">
-
-                        <span className="text-white/70">
+                    <span className="hidden sm:inline-block opacity-30">|</span>
+                    <div className="flex items-center gap-2 text-white/40">
+                        <img src={logoIcon} alt="Linel" className="w-6 h-6 opacity-70" />
+                        <span className="text-xs sm:text-sm font-medium">
                             Linel.com.ar
                         </span>
-
-                        <div className="flex gap-3">
-
-                            <a
-                                href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer"
-                                className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
-                            >
-                                <Facebook className="w-4 h-4" />
-                            </a>
-
-                            <a
-                                href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer"
-                                className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-sky-400 hover:text-sky-300 hover:border-sky-400 transition"
-                            >
-                                <Instagram className="w-4 h-4" />
-                            </a>
-
-                        </div>
-
                     </div>
-
                 </div>
 
             </div>

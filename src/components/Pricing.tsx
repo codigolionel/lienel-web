@@ -120,64 +120,69 @@ const plans = [
 /* ─── TARJETA ─── */
 const PlanCard = ({ plan }: { plan: typeof plans[0] }) => {
     const isFeatured = plan.featured;
+    const displayBadge = plan.badge || (isFeatured ? 'Recomendado' : null);
 
     return (
         <div
             className={`
-                relative rounded-3xl p-8 flex flex-col flex-1 w-full min-h-[540px]
-                transition-transform duration-500 md:hover:-translate-y-2
+                relative rounded-3xl p-10 lg:p-8 flex flex-col flex-1 w-full min-h-[580px] lg:min-h-[440px]
+                transition-colors duration-500
                 ${isFeatured
-                    ? 'bg-[#1A1A24] border border-[#00D2D3]/50'
-                    : 'bg-[#111118] border border-white/5'}
+                    ? 'bg-[#1A1A2A] border-2 border-[#00D2D3]/60 shadow-[0_0_40px_rgba(0,210,211,0.15)] z-10'
+                    : 'bg-[#111118] border border-white/5 opacity-90'}
             `}
         >
             {/* Badge */}
-            {plan.badge && (
-                <div className="absolute top-0 right-8 -translate-y-1/2 bg-black border border-[#00D2D3] text-[#00D2D3] text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">
-                    {plan.badge}
+            {displayBadge && (
+                <div className={`absolute top-0 right-8 -translate-y-1/2 text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full ${
+                    isFeatured
+                        ? 'bg-[#00D2D3] text-black shadow-[0_0_15px_rgba(0,210,211,0.4)]'
+                        : 'bg-black border border-[#00D2D3] text-[#00D2D3]'
+                }`}>
+                    {displayBadge}
                 </div>
             )}
 
             {/* Nombre y tagline */}
-            <div className="mb-6">
-                <h3 className="font-sans font-bold text-xl sm:text-2xl mb-2 text-white">
+            <div className="mb-8 lg:mb-6">
+                <h3 className="font-sans font-bold text-2xl sm:text-3xl lg:text-2xl mb-2 text-white tracking-tight">
                     {plan.name}
                 </h3>
-                <p className="text-sm text-white/70">
+                <p className="text-sm lg:text-xs text-white/50">
                     {plan.tagline}
                 </p>
             </div>
 
             {/* Precio */}
-            <div className="mb-6">
+            <div className="mb-8 lg:mb-6 pb-8 lg:pb-6 border-b border-white/10">
                 {plan.price ? (
                     <>
-                        <span className="text-3xl sm:text-4xl font-bold font-mono text-white">
+                        <span className="text-4xl sm:text-5xl lg:text-4xl font-bold font-mono text-white">
                             {plan.price}
                         </span>
                         {plan.priceNote && (
-                            <span className="text-sm italic ml-2 text-white/70">
+                            <span className="text-sm lg:text-xs italic ml-3 text-white/70">
                                 {plan.priceNote}
                             </span>
                         )}
                         {plan.delivery && (
-                            <p className="text-xs mt-2 text-white/60">
+                            <p className="text-xs lg:text-[10px] mt-3 lg:mt-2 text-white/60">
                                 {plan.delivery}
                             </p>
                         )}
                     </>
                 ) : (
-                    <span className="text-xl sm:text-2xl font-bold font-mono italic text-white/90">
+                    <span className="text-xl sm:text-2xl lg:text-xl font-bold font-mono italic text-white/90">
                         Cotización personalizada
                     </span>
                 )}
             </div>
 
             {/* Features */}
-            <ul className="flex flex-col gap-3 mb-auto text-sm text-white/80">
+            <ul className="flex flex-col gap-4 lg:gap-3 mb-auto text-sm lg:text-xs text-white/80">
                 {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#00D2D3]" />
+                    <li key={f} className="flex items-start gap-3 lg:gap-2">
+                        <Check className="w-4 h-4 lg:w-3.5 lg:h-3.5 mt-0.5 flex-shrink-0 text-[#00D2D3]" />
                         {f}
                     </li>
                 ))}
@@ -186,9 +191,9 @@ const PlanCard = ({ plan }: { plan: typeof plans[0] }) => {
             {/* CTA */}
             <button
                 className={`
-                    mt-8 w-full py-4 rounded-xl font-bold transition-all
+                    mt-10 lg:mt-6 w-full py-4 lg:py-3 rounded-xl font-bold transition-all
                     ${isFeatured
-                        ? 'border border-[#00D2D3] text-[#00D2D3] bg-transparent hover:bg-[#00D2D3]/10 hover:scale-[1.02] shadow-[0_0_15px_rgba(0,210,211,0.1)]'
+                        ? 'border border-[#00D2D3] text-[#00D2D3] bg-transparent hover:bg-[#00D2D3]/10 hover:shadow-[0_0_20px_rgba(0,210,211,0.2)] shadow-[0_0_15px_rgba(0,210,211,0.1)]'
                         : 'border border-[#EE32A0]/30 text-[#EE32A0] hover:bg-[#EE32A0]/10 hover:border-[#EE32A0]/70'}
                 `}
             >
@@ -243,21 +248,26 @@ const Pricing = () => {
         }
     };
 
+    const scrollNextRef = useRef(scrollNext);
+    scrollNextRef.current = scrollNext;
+
     // Autoplay Loop
     useEffect(() => {
         if (isHovered) return;
-        const interval = setInterval(scrollNext, 4000);
+        const interval = setInterval(() => scrollNextRef.current(), 4000);
         return () => clearInterval(interval);
     }, [isHovered]);
 
     return (
-        <section id="pricing" className="w-full py-32 sm:py-48 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
+        <section id="pricing" className="relative w-full pt-16 pb-32 sm:pt-20 sm:pb-48 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
             <div className="max-w-6xl mx-auto relative group"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 onTouchStart={() => setIsHovered(true)}
                 onTouchEnd={() => setIsHovered(false)}
             >
+                {/* DIVISOR DELICADO */}
+                <div className="w-24 sm:w-32 h-px bg-white/10 mx-auto mb-16 sm:mb-20"></div>
 
                 {/* TÍTULO */}
                 <div className="text-center mb-16 md:mb-24">
@@ -332,6 +342,9 @@ const Pricing = () => {
                     scrollbar-width: none;
                 }
             `}</style>
+
+            {/* Gradient transition to Contact */}
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-[#0B0B10] pointer-events-none" />
         </section>
     );
 };

@@ -2,8 +2,8 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import webDesignDark from "../assets/parejaGemini3.png";
-import parejaImage from "../assets/parejaGemini3.png";
+import webDesignDark from "../assets/parejaGemini3.webp";
+import parejaImage from "../assets/Sin-limites.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,17 +96,35 @@ const Archive = () => {
 
                     <div
                         ref={imageCard1Ref}
-                        className="w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square relative rounded-[2rem] overflow-hidden transition-transform hover:scale-[1.02] duration-500 bg-[#111118] mx-auto md:mx-0 mt-8 md:mt-0"
+                        className="w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square relative rounded-[2rem] overflow-hidden transition-transform hover:scale-[1.02] duration-500 bg-[#0B0B10] mx-auto md:mx-0 mt-8 md:mt-0"
                     >
                         <img
                             src={webDesignDark}
                             alt="Concepto de Diseño Web"
-                            className="w-full h-full object-cover object-center"
+                            className="w-full h-full object-cover object-center mix-blend-luminosity opacity-90"
                         />
+                        {/* Gradient fade overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10] via-[#0B0B10]/20 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B10]/40 via-transparent to-[#0B0B10]/40 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B10]/30 via-transparent to-transparent pointer-events-none" />
                         <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none"></div>
                     </div>
 
                 </div>
+            </div>
+
+            {/* Wave divider between Card 1 and Card 2 */}
+            <div className="relative w-full overflow-hidden leading-[0] bg-[#0B0B10]">
+                <svg
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="relative block w-full h-[60px] sm:h-[80px] md:h-[100px]"
+                >
+                    <path
+                        d="M0,0 C400,120 800,0 1200,60 L1200,120 L0,120 Z"
+                        fill="#050507"
+                    />
+                </svg>
             </div>
 
             {/* CARD 2 */}
@@ -118,12 +136,16 @@ const Archive = () => {
 
                     <div className="w-full md:flex-1 order-2 md:order-1 flex justify-center">
 
-                        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square relative rounded-[2rem] overflow-hidden transition-transform hover:scale-[1.02] duration-500 bg-[#111118]">
+                        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square relative rounded-[2rem] overflow-hidden transition-transform hover:scale-[1.02] duration-500 bg-[#050507]">
                             <img
                                 src={parejaImage}
                                 alt="Velocidad y Rendimiento"
-                                className="w-full h-full object-cover object-center"
+                                className="w-full h-full object-cover object-center mix-blend-luminosity opacity-90"
                             />
+                            {/* Gradient fade overlays */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/20 to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#050507]/40 via-transparent to-[#050507]/40 pointer-events-none" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-[#050507]/30 via-transparent to-transparent pointer-events-none" />
                             <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] pointer-events-none"></div>
                         </div>
                     </div>
@@ -167,11 +189,11 @@ const Archive = () => {
 
                     <div className="pb-30 md:pb-20">
                         <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[80px] font-serif italic font-normal tracking-tight mb-6 md:mb-12 text-[#FFFCF2] leading-[1.1] text-pretty">
-                            Démosle vida a tus <br className="hidden md:block" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] font-bold pr-2">Ideas.</span>
+                            Démosle vida a tu <br className="hidden md:block" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] font-bold pr-2">negocio online.</span>
                         </h2>
 
                         <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-sans font-light max-w-3xl mx-auto text-white/80 text-pretty px-4 leading-relaxed">
-                            Diseñamos ecosistemas digitales que se adaptan, evolucionan y generan resultados reales.
+                            Sin vueltas. Sin demoras. Con resultados reales.
                         </p>
                     </div>
 
