@@ -17,13 +17,13 @@ const Hero = () => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
         tl.fromTo(textRef1.current,
-            { y: 50, opacity: 0, clipPath: 'inset(100% 0 0 0)' },
-            { y: 0, opacity: 1, clipPath: 'inset(0% 0 0 0)', duration: 1 },
+            { y: 50, opacity: 0, clipPath: 'inset(100% -10% -10% -10%)' },
+            { y: 0, opacity: 1, clipPath: 'inset(-10% -10% -10% -10%)', duration: 1, clearProps: 'clipPath' },
             0.2
         )
             .fromTo(textRef2.current,
-                { y: 50, opacity: 0, clipPath: 'inset(100% 0 0 0)' },
-                { y: 0, opacity: 1, clipPath: 'inset(0% 0 0 0)', duration: 1 },
+                { y: 50, opacity: 0, clipPath: 'inset(100% -10% -10% -10%)' },
+                { y: 0, opacity: 1, clipPath: 'inset(-10% -10% -10% -10%)', duration: 1, clearProps: 'clipPath' },
                 0.4
             )
             .fromTo(textRef3.current,
@@ -105,43 +105,32 @@ const Hero = () => {
 
                 <div className="flex flex-col gap-4 text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
 
-                    <div ref={textRef1} className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full">
-                        {/* Plantilla invisible para bloquear el ancho y evitar saltos */}
-                        <div className="opacity-0 pointer-events-none select-none flex flex-col items-center w-full" aria-hidden="true">
-                            {/* Line 1: mobile/tablet="Tu negocio en internet," desktop="Tu negocio en internet, listo" */}
-                            <span className="w-full">
-                                <span>Tu negocio en internet,</span>
-                                <span className="hidden lg:inline"> listo</span>
-                            </span>
-                            {/* Line 2: mobile/tablet="listo para:" desktop="para + slider" */}
-                            <span className="flex flex-col lg:flex-row items-center justify-center w-full">
-                                <span className="lg:hidden">listo para:</span>
-                                <span className="hidden lg:inline lg:mr-3">para</span>
-                                <span className="italic flex items-center justify-center">aumentar tus ventas.<span className="inline-block w-[3px] lg:w-[5px] ml-1 sm:ml-2"></span></span>
-                            </span>
-                        </div>
+                    <div ref={textRef1} className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full pb-3 md:pb-5">
 
-                        {/* Texto animado visible */}
-                        <div className="absolute inset-0 flex flex-col items-center w-full">
-                            {/* Line 1 */}
-                            <span className="w-full">
-                                <span>Tu negocio en internet,</span>
-                                <span className="hidden lg:inline"> listo</span>
-                            </span>
-                            {/* Line 2 (+ line 3 on mobile) */}
-                            <span className="flex flex-col lg:flex-row items-center justify-center w-full">
-                                <span className="lg:hidden">listo para:</span>
-                                <span className="hidden lg:inline lg:mr-3">para</span>
-                                <span className="flex items-center justify-center lg:relative lg:inline-flex lg:justify-start">
-                                    {/* Desktop: invisible spacer reserves width of longest message so "para" stays fixed */}
-                                    <span className="hidden lg:inline invisible italic whitespace-nowrap">aumentar tus ventas.<span className="inline-block w-[5px] ml-2"></span></span>
-                                    <span className="flex items-center lg:absolute lg:left-0 lg:top-0 lg:h-full justify-center lg:justify-start">
-                                        <span ref={animatedTextRef} className="text-[#00D2D3] italic whitespace-nowrap"></span>
-                                        <span className="inline-block w-[2px] sm:w-[3px] lg:w-[5px] h-[32px] sm:h-[42px] md:h-[55px] lg:h-[70px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
-                                    </span>
+                        {/* Line 1: mobile/tablet="Tu negocio en internet," desktop="Tu negocio en internet, listo" */}
+                        <span className="w-full">
+                            <span>Tu negocio en internet listo</span>
+                            <span className="hidden lg:inline"></span>
+                        </span>
+
+                        {/* Line 2: mobile/tablet="listo para:" desktop="para + slider" */}
+                        <span className="flex flex-col lg:flex-row items-center justify-center w-full">
+                            <span className="lg:hidden">para</span>
+                            <span className="hidden lg:inline lg:mr-3">para</span>
+
+                            {/* Animated Typewriter block (CSS Grid ensures perfect stability without duplicate layout jumps) */}
+                            <span className="grid place-items-center lg:place-items-start relative mt-1 lg:mt-0">
+                                {/* Spacer: reserves maximum width so "para" stays locked in place */}
+                                <span className="invisible italic whitespace-nowrap col-start-1 row-start-1"> aumentar tus ventas.<span className="inline-block w-[3px] lg:w-[5px] ml-1 sm:ml-2"></span></span>
+
+                                {/* Visible animated overlay */}
+                                <span className="flex items-center justify-center lg:justify-start col-start-1 row-start-1 w-full h-full">
+                                    <span ref={animatedTextRef} className="text-[#00D2D3] italic whitespace-nowrap"></span>
+                                    <span className="inline-block w-[3px] lg:w-[5px] h-[35px] sm:h-[45px] md:h-[60px] lg:h-[75px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
                                 </span>
                             </span>
-                        </div>
+                        </span>
+
                     </div>
 
 
