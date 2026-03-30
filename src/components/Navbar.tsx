@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Menu, X, Facebook, Instagram } from 'lucide-react';
 import perfilAgus from '../assets/perfilAgus.png';
-import logoIcon from '../assets/solo-logo.svg';
+import logoIcon from '../assets/LiNeL_logo_transparente.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -134,17 +134,17 @@ const Navbar = () => {
                     ref={navRef}
                     className="flex items-center justify-between w-full max-w-7xl px-6 md:px-8 py-4 rounded-full border border-transparent text-primary transition-colors duration-300"
                 >
-                    <div className="flex items-center gap-2 cursor-pointer font-bold text-lg tracking-normal normal-case group relative z-50">
+                    {/* Logo (Left Column, flex-1) */}
+                    <div className="flex-1 flex items-center justify-start gap-3 relative z-50">
                         <img
                             src={logoIcon}
                             alt="Linel Logo"
-                            className="w-[60px] h-[60px] object-contain transition-transform group-hover:scale-110 duration-500 ease-out"
+                            className="h-[48px] sm:h-[60px] w-auto object-contain transition-transform hover:scale-105 duration-500 ease-out"
                         />
-                        <span className={isMobileMenuOpen ? "text-[#fcf9f2]" : ""}>Linel</span>
                     </div>
 
-                    {/* Desktop Menu */}
-                    <ul className="hidden md:flex items-center gap-8">
+                    {/* Desktop Menu (Center Column, flex-1) */}
+                    <ul className="hidden md:flex flex-1 justify-center items-center gap-8">
                         <li>
                             <a href="#inicio" onClick={(e) => handleDesktopLinkClick(e, '#inicio')} className="relative group pb-1 transition-opacity">
                                 Inicio
@@ -177,27 +177,30 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                    {/* Desktop CTA */}
-                    <div className="hidden md:flex flex-col items-center">
-                        <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden group px-6 py-2 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
-                            <span className="relative z-10 flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                WhatsApp
-                            </span>
-                            <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-                        </a>
-                    </div>
-
-                    {/* Mobile Menu Toggle button */}
-                    <button
-                        onClick={toggleMenu}
-                        className="md:hidden relative z-50 p-2 text-primary focus:outline-none"
-                        aria-label="Toggle menu"
-                    >
-                        <div className={`transition-colors duration-300 ${isMobileMenuOpen ? "text-[#fcf9f2]" : ""}`}>
-                            {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+                    {/* Right Actions (Right Column, flex-1) */}
+                    <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4 md:gap-6">
+                        {/* Desktop CTA */}
+                        <div className="hidden md:flex flex-col items-center">
+                            <a href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden group px-6 py-2 rounded-full font-medium tracking-normal normal-case bg-transparent text-[#EE32A0] hover:text-white border border-[#EE32A0] transition-all duration-300 scale-100 hover:scale-105 items-center gap-2">
+                                <span className="relative z-10 flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    WhatsApp
+                                </span>
+                                <div className="absolute inset-0 bg-[#EE32A0] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                            </a>
                         </div>
-                    </button>
+
+                        {/* Mobile Menu Toggle button */}
+                        <button
+                            onClick={toggleMenu}
+                            className="md:hidden relative z-50 p-2 -mr-2 text-primary focus:outline-none"
+                            aria-label="Toggle menu"
+                        >
+                            <div className={`transition-colors duration-300 ${isMobileMenuOpen ? "text-[#fcf9f2]" : ""}`}>
+                                {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+                            </div>
+                        </button>
+                    </div>
                 </nav>
             </div>
 
@@ -259,14 +262,14 @@ const Navbar = () => {
 
                         <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10 w-full max-w-xs pl-8">
                             <div className="flex flex-col items-center">
-                                <a 
+                                <a
                                     ref={el => { menuItemsRef.current[mobileLinks.length] = el as HTMLAnchorElement | null; }}
-                                    href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 py-3 rounded-full font-medium tracking-normal normal-case bg-[#25D366] text-surface hover:text-primary border border-transparent transition-all duration-300 scale-100 hover:scale-105 items-center gap-2 shrink-0">
+                                    href="https://wa.me/5491165657291" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="flex relative overflow-hidden group px-6 py-3 rounded-full font-medium tracking-normal normal-case bg-transparent text-[#EE32A0] hover:text-white border border-[#EE32A0] transition-all duration-300 scale-100 hover:scale-105 items-center gap-2 shrink-0">
                                     <span className="relative z-10 flex items-center gap-2">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                         WhatsApp
                                     </span>
-                                    <div className="absolute inset-0 bg-surface translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                                    <div className="absolute inset-0 bg-[#EE32A0] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
                                 </a>
                             </div>
                             <a href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-[#00D2D3] hover:text-[#00D2D3]/80 hover:border-[#00D2D3] hover:bg-white/5 transition-all duration-300 hover:scale-110 shrink-0">
