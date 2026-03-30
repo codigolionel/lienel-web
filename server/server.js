@@ -18,26 +18,32 @@ app.use(express.json());
 
 // -- Configuración de CORS dinámico --
 // Permitimos `http://localhost:5173` para desarrollo y el dominio real de prod
-const allowedOrigins = [process.env.ALLOWED_ORIGIN, 'http://localhost:5173'];
+// -- Configuración de CORS dinámico --
+const allowedOrigins = [
+    process.env.ALLOWED_ORIGIN,
+    'http://localhost:5173'
+].filter(Boolean);
+
 const corsOptions = {
     origin: (origin, callback) => {
-        // Permitir solicitudes sin "origin" (postman, utilidades, etc.) si estamos en desarrollo
-        if (!origin && process.env.NODE_ENV !== 'production') return callback(null, true);
-        
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            callback(new Error('Cross-Origin Request Blocked by CORS policy'));
+            callback(new Error('Bloqueado por CORS'));
         }
     },
+    methods: ['POST', 'GET', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
     optionsSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // preflight
 
 // -- Rate Limiting Middleware (Anti-Spam Básico) --
 // Máximo 5 requests por IP cada 15 minutos en el submit del correo
 const contactLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, 
+    windowMs: 15 * 60 * 1000,
     limit: 5,
     message: { error: 'Demasiados intentos. Has superado el límite de 5 envíos. Por favor espera 15 minutos.' },
     standardHeaders: 'draft-7',
