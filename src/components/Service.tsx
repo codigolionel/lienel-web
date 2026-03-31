@@ -208,7 +208,7 @@ export default function Service() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-24">
 
-                <div ref={addToRefs} className="text-center md:text-left mb-10 md:mb-14 max-w-3xl">
+                <div ref={addToRefs} className="text-center lg:text-left mb-10 md:mb-14 max-w-3xl">
                     <p className="text-[#00D2D3] uppercase tracking-[0.2em] text-[11px] sm:text-xs font-semibold mb-4 border border-[#00D2D3]/30 bg-[#00D2D3]/10 inline-flex items-center gap-2 px-4 py-2 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#00D2D3]" />
                         No necesitás saber de diseño
@@ -226,7 +226,7 @@ export default function Service() {
                         <div
                             key={index}
                             ref={addToRefs}
-                            className="bg-[#111118] border border-white/10 rounded-3xl p-8 sm:p-10 hover:bg-white/[0.03] transition-colors duration-300 flex flex-col items-start relative group overflow-hidden"
+                            className="bg-[#111118] border border-white/10 rounded-3xl p-8 sm:p-10 hover:bg-white/[0.03] transition-colors duration-300 flex flex-col items-center lg:items-start text-center lg:text-left relative group overflow-hidden"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-[#00D2D3]/5 to-[#EE32A0]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -341,11 +341,11 @@ export default function Service() {
                     </div>
                 </div>
 
-                <div ref={addToRefs} className="bg-gradient-to-br from-[#00D2D3]/10 to-[#EE32A0]/10 border border-white/10 rounded-3xl p-8 sm:p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative overflow-hidden backdrop-blur-sm">
+                <div ref={addToRefs} className="bg-gradient-to-br from-[#00D2D3]/10 to-[#EE32A0]/10 border border-white/10 rounded-3xl p-8 sm:p-12 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 relative overflow-hidden backdrop-blur-sm">
 
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-md max-h-32 bg-gradient-to-r from-[#00D2D3]/20 to-[#EE32A0]/20 blur-[80px] pointer-events-none" />
 
-                    <div className="relative z-10 text-center md:text-left">
+                    <div className="relative z-10 text-center lg:text-left">
                         <h3 className="text-5xl pb-7 sm:text-5xl md:text-5xl font-serif italic font-normal text-[#FFFFFF] mb-3">
                             ¿No estás seguro cuál elegir?
                         </h3>

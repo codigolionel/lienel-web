@@ -5,14 +5,15 @@ const mainPlans = [
     {
         name: 'Presencia',
         tagline: 'Tu primer paso online, lista en 7 días',
-        price: 'USD 109',
-        priceNote: 'Pago único',
+        price: '$ 215.000',
+        priceNote: null,
         delivery: 'Entrega: 5–10 días',
         featured: false,
         badge: null,
         btnColor: 'magenta' as const,
         cta: 'Consultar',
         features: [
+            'Hosting incluido',
             'Hasta 8 módulos',
             'Hasta 12 imágenes',
             'FAQ (4 preguntas)',
@@ -23,14 +24,15 @@ const mainPlans = [
     {
         name: 'Negocio',
         tagline: 'Más secciones, más confianza, más consultas',
-        price: 'USD 175',
-        priceNote: 'Pago único',
+        price: '$ 260.000',
+        priceNote: null,
         delivery: 'Entrega: 10–14 días',
         featured: true,
         badge: 'Más popular',
         btnColor: 'cyan' as const,
         cta: 'Consultar',
         features: [
+            'Hosting incluido',
             '4 secciones (Inicio, Nosotros, Servicios, Contacto)',
             'Animaciones al hacer scroll',
             'Hasta 15 imágenes',
@@ -43,14 +45,15 @@ const mainPlans = [
     {
         name: 'Profesional',
         tagline: 'Todo lo que un cliente necesita ver para contactarte',
-        price: 'USD 227',
-        priceNote: 'Pago único',
+        price: '$ 430.000',
+        priceNote: null,
         delivery: 'Entrega: 14–20 días',
         featured: false,
         badge: null,
         btnColor: 'magenta' as const,
         cta: 'Consultar',
         features: [
+            'Hosting incluido',
             '5 secciones (incluye Proyectos)',
             'Animaciones al hacer scroll',
             'Hasta 20 imágenes',
@@ -235,7 +238,7 @@ const Pricing = () => {
                 {/* DISCLAIMER AL PIE */}
                 <div className="max-w-3xl mx-auto text-center bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
                     <p className="text-xs sm:text-sm text-white/50 leading-relaxed">
-                        Los planes no incluyen hosting ni dominio. Te asesoramos para elegir el mejor servicio según tu presupuesto y necesidades.
+                        Todos los planes incluyen hosting. El dominio (ej. tunegocio.com) no está incluido, pero te asesoramos para conseguir el mejor.
                     </p>
                 </div>
 

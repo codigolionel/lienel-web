@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import perfilAgus from "../assets/perfilAgus.png";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -170,7 +171,7 @@ export default function AbautUs() {
                 </div>
 
                 <div className="mb-20 grid items-center gap-8 md:grid-cols-2">
-                    <div ref={addToRefs}>
+                    <div ref={addToRefs} className="text-center lg:text-left flex flex-col items-center lg:items-start">
                         <h2 className="mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                             Tu negocio, pero ahora
                             <span className="bg-[#00D2D3] to-pink-500 bg-clip-text text-transparent"> online.</span>
@@ -192,7 +193,7 @@ export default function AbautUs() {
                         ref={addToRefs}
                         className="rounded-[20px] bg-white/10 p-[1px]"
                     >
-                        <div className="h-full rounded-[19px] border border-white/5 bg-[#111118] p-8">
+                        <div className="h-full rounded-[19px] border border-white/5 bg-[#111118] p-8 text-center lg:text-left flex flex-col items-center lg:items-start">
                             <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400/15 to-pink-500/15">
                                 <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
                                     <defs>
@@ -233,7 +234,7 @@ export default function AbautUs() {
                 </div>
 
                 <div className="mb-20 grid items-start gap-8 md:grid-cols-2">
-                    <div ref={addToRefs}>
+                    <div ref={addToRefs} className="text-center lg:text-left flex flex-col items-center lg:items-start">
                         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
                             <span className="h-1.5 w-1.5 rounded-full bg-black" />
                             Nuestra diferencia
@@ -249,6 +250,18 @@ export default function AbautUs() {
                             Trabajamos distinto. No hacemos webs en serie, acompañamos tu
                             proceso de principio a fin.
                         </p>
+
+                        <div className="mt-8 sm:mt-12 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-[32px] sm:rounded-full border border-white/10 bg-white/5 p-5 sm:p-3 sm:pr-8 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02]">
+                            <img 
+                                src={perfilAgus} 
+                                alt="Augusto Lionel Lastre" 
+                                className="h-32 w-32 sm:h-[142px] sm:w-[142px] rounded-full object-cover ring-[4px] ring-[#00D2D3] p-1.5"
+                            />
+                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                                <span className="text-base sm:text-lg font-bold text-white tracking-wide">AUGUSTO LIONEL LASTRE</span>
+                                <span className="text-xs sm:text-sm font-semibold text-[#00D2D3]">desarrollador Web FullStack.</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div
@@ -258,7 +271,7 @@ export default function AbautUs() {
                         {differentiators.map((item, index) => (
                             <div
                                 key={index}
-                                className={`flex gap-5 py-6 ${index !== differentiators.length - 1 ? "border-b border-white/10" : ""
+                                className={`flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left gap-4 lg:gap-5 py-6 ${index !== differentiators.length - 1 ? "border-b border-white/10" : ""
                                     }`}
                             >
                                 <div className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-xl bg-white/5 border border-white/10">
@@ -266,7 +279,7 @@ export default function AbautUs() {
                                 </div>
 
                                 <div>
-                                    <p className="mb-2 text-[17px] font-semibold text-white">
+                                    <p className="mb-1 lg:mb-2 text-[17px] font-semibold text-white">
                                         {item.title}
                                     </p>
                                     <p className="text-[15px] leading-7 text-white/70">{item.text}</p>
