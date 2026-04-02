@@ -311,9 +311,7 @@ const Hero = () => {
                         style={{ color: '#ffffff' }}
                     >
                         Cómo trabajamos
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 transition-transform group-hover:translate-y-0.5 opacity-60">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
+
                     </a>
                 </div>
 
