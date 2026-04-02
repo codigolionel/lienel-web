@@ -31,8 +31,7 @@ const Footer = () => {
                         </div>
 
                         <p className="text-white/80 text-sm leading-relaxed">
-                            Diseños modernos y adaptables que muestran lo mejor de tu marca
-                            y funcionan en todos los dispositivos.
+                            Una página web trabaja por vos las 24hs, hace que tu negocio dé un salto de nivel.
                         </p>
 
                         {/* Redes */}
@@ -53,13 +52,31 @@ const Footer = () => {
                             </a>
 
                         </div>
+                        
+                        {/* Mini mapa Ituzaingó */}
+                        <div className="flex flex-col items-start gap-2 mt-4">
+                            <span className="text-accent font-mono text-xs uppercase tracking-widest hidden lg:block">Ubicación</span>
+                            <div className="w-full max-w-sm h-[140px] overflow-hidden border border-white/10 rounded-md">
+                                <iframe
+                                    title="Ubicación Ituzaingó"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26224.689716582964!2d-58.68!3d-34.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb18d30d1077f%3A0x84c1c07c1e537783!2sItuzaing%C3%B3%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen={false}
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                        </div>
+
                     </div>
 
 
                     {/* Navegación */}
-                    <div className="flex flex-col gap-4 text-sm lg:col-span-2">
+                    <div className="flex flex-col gap-4 text-md lg:col-span-2">
 
-                        <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Navegación
                         </h4>
 
@@ -87,9 +104,9 @@ const Footer = () => {
 
 
                     {/* Servicios */}
-                    <div className="flex flex-col gap-4 text-sm lg:col-span-2">
+                    <div className="flex flex-col gap-4 text-md lg:col-span-2">
 
-                        <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Servicios
                         </h4>
 
@@ -103,9 +120,9 @@ const Footer = () => {
 
 
                     {/* Contacto */}
-                    <div className="flex flex-col gap-5 text-sm lg:col-span-4">
+                    <div className="flex flex-col gap-5 text-md lg:col-span-4">
 
-                        <h4 className="text-white/50 hover:text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Contacto
                         </h4>
 
@@ -149,6 +166,8 @@ const Footer = () => {
                     </div>
 
                 </div>
+
+
 
 
                 {/* Bottom */}

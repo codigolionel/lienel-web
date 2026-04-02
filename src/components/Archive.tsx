@@ -187,13 +187,13 @@ const Archive = () => {
                         `}</style>
                     </div>
 
-                    <div className="pb-30 md:pb-20">
+                    <div className="pb-10 md:pb-0">
                         <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[80px] font-serif italic font-normal tracking-tight mb-6 md:mb-12 text-[#FFFCF2] leading-[1.1] text-pretty">
                             Démosle vida a tu <br className="hidden md:block" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] font-bold pr-2">negocio online.</span>
                         </h2>
 
                         <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-sans font-light max-w-3xl mx-auto text-white/80 text-pretty px-4 leading-relaxed">
-                            Sin vueltas. Sin demoras. Con resultados reales.
+                            No dejes pasar más tiempo. Animate a dar el primer paso digital y transformá tu idea en un negocio online.
                         </p>
                     </div>
 

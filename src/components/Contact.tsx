@@ -19,7 +19,7 @@ const Contact = () => {
         e.preventDefault();
         setStatus('loading');
         setErrorMessage('');
-        
+
         const API_URL = import.meta.env.VITE_URL_BACKEND || "http://localhost:3000/api/contact";
 
         try {
@@ -30,10 +30,10 @@ const Contact = () => {
             });
             const data = await resp.json();
             if (!resp.ok) throw new Error(data.error || 'Ocurrió un error al enviar tu consulta.');
-            
+
             setStatus('success');
             setFormData({ nombre: '', email: '', mensaje: '', telefono: '' });
-            
+
             // Revert success UI after a few seconds
             setTimeout(() => setStatus('idle'), 5000);
         } catch (err: any) {
@@ -62,7 +62,7 @@ const Contact = () => {
     }, { scope: containerRef });
 
     return (
-        <section id="contacto" ref={containerRef} className="relative w-full py-24 sm:py-32 md:py-48 px-8 sm:px-12 md:px-24 bg-[#0B0B10] text-[#FFFFFF] overflow-hidden min-h-[100dvh] flex items-center">
+        <section id="contacto" ref={containerRef} className="relative w-full pt-16 pb-24 sm:pt-20 sm:pb-32 md:pt-24 md:pb-48 px-8 sm:px-12 md:px-24 bg-[#0B0B10] text-[#FFFFFF] overflow-hidden">
             {/* Background image with overlay */}
             <div
                 className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity will-change-transform"
@@ -171,7 +171,7 @@ const Contact = () => {
                             <textarea
                                 id="mensaje"
                                 name="mensaje"
-                                placeholder="Cuéntanos un poco sobre tu negocio o idea..."
+                                placeholder="Dejanos tu Mensaje ..."
                                 value={formData.mensaje}
                                 onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer resize-none"
@@ -180,17 +180,6 @@ const Contact = () => {
                             />
                         </div>
 
-                        {/* Fake reCAPTCHA UI */}
-                        <div className="p-3 bg-[#fafafa] rounded text-[#555] flex items-center justify-between border border-[#d3d3d3] mt-2 shadow-sm w-full max-w-[280px] mx-auto">
-                            <div className="flex items-center gap-3">
-                                <div className="w-6 h-6 bg-white border border-[#c1c1c1] rounded-sm hover:border-[#b2b2b2] cursor-pointer transition-colors flex items-center justify-center"></div>
-                                <span className="font-sans text-xs font-medium">No soy un robot</span>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-6 opacity-80" />
-                                <span className="text-[7px] text-[#999] mt-0.5">Privacidad - Condiciones</span>
-                            </div>
-                        </div>
 
                         {status === 'error' && (
                             <p className="text-sm text-red-400 text-center font-bold tracking-tight">{errorMessage}</p>

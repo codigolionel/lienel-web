@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 const mainPlans = [
     {
         name: 'Presencia',
-        tagline: 'Tu primer paso online, lista en 7 días',
+        tagline: 'Tu primer paso online, ideal para Profesionales',
         price: '$ 215.000',
         priceNote: null,
         delivery: 'Entrega: 5–10 días',
@@ -13,7 +13,7 @@ const mainPlans = [
         btnColor: 'magenta' as const,
         cta: 'Consultar',
         features: [
-            'Hosting incluido',
+            'Hosting y Dominio incluido',
             'Hasta 8 módulos',
             'Hasta 12 imágenes',
             'FAQ (4 preguntas)',
@@ -26,20 +26,20 @@ const mainPlans = [
         tagline: 'Más secciones, más confianza, más consultas',
         price: '$ 260.000',
         priceNote: null,
-        delivery: 'Entrega: 10–14 días',
+        delivery: 'Entrega: 3–5 días',
         featured: true,
-        badge: 'Más popular',
+        badge: 'Más vendido',
         btnColor: 'cyan' as const,
         cta: 'Consultar',
         features: [
-            'Hosting incluido',
+            'Hosting y Dominio incluido',
             '4 secciones (Inicio, Nosotros, Servicios, Contacto)',
             'Animaciones al hacer scroll',
             'Hasta 15 imágenes',
             'FAQ (5 preguntas)',
             'Mapa de ubicación',
             'WhatsApp en navegación + botón flotante',
-            'Footer con datos y redes',
+            'Footer con Mapa y redes',
         ],
     },
     {
@@ -47,14 +47,14 @@ const mainPlans = [
         tagline: 'Todo lo que un cliente necesita ver para contactarte',
         price: '$ 430.000',
         priceNote: null,
-        delivery: 'Entrega: 14–20 días',
+        delivery: 'Entrega: 7–10 días',
         featured: false,
         badge: null,
         btnColor: 'magenta' as const,
         cta: 'Consultar',
         features: [
-            'Hosting incluido',
-            '5 secciones (incluye Proyectos)',
+            'Hosting y Dominio incluido',
+            'Hasta 5 páginas',
             'Animaciones al hacer scroll',
             'Hasta 20 imágenes',
             'FAQ (8 preguntas)',
@@ -87,8 +87,8 @@ const additionalServices = [
     {
         name: 'Mantenimiento',
         tagline: 'Disfruta tu tiempo libre',
-        price: 'USD 19',
-        priceNote: '/ mes',
+        price: 'Depende del Servicio',
+        priceNote: '',
         delivery: null,
         featured: false,
         badge: 'Recurrente',
@@ -96,9 +96,9 @@ const additionalServices = [
         cta: 'Saber más',
         features: [
             'Diagnóstico mensual',
-            'Actualizaciones de plugins',
+            'Actualizaciones',
             'Reparaciones',
-            'Plugins de seguridad',
+            'Seguridad',
             'Backup',
         ],
     },
@@ -195,19 +195,19 @@ const PlanCard = ({ plan }: { plan: PlanType }) => {
 /* ─── COMPONENTE PRINCIPAL ESTÁTICO ─── */
 const Pricing = () => {
     return (
-        <section id="pricing" className="relative w-full pt-16 pb-32 sm:pt-20 sm:pb-32 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
+        <section id="pricing" className="relative w-full pt-8 pb-16 sm:pt-12 sm:pb-20 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
             <div className="max-w-6xl mx-auto relative z-10">
 
                 {/* DIVISOR DELICADO */}
-                <div className="w-24 sm:w-32 h-px bg-white/10 mx-auto mb-16 sm:mb-20"></div>
+                <div className="w-24 sm:w-32 h-px bg-white/10 mx-auto mb-10 sm:mb-14"></div>
 
                 {/* TÍTULO PRINCIPAL */}
                 <div className="text-center mb-16 md:mb-20">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px] mb-6">
                         Planes Web
                     </h2>
-                    <p className="text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto font-medium opacity-90">
-                        Elegí el plan ideal para lanzar o escalar tu presencia digital.
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto font-medium opacity-90">
+                        El plan ideal para lanzar o escalar en internet.
                     </p>
                 </div>
 
@@ -224,7 +224,7 @@ const Pricing = () => {
                         Servicios <span className="text-[#00D2D3] opacity-90">Adicionales</span>
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-white/50 max-w-xl mx-auto">
-                        "Complementos pensados para prolongar el rendimiento de tu web."
+                        "Consulte para más información."
                     </p>
                 </div>
 
@@ -238,7 +238,7 @@ const Pricing = () => {
                 {/* DISCLAIMER AL PIE */}
                 <div className="max-w-3xl mx-auto text-center bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
                     <p className="text-xs sm:text-sm text-white/50 leading-relaxed">
-                        Todos los planes incluyen hosting. El dominio (ej. tunegocio.com) no está incluido, pero te asesoramos para conseguir el mejor.
+                        Todos los planes incluyen hosting y el dominio por el primer año. <span className="text-[#00D2D3]">SE ENTREGA "FACTURA TIPO C".</span>
                     </p>
                 </div>
 

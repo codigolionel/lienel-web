@@ -209,14 +209,11 @@ export default function Service() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 md:px-24">
 
                 <div ref={addToRefs} className="text-center lg:text-left mb-10 md:mb-14 max-w-3xl">
-                    <p className="text-[#00D2D3] uppercase tracking-[0.2em] text-[11px] sm:text-xs font-semibold mb-4 border border-[#00D2D3]/30 bg-[#00D2D3]/10 inline-flex items-center gap-2 px-4 py-2 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D2D3]" />
-                        No necesitás saber de diseño
-                    </p>
-                    <h2 className="text-4xl sm:text-5xl md:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight md:leading-[1.1] mb-6">
+
+                    <h2 className="text-4xl sm:text-5xl md:text-[60px] pt-20 font-serif italic font-normal text-[#FFFCF2] leading-tight md:leading-[1.1] mb-6">
                         Soluciones claras para tu web
                     </h2>
-                    <p className="text-lg sm:text-xl text-[#FFFFFF]/80 leading-relaxed max-w-2xl">
+                    <p className="text-lg sm:text-xltext-[#FFFFFF]/80 leading-relaxed max-w-2xl">
                         Te ayudamos a elegir la mejor opción para tu negocio.
                     </p>
                 </div>
@@ -263,20 +260,20 @@ export default function Service() {
                                 return (
                                     <div
                                         key={card.id}
-                                        className={`absolute w-full max-w-[310px] p-8 rounded-full border ${card.color} ${card.border} transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-xl flex flex-col items-center justify-center gap-4 text-center`}
+                                        className={`absolute w-full max-w-[280px] px-6 py-5 rounded-2xl border ${card.color} ${card.border} transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-xl flex items-center gap-4`}
                                         style={{
-                                            transform: `translateY(${(2 - positionIndex) * -15}px) scale(${1 - (2 - positionIndex) * 0.05})`,
+                                            transform: `translateY(${(2 - positionIndex) * -20}px) scale(${1 - (2 - positionIndex) * 0.05})`,
                                             zIndex: positionIndex,
-                                            opacity: positionIndex === 0 ? 0.6 : positionIndex === 1 ? 0.8 : 1,
-                                            filter: isFront ? 'none' : 'blur(2px)'
+                                            opacity: positionIndex === 0 ? 0.5 : positionIndex === 1 ? 0.75 : 1,
+                                            filter: isFront ? 'none' : 'blur(1.5px)'
                                         }}
                                     >
-                                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                                            <div className={`w-2 h-2 rounded-full ${isFront ? 'bg-[#00D2D3] shadow-[0_0_10px_#00D2D3]' : 'bg-white/30'}`}></div>
+                                        <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                                            <div className={`w-2.5 h-2.5 rounded-full ${isFront ? 'bg-[#00D2D3] shadow-[0_0_10px_#00D2D3]' : 'bg-white/30'}`}></div>
                                         </div>
                                         <div>
-                                            <h4 className="font-bold font-sans text-[22px] text-white leading-tight">{card.title}</h4>
-                                            <p className="text-sm md:text-base leading-relaxed text-white/80 mt-2">{card.desc}</p>
+                                            <h4 className="font-bold font-sans text-base text-white leading-tight">{card.title}</h4>
+                                            <p className="text-xs leading-relaxed text-white/60 mt-0.5">{card.desc}</p>
                                         </div>
                                     </div>
                                 )
