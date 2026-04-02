@@ -146,9 +146,9 @@ export default function AbautUs() {
                 ".step-element",
                 {
                     strokeDashoffset: 0,
-                    duration: 0.6,
-                    ease: "power2.inOut",
-                    stagger: 0.6,
+                    duration: 0.3,
+                    ease: "none",
+                    stagger: 0.3,
                     scrollTrigger: {
                         trigger: "#proceso",
                         start: "top 75%",
@@ -322,6 +322,27 @@ export default function AbautUs() {
                     <div className="grid gap-12 sm:gap-14 sm:grid-cols-2 lg:grid-cols-4">
                         {steps.map((step, index) => (
                             <div key={step.number} className="text-center relative">
+                                <div
+                                    className="relative mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-gradient-to-br from-cyan-400/15 to-pink-500/15 z-10"
+                                >
+                                    <svg className="absolute inset-0 w-full h-full -rotate-90 rounded-full" viewBox="0 0 88 88">
+                                        <circle cx="44" cy="44" r="43" stroke="currentColor" strokeWidth="2" fill="none" className="text-cyan-400/20" />
+                                        <circle 
+                                            cx="44" cy="44" r="43" 
+                                            stroke="currentColor" 
+                                            strokeWidth="2" 
+                                            fill="none" 
+                                            className="text-cyan-400 step-element overflow-visible" 
+                                            strokeDasharray="271" 
+                                            strokeDashoffset="271" 
+                                            strokeLinecap="round" 
+                                        />
+                                    </svg>
+                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent relative z-10">
+                                        {step.number}
+                                    </span>
+                                </div>
+
                                 {/* Animated Line connecting to the next step (Desktop only) */}
                                 {index < steps.length - 1 && (
                                     <div className="hidden lg:block absolute top-[44px] left-[calc(50%+44px)] w-[calc(100%+56px-88px)] h-[2px] -translate-y-1/2 z-0">
@@ -345,27 +366,6 @@ export default function AbautUs() {
                                         </svg>
                                     </div>
                                 )}
-
-                                <div
-                                    className="relative mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-gradient-to-br from-cyan-400/15 to-pink-500/15 z-10"
-                                >
-                                    <svg className="absolute inset-0 w-full h-full -rotate-90 rounded-full" viewBox="0 0 88 88">
-                                        <circle cx="44" cy="44" r="43" stroke="currentColor" strokeWidth="2" fill="none" className="text-cyan-400/20" />
-                                        <circle 
-                                            cx="44" cy="44" r="43" 
-                                            stroke="currentColor" 
-                                            strokeWidth="2" 
-                                            fill="none" 
-                                            className="text-cyan-400 step-element overflow-visible" 
-                                            strokeDasharray="271" 
-                                            strokeDashoffset="271" 
-                                            strokeLinecap="round" 
-                                        />
-                                    </svg>
-                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent relative z-10">
-                                        {step.number}
-                                    </span>
-                                </div>
 
                                 <h4 className="mb-3 text-xl sm:text-2xl font-serif italic font-semibold text-white">
                                     {step.title}
