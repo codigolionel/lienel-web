@@ -178,16 +178,19 @@ const PlanCard = ({ plan }: { plan: PlanType }) => {
             </ul>
 
             {/* CTA */}
-            <button
+            <a
+                href="https://wa.me/5491165657291"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`
-                    mt-10 lg:mt-6 w-full py-4 lg:py-3 rounded-xl font-bold transition-all
+                    mt-10 lg:mt-6 w-full py-4 lg:py-3 rounded-xl font-bold transition-all block text-center
                     ${btnColor === 'cyan'
                         ? 'border border-[#00D2D3] text-[#00D2D3] bg-transparent hover:bg-[#00D2D3]/10 hover:shadow-[0_0_20px_rgba(0,210,211,0.2)] shadow-[0_0_15px_rgba(0,210,211,0.1)]'
                         : 'border border-[#EE32A0]/30 text-[#EE32A0] hover:bg-[#EE32A0]/10 hover:border-[#EE32A0]/70'}
                 `}
             >
                 {plan.cta}
-            </button>
+            </a>
         </div>
     );
 };

@@ -234,9 +234,9 @@ const Hero = () => {
                 >
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D2D3] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00D2D3]"></span>
+                        <span className="relative inline-flex rounded-full h-1 w-2 bg-[#00D2D3]"></span>
                     </span>
-                    Diseño Web para todos los negocios
+                    Diseño Web
                 </div>
 
                 <div className="flex flex-col gap-4 text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
@@ -278,7 +278,7 @@ const Hero = () => {
 
                 <div ref={btnRef} className="mt-8 font-sans flex flex-col sm:flex-row items-center gap-4">
                     <a
-                        href="https://wa.me/1234567890"
+                        href="https://wa.me/5491165657291"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#EE32A0] backdrop-blur-sm px-5 py-2.5 text-sm md:px-6 md:py-3 md:text-base font-semibold text-white transition-all duration-300 hover:scale-105 group shadow-[0_0_30px_rgba(238,50,160,0.3)] hover:shadow-[0_0_50px_rgba(238,50,160,0.5)]"

@@ -141,6 +141,21 @@ export default function AbautUs() {
                     },
                 }
             );
+
+            gsap.to(
+                ".step-element",
+                {
+                    strokeDashoffset: 0,
+                    duration: 0.6,
+                    ease: "power2.inOut",
+                    stagger: 0.6,
+                    scrollTrigger: {
+                        trigger: "#proceso",
+                        start: "top 75%",
+                        once: true,
+                    },
+                }
+            );
         },
         { scope: sectionRef }
     );
@@ -305,12 +320,49 @@ export default function AbautUs() {
                     </div>
 
                     <div className="grid gap-12 sm:gap-14 sm:grid-cols-2 lg:grid-cols-4">
-                        {steps.map((step) => (
-                            <div key={step.number} className="text-center">
+                        {steps.map((step, index) => (
+                            <div key={step.number} className="text-center relative">
+                                {/* Animated Line connecting to the next step (Desktop only) */}
+                                {index < steps.length - 1 && (
+                                    <div className="hidden lg:block absolute top-[44px] left-[calc(50%+44px)] w-[calc(100%+56px-88px)] h-[2px] -translate-y-1/2 z-0">
+                                        <svg className="w-full h-full" preserveAspectRatio="none">
+                                            <defs>
+                                                <linearGradient id={`grad-${index}`} x1="0" y1="0" x2="1" y2="0">
+                                                    <stop offset="0%" stopColor={index === 0 ? "#00D2D3" : index === 1 ? "#4F9CC2" : "#9E67B1"} />
+                                                    <stop offset="100%" stopColor={index === 0 ? "#4F9CC2" : index === 1 ? "#9E67B1" : "#EE32A0"} />
+                                                </linearGradient>
+                                            </defs>
+                                            <line x1="0" y1="1" x2="100%" y2="1" stroke="currentColor" strokeWidth="2" className="text-white/10" />
+                                            <line 
+                                                x1="0" y1="1" x2="100%" y2="1" 
+                                                stroke={`url(#grad-${index})`} 
+                                                strokeWidth="2" 
+                                                strokeDasharray="1" 
+                                                strokeDashoffset="1" 
+                                                pathLength="1" 
+                                                className="step-element" 
+                                            />
+                                        </svg>
+                                    </div>
+                                )}
+
                                 <div
-                                    className="relative mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-full border border-cyan-400/30 bg-gradient-to-br from-cyan-400/15 to-pink-500/15"
+                                    className="relative mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-gradient-to-br from-cyan-400/15 to-pink-500/15 z-10"
                                 >
-                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent">
+                                    <svg className="absolute inset-0 w-full h-full -rotate-90 rounded-full" viewBox="0 0 88 88">
+                                        <circle cx="44" cy="44" r="43" stroke="currentColor" strokeWidth="2" fill="none" className="text-cyan-400/20" />
+                                        <circle 
+                                            cx="44" cy="44" r="43" 
+                                            stroke="currentColor" 
+                                            strokeWidth="2" 
+                                            fill="none" 
+                                            className="text-cyan-400 step-element overflow-visible" 
+                                            strokeDasharray="271" 
+                                            strokeDashoffset="271" 
+                                            strokeLinecap="round" 
+                                        />
+                                    </svg>
+                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent relative z-10">
                                         {step.number}
                                     </span>
                                 </div>
@@ -351,6 +403,10 @@ export default function AbautUs() {
 
                         <a
                             href="#contacto"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             className="inline-flex items-center gap-3 rounded-full bg-[#EE32A0] px-8 py-3 sm:px-10 sm:py-4 text-lg sm:text-xl md:text-2xl font-serif italic font-normal tracking-[0.04em] text-white transition duration-300 hover:-translate-y-0.5"
                         >
                             Quiero mi web
