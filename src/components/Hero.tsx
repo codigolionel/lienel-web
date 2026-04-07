@@ -42,7 +42,6 @@ const FloatingOrb = ({ size, x, y, color, delay, duration }: {
 }
 
 const Hero = () => {
-
     const containerRef = useRef<HTMLDivElement>(null)
     const textRef1 = useRef<HTMLParagraphElement>(null)
     const textRef2 = useRef<HTMLParagraphElement>(null)
@@ -51,7 +50,6 @@ const Hero = () => {
     const animatedTextRef = useRef<HTMLSpanElement>(null)
     const badgeRef = useRef<HTMLDivElement>(null)
     const glowRef = useRef<HTMLDivElement>(null)
-
     const statsRef = useRef<HTMLDivElement>(null)
 
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
@@ -79,48 +77,54 @@ const Hero = () => {
     }, [mousePos])
 
     useGSAP(() => {
-
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
         // Badge entrance
-        tl.fromTo(badgeRef.current,
+        tl.fromTo(
+            badgeRef.current,
             { y: -20, opacity: 0, scale: 0.9 },
             { y: 0, opacity: 1, scale: 1, duration: 0.8 },
             0.1
         )
 
         // Glow pulse
-        tl.fromTo(glowRef.current,
+        tl.fromTo(
+            glowRef.current,
             { scale: 0.5, opacity: 0 },
             { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" },
             0
         )
 
-        tl.fromTo(textRef1.current,
-            { y: 50, opacity: 0, clipPath: 'inset(100% -10% -10% -10%)' },
-            { y: 0, opacity: 1, clipPath: 'inset(-10% -10% -10% -10%)', duration: 1, clearProps: 'clipPath' },
+        tl.fromTo(
+            textRef1.current,
+            { y: 50, opacity: 0, clipPath: "inset(100% -10% -10% -10%)" },
+            { y: 0, opacity: 1, clipPath: "inset(-10% -10% -10% -10%)", duration: 1, clearProps: "clipPath" },
             0.2
         )
-            .fromTo(textRef2.current,
-                { y: 50, opacity: 0, clipPath: 'inset(100% -10% -10% -10%)' },
-                { y: 0, opacity: 1, clipPath: 'inset(-10% -10% -10% -10%)', duration: 1, clearProps: 'clipPath' },
+            .fromTo(
+                textRef2.current,
+                { y: 50, opacity: 0, clipPath: "inset(100% -10% -10% -10%)" },
+                { y: 0, opacity: 1, clipPath: "inset(-10% -10% -10% -10%)", duration: 1, clearProps: "clipPath" },
                 0.4
             )
-            .fromTo(textRef3.current,
+            .fromTo(
+                textRef3.current,
                 { y: 30, opacity: 0 },
                 { y: 0, opacity: 1, duration: 1 },
                 0.7
             )
-            .fromTo(btnRef.current,
+            .fromTo(
+                btnRef.current,
                 { y: 30, opacity: 0 },
                 { y: 0, opacity: 1, duration: 1 },
                 0.9
             )
-            .fromTo(statsRef.current,
+            .fromTo(
+                statsRef.current,
                 { y: 20, opacity: 0 },
                 { y: 0, opacity: 1, duration: 0.8 },
                 1.1
-            );
+            )
 
         // Glow continuous pulse
         gsap.to(glowRef.current, {
@@ -132,55 +136,62 @@ const Hero = () => {
             ease: "sine.inOut",
         })
 
-        const typeTl = gsap.timeline({ repeat: -1, delay: 1.5 });
+        const typeTl = gsap.timeline({ repeat: -1, delay: 1.5 })
         const messages = [
             "generar consultas.",
             "conseguir clientes.",
             "atender las 24 hs.",
             "aumentar tus ventas.",
-        ];
+        ]
 
         if (animatedTextRef.current) {
             messages.forEach((msg, index) => {
-                const isLast = index === messages.length - 1;
+                const isLast = index === messages.length - 1
 
                 // Type
                 typeTl.to(animatedTextRef.current, {
                     duration: 2.2,
                     ease: "none",
                     onUpdate: function () {
-                        const progress = this.progress();
-                        const charCount = Math.floor(progress * msg.length);
-                        if (animatedTextRef.current) animatedTextRef.current.innerText = msg.substring(0, charCount);
+                        const progress = this.progress()
+                        const charCount = Math.floor(progress * msg.length)
+                        if (animatedTextRef.current) {
+                            animatedTextRef.current.innerText = msg.substring(0, charCount)
+                        }
                     }
                 })
                     // Hold
-                    .to(animatedTextRef.current, { duration: isLast ? 4 : 3.5 });
+                    .to(animatedTextRef.current, { duration: isLast ? 4 : 3.5 })
 
-                // Erase (even the last one so it loops back to empty)
+                // Erase
                 typeTl.to(animatedTextRef.current, {
                     duration: 0.8,
                     ease: "none",
                     onUpdate: function () {
-                        const progress = 1 - this.progress();
-                        const charCount = Math.floor(progress * msg.length);
-                        if (animatedTextRef.current) animatedTextRef.current.innerText = msg.substring(0, charCount);
+                        const progress = 1 - this.progress()
+                        const charCount = Math.floor(progress * msg.length)
+                        if (animatedTextRef.current) {
+                            animatedTextRef.current.innerText = msg.substring(0, charCount)
+                        }
                     }
-                });
-            });
+                })
+            })
         }
-
     }, { scope: containerRef })
 
     return (
-
         <section
             id="inicio"
             ref={containerRef}
             className="relative w-full p-6 sm:p-8 pt-20 text-primary overflow-hidden flex flex-col items-center justify-center min-h-[100dvh]"
         >
             {/* ─── Background images ─── */}
-            <img src={wallpaperMobile} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover sm:hidden pointer-events-none" />
+            <img
+                src={wallpaperMobile}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover sm:hidden pointer-events-none"
+            />
             <img
                 src={wallpaper}
                 alt=""
@@ -204,13 +215,13 @@ const Hero = () => {
                 ref={glowRef}
                 className="absolute z-[1] pointer-events-none opacity-0"
                 style={{
-                    width: '700px',
-                    height: '700px',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -55%)',
-                    background: 'radial-gradient(ellipse, rgba(238,50,160,0.12) 0%, rgba(75,0,130,0.08) 40%, transparent 70%)',
-                    filter: 'blur(60px)',
+                    width: "700px",
+                    height: "700px",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -55%)",
+                    background: "radial-gradient(ellipse, rgba(238,50,160,0.12) 0%, rgba(75,0,130,0.08) 40%, transparent 70%)",
+                    filter: "blur(60px)",
                 }}
             />
 
@@ -219,7 +230,7 @@ const Hero = () => {
                 className="absolute inset-0 z-[1] pointer-events-none opacity-[0.03]"
                 style={{
                     backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-                    backgroundSize: '60px 60px',
+                    backgroundSize: "60px 60px",
                 }}
             />
 
@@ -230,7 +241,6 @@ const Hero = () => {
 
             {/* content */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-6 md:gap-3 mt-20 md:mt-28 font-serif">
-
                 {/* ─── Credibility Badge ─── */}
                 <div
                     ref={badgeRef}
@@ -244,38 +254,42 @@ const Hero = () => {
                 </div>
 
                 <div className="flex flex-col gap-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
-
-                    <div ref={textRef1} className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full pb-3 md:pb-5">
-
-                        {/* Line 1: mobile/tablet="Tu negocio en internet," desktop="Tu negocio en internet, listo" */}
+                    <div
+                        ref={textRef1}
+                        className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full pb-3 md:pb-5"
+                    >
                         <span className="w-full">
                             <span>Tu negocio online</span>
                             <span className="hidden lg:inline"></span>
                         </span>
 
-                        {/* Line 2: "listo para:" + Line 3: typewriter — stacked on all breakpoints */}
                         <span className="flex flex-col items-center justify-center w-full">
                             <span>listo para:</span>
 
-                            {/* Animated Typewriter block (CSS Grid ensures perfect stability without duplicate layout jumps) */}
                             <span className="grid place-items-center relative mt-1">
-                                {/* Spacer: reserves maximum width so "para" stays locked in place */}
-                                <span className="invisible italic whitespace-nowrap col-start-1 row-start-1"> aumentar tus ventas.<span className="inline-block w-[3px] lg:w-[5px] ml-1 sm:ml-2"></span></span>
+                                {/* Spacer */}
+                                <span className="invisible italic whitespace-nowrap col-start-1 row-start-1">
+                                    aumentar tus ventas.
+                                    <span className="inline-block w-[3px] lg:w-[5px] ml-1 sm:ml-2"></span>
+                                </span>
 
                                 {/* Visible animated overlay */}
                                 <span className="flex items-center justify-center lg:justify-start col-start-1 row-start-1 w-full h-full">
-                                    <span ref={animatedTextRef} className="text-[#00D2D3] italic whitespace-nowrap"></span>
-                                    <span className="inline-block w-[3px] lg:w-[5px] h-[35px] sm:h-[45px] md:h-[60px] lg:h-[75px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite]"></span>
+                                    <span
+                                        ref={animatedTextRef}
+                                        className="text-[#00D2D3] italic whitespace-nowrap [text-shadow:0_2px_6px_rgba(0,0,0,0.95),0_0_2px_rgba(0,0,0,1)]"
+                                    ></span>
+                                    <span className="inline-block w-[3px] lg:w-[5px] h-[35px] sm:h-[45px] md:h-[60px] lg:h-[75px] bg-[#00D2D3] ml-1 sm:ml-2 animate-[pulse_1s_step-end_infinite] [box-shadow:0_0_8px_rgba(0,0,0,0.9)]"></span>
                                 </span>
                             </span>
                         </span>
-
                     </div>
-
-
                 </div>
 
-                <p ref={textRef3} className="text-white/70 font-sans text-sm sm:text-lg md:text-lg lg:text-lg max-w-2xl mx-auto font-medium mt-4">
+                <p
+                    ref={textRef3}
+                    className="text-white/70 font-sans text-sm sm:text-lg md:text-lg lg:text-lg max-w-2xl mx-auto font-medium mt-4"
+                >
                     Creamos tu web desde cero. Vos solo contanos tu negocio y del resto, nos ocupamos nosotros!
                 </p>
 
@@ -307,14 +321,13 @@ const Hero = () => {
                     <a
                         href="#proceso"
                         onClick={(e) => {
-                            e.preventDefault();
-                            document.querySelector('#proceso')?.scrollIntoView({ behavior: 'smooth' });
+                            e.preventDefault()
+                            document.querySelector("#proceso")?.scrollIntoView({ behavior: "smooth" })
                         }}
                         className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-sm px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-semibold transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-105"
-                        style={{ color: '#ffffff' }}
+                        style={{ color: "#ffffff" }}
                     >
                         Cómo trabajamos
-
                     </a>
                 </div>
 
@@ -333,13 +346,8 @@ const Hero = () => {
                         <span>Atención personalizada</span>
                     </div>
                 </div>
-
             </div>
-
-            {/* ─── Bottom gradient fade to surface ─── */}
-
         </section>
-
     )
 }
 
