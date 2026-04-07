@@ -22,7 +22,7 @@ const Archive = () => {
         const mm = gsap.matchMedia();
         const cards = [card1Ref.current, card2Ref.current, card3Ref.current];
 
-        mm.add("(min-width: 768px)", () => {
+        mm.add("(min-width: 10px)", () => {
             cards.forEach((card, index) => {
                 if (!card) return;
 
@@ -80,7 +80,7 @@ const Archive = () => {
             {/* CARD 1 */}
             <div
                 ref={card1Ref}
-                className="h-auto md:h-[100dvh] w-full flex items-start md:items-center justify-center p-4 md:p-8 bg-[#0B0B10] text-[#FFFFFF] border-b border-white/10 origin-top"
+                className="min-h-[100dvh] w-full flex flex-col md:flex-row items-center justify-center p-6 md:p-8 bg-[#0B0B10] text-[#FFFFFF] border-b border-white/10 origin-top py-20 md:py-8"
             >
                 <div className="max-w-5xl w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center justify-between">
 
@@ -130,7 +130,7 @@ const Archive = () => {
             {/* CARD 2 */}
             <div
                 ref={card2Ref}
-                className="h-auto md:h-[100dvh] w-full flex items-start md:items-center justify-center p-4 md:p-8 bg-[#050507] text-white border-b border-white/5 origin-top shadow-2xl"
+                className="min-h-[100dvh] w-full flex flex-col md:flex-row items-center justify-center p-6 md:p-8 bg-[#050507] text-white border-b border-white/5 origin-top shadow-2xl py-20 md:py-8"
             >
                 <div className="max-w-6xl w-full flex flex-col md:flex-row gap-6 md:gap-12 items-center">
 
@@ -166,7 +166,7 @@ const Archive = () => {
             {/* CARD 3 */}
             <div
                 ref={card3Ref}
-                className="h-auto md:h-[100dvh] w-full flex flex-col justify-start md:justify-center items-center p-4 md:p-8 bg-[#0B0B10] origin-top shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+                className="min-h-[100dvh] w-full flex flex-col justify-start md:justify-center items-center p-6 md:p-8 bg-[#0B0B10] origin-top shadow-[0_-20px_50px_rgba(0,0,0,0.5)] pt-32 pb-20 md:py-8"
             >
                 <div className="max-w-6xl w-full flex flex-col items-center text-center gap-6 md:gap-12">
 
