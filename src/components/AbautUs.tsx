@@ -236,7 +236,7 @@ export default function AbautUs() {
                                 por dónde arrancar online, nosotros nos encargamos.
                             </p>
 
-                            <div className="mt-7 grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
+                            <div className="mt-7 flex flex-col items-center justify-center w-full border-t border-white/10 pt-6 text-center">
                                 <div>
                                     <div className="bg-cyan-400 bg-clip-text text-1xl sm:text-1xl font-extrabold text-transparent">
                                         100% Acompañamiento
@@ -270,7 +270,7 @@ export default function AbautUs() {
                             <img 
                                 src={perfilAgus} 
                                 alt="Augusto Lionel Lastre" 
-                                className="h-32 w-32 sm:h-[142px] sm:w-[142px] rounded-full object-cover ring-[4px] ring-[#00D2D3] p-1.5"
+                                className="h-32 w-32 sm:h-[142px] sm:w-[142px] rounded-full object-cover ring-2 ring-[#00D2D3] p-1"
                             />
                             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
                                 <span className="text-base sm:text-lg font-bold text-white tracking-wide">AUGUSTO LIONEL LASTRE</span>
@@ -311,7 +311,7 @@ export default function AbautUs() {
                             El proceso
                         </div>
 
-                        <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                             Cómo{" "}
                             <span className="bg-cyan-400 bg-clip-text text-transparent">
                                 trabajamos
