@@ -334,16 +334,15 @@ const Hero = () => {
                 {/* ─── Social Proof / Stats Strip ─── */}
                 <div
                     ref={statsRef}
-                    className="mt-10 md:mt-14 flex items-center justify-center gap-4 sm:gap-6 md:gap-10 font-sans text-white/40 text-[9px] sm:text-[10px] md:text-xs tracking-[0.15em] opacity-0"
+                    className="mt-10 md:mt-14 flex items-center justify-center gap-3 sm:gap-4 md:gap-6 font-sans text-white/60 text-[9px] sm:text-[10px] md:text-xs tracking-[0.10em] opacity-0"
                 >
-                    <div className="flex items-center gap-1.5 sm:gap-2">
-                        <span className="text-[#00D2D3] text-xs sm:text-sm md:text-base font-bold not-italic">24/7</span>
-                        <span>Soporte continuo</span>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="text-[#00D2D3] text-xs sm:text-sm md:text-base font-bold not-italic [text-shadow:0_2px_4px_rgba(0,0,0,1),0_0_12px_rgba(0,0,0,1)]">24/7</span>
+                        <span className="bg-[#050507] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 shadow-lg pt-[1px]">Soporte continuo</span>
                     </div>
-                    <div className="w-px h-4 bg-white/10 mx-1 sm:mx-0"></div>
-                    <div className="flex items-center gap-1.5 sm:gap-2">
-                        <span className="text-[#EE32A0] text-xs sm:text-sm md:text-base font-bold not-italic">1 a 1</span>
-                        <span>Atención personalizada</span>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="text-[#00D2D3] text-xs sm:text-sm md:text-base font-bold not-italic [text-shadow:0_2px_4px_rgba(0,0,0,1),0_0_12px_rgba(0,0,0,1)]">1 a 1</span>
+                        <span className="bg-[#050507] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 shadow-lg pt-[1px]">Atención personalizada</span>
                     </div>
                 </div>
             </div>
