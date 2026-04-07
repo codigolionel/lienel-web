@@ -52,10 +52,10 @@ const Footer = () => {
                             </a>
 
                         </div>
-                        
+
                         {/* Mini mapa Ituzaingó */}
                         <div className="flex flex-col items-start gap-2 mt-4">
-                            <span className="text-accent font-mono text-xs uppercase tracking-widest hidden lg:block">Ubicación</span>
+                            <span className="text-[#00d3f3] font-mono text-xs uppercase tracking-widest hidden lg:block">Ubicación</span>
                             <div className="w-full max-w-sm h-[140px] overflow-hidden border border-white/10 rounded-md">
                                 <iframe
                                     title="Ubicación Ituzaingó"
@@ -76,7 +76,7 @@ const Footer = () => {
                     {/* Navegación */}
                     <div className="flex flex-col gap-4 text-md lg:col-span-2">
 
-                        <h4 className="text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-[#00d3f3] font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Navegación
                         </h4>
 
@@ -106,7 +106,7 @@ const Footer = () => {
                     {/* Servicios */}
                     <div className="flex flex-col gap-4 text-md lg:col-span-2">
 
-                        <h4 className="text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-[#00d3f3] font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Servicios
                         </h4>
 
@@ -122,7 +122,7 @@ const Footer = () => {
                     {/* Contacto */}
                     <div className="flex flex-col gap-5 text-md lg:col-span-4">
 
-                        <h4 className="text-accent font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
+                        <h4 className="text-[#00d3f3] font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Contacto
                         </h4>
 

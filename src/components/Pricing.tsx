@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 /* ─── DATOS DE PLANES PRINCIPALES ─── */
 const mainPlans = [
     {
-        name: 'Presencia',
+        name: 'Tu primer paso online',
         tagline: 'Tu primer paso online, ideal para Profesionales',
         price: '$ 215.000',
         priceNote: null,
@@ -22,7 +22,7 @@ const mainPlans = [
         ],
     },
     {
-        name: 'Negocio',
+        name: 'Explicá bien lo que hacés',
         tagline: 'Más secciones, más confianza, más consultas',
         price: '$ 260.000',
         priceNote: null,
@@ -43,7 +43,7 @@ const mainPlans = [
         ],
     },
     {
-        name: 'Profesional',
+        name: 'Presencia sólida',
         tagline: 'Todo lo que un cliente necesita ver para contactarte',
         price: '$ 430.000',
         priceNote: null,
@@ -210,7 +210,7 @@ const Pricing = () => {
                         Planes Web
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto font-medium opacity-90">
-                        El plan ideal para lanzar o escalar en internet.
+                        Tres puntos de partida. Todos pensados para que empieces a conseguir clientes.
                     </p>
                 </div>
 

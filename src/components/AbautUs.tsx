@@ -22,8 +22,8 @@ type Step = {
 
 const differentiators: Differentiator[] = [
     {
-        title: "Te guiamos en todo el proceso.",
-        text: "De la idea a la web lista.",
+        title: "Arrancamos desde cero con vos",
+        text: "No necesitás tener nada preparado. Vos nos contás qué hacés y para quién — nosotros ordenamos todo.",
         icon: (
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
@@ -37,8 +37,8 @@ const differentiators: Differentiator[] = [
         ),
     },
     {
-        title: "Pensamos en tu negocio",
-        text: "Priorizamos que la web funcione para vos.",
+        title: "Tu web trabaja cuando vos no podés",
+        text: "Cada página está pensada para recibir consultas a cualquier hora, sin que tengas que hacer nada.",
         icon: (
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
@@ -52,8 +52,8 @@ const differentiators: Differentiator[] = [
         ),
     },
     {
-        title: "Claridad y confianza primero",
-        text: "Para que te entiendan y te escriban.",
+        title: "Sabemos que es tu primera vez",
+        text: "Explicamos todo con palabras normales. No te dejamos con dudas ni te apuramos para decidir.",
         icon: (
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
@@ -397,7 +397,7 @@ export default function AbautUs() {
 
                     <div className="relative z-10 mx-auto max-w-3xl">
                         <p className="mb-20 pt-10 text-2xl sm:text-3xl md:text-4xl lg:text-[60px] font-serif font-normal text-[#FFFCF2] leading-snug lg:leading-[75px]">
-                            “Quien no se muestra, no vende. Tu web es el primer paso.”
+                            “La mayoría de tus clientes te va a buscar online antes de escribirte. ¿Qué van a encontrar?”
 
                         </p>
 

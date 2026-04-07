@@ -115,7 +115,7 @@ const Navbar = () => {
             <div className="fixed top-0 left-0 right-0 z-50 flex justify-center mt-6 px-4">
                 <nav
                     ref={navRef}
-                    className="flex items-center justify-between w-full max-w-7xl px-6 md:px-8 py-4 rounded-full border border-transparent text-primary transition-colors duration-300"
+                    className="flex items-center justify-between w-full max-w-7xl px-6 md:px-8 py-0 rounded-full border border-transparent text-primary transition-colors duration-300"
                 >
                     {/* Logo */}
                     <div className="flex-1 flex items-center justify-start gap-3 relative z-50">
@@ -128,7 +128,7 @@ const Navbar = () => {
 
                     {/* Desktop Menu — Cal Sans, uppercase, tracking */}
                     <ul
-                        className="hidden md:flex flex-1 justify-center items-center gap-9 uppercase text-sm tracking-widest"
+                        className="hidden md:flex flex-1 justify-center items-center gap-9 uppercase text-xs tracking-widest"
                         style={{ fontFamily: "'Cal Sans', sans-serif", WebkitTextStroke: '0.3px white' }}
                     >
                         {[
@@ -158,7 +158,7 @@ const Navbar = () => {
                             <a
                                 href="#contacto"
                                 onClick={(e) => handleDesktopLinkClick(e, '#contacto')}
-                                className="relative overflow-hidden group px-6 py-2 rounded-lg font-sans font-medium tracking-normal normal-case text-sm bg-[linear-gradient(70deg,#000000,#4B0082)] text-white hover:text-white border border-white/60 transition-all duration-300 scale-100 hover:scale-105 flex items-center gap-2"
+                                className="relative overflow-hidden group px-6 py-2 rounded-lg font-sans font-medium tracking-normal normal-case text-sm bg-transparent text-white hover:text-white border border-white/60 transition-all duration-300 scale-100 hover:scale-105 flex items-center gap-2"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
 

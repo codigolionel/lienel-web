@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const services = [
     {
         title: "Landing Page",
-        text: "Una página simple y profesional para mostrar tu negocio y empezar a recibir consultas.",
+        text: "Una sola página, rápida y profesional. Mostrás quién sos, qué hacés y cómo contactarte. Ideal para arrancar.",
         tagline: "Tu negocio visible en internet",
         icon: (
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ const services = [
     },
     {
         title: "One Page",
-        text: "Una web completa en una sola página, pensada para explicar bien lo que hacés y generar confianza.",
+        text: "Una web completa que guía al visitante: primero entiende lo que hacés, después confía, después te escribe.",
         tagline: "Más claridad, más consultas",
         icon: (
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ const services = [
     },
     {
         title: "Web Completa",
-        text: "Una web con varias secciones, ideal para negocios que quieren una presencia más sólida.",
+        text: "Varias secciones, más profundidad. Para quienes quieren posicionarse fuerte y aparecer en búsquedas de Google.",
         tagline: "Si buscas posicionarte firme",
         icon: (
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -211,7 +211,7 @@ export default function Service() {
                 <div ref={addToRefs} className="text-center lg:text-left mb-10 md:mb-14 max-w-3xl">
 
                     <h2 className="text-4xl sm:text-5xl md:text-[60px] pt-20 font-serif italic font-normal text-[#FFFCF2] leading-tight md:leading-[1.1] mb-6">
-                        Soluciones claras para tu web
+                        Elegí el punto de partida para tu negocio
                     </h2>
                     <p className="text-lg sm:text-xltext-[#FFFFFF]/80 leading-relaxed max-w-2xl">
                         Te ayudamos a elegir la mejor opción para tu negocio.
@@ -344,7 +344,7 @@ export default function Service() {
 
                     <div className="relative z-10 text-center lg:text-left">
                         <h3 className="text-5xl pb-7 sm:text-5xl md:text-5xl font-serif italic font-normal text-[#FFFFFF] mb-3">
-                            ¿No estás seguro cuál elegir?
+                            ¿No sabés cuál es la mejor opción para tu negocio?
                         </h3>
                         <p className="text-base sm:text-lg text-[#FFFFFF]/80">
                             Te ayudamos a definirlo.
@@ -358,7 +358,7 @@ export default function Service() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 rounded-full bg-[#00D2D3] px-6 py-3.5 sm:px-8 sm:py-4 md:px-8 md:py-4 text-sm md:text-base font-bold text-black transition-all duration-300 hover:bg-[#00D2D3]/90 hover:scale-105"
                         >
-                            Contactanos
+                            Consultanos gratis
                             <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
                                 <path
                                     d="M5 12h14M12 5l7 7-7 7"

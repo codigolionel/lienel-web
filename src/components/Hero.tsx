@@ -1,7 +1,8 @@
 import { useRef, useEffect, useState } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
-import wallpaper from "../assets/background-violet-blue.webp"
+import wallpaper from "../assets/1background-violet-blue.webp"
+import wallpaperMobile from "../assets/1background-violet-blue-mobible.webp"
 
 /* ─── Floating Orb component ─── */
 const FloatingOrb = ({ size, x, y, color, delay, duration }: {
@@ -176,14 +177,17 @@ const Hero = () => {
         <section
             id="inicio"
             ref={containerRef}
-            style={{
-                backgroundImage: `url(${wallpaper})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat"
-            }}
             className="relative w-full p-6 sm:p-8 pt-20 text-primary overflow-hidden flex flex-col items-center justify-center min-h-[100dvh]"
         >
+            {/* ─── Background images ─── */}
+            <img src={wallpaperMobile} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover sm:hidden pointer-events-none" />
+            <img
+                src={wallpaper}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover object-[90%_center] hidden sm:block pointer-events-none"
+            />
+
             {/* CAPA OSCURA */}
             <div className="absolute inset-0 bg-black/40 md:bg-black/60 z-0"></div>
 
@@ -225,12 +229,12 @@ const Hero = () => {
             </div>
 
             {/* content */}
-            <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-6 md:gap-10 mt-20 md:mt-28 font-serif">
+            <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center gap-6 md:gap-3 mt-20 md:mt-28 font-serif">
 
                 {/* ─── Credibility Badge ─── */}
                 <div
                     ref={badgeRef}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.18em] text-white/60 opacity-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-[9px] sm:text-[8px] font-sans uppercase tracking-[0.18em] text-white/60 opacity-0"
                 >
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D2D3] opacity-75"></span>
@@ -239,23 +243,22 @@ const Hero = () => {
                     Diseño Web
                 </div>
 
-                <div className="flex flex-col gap-4 text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+                <div className="flex flex-col gap-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
 
                     <div ref={textRef1} className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full pb-3 md:pb-5">
 
                         {/* Line 1: mobile/tablet="Tu negocio en internet," desktop="Tu negocio en internet, listo" */}
                         <span className="w-full">
-                            <span>Tu negocio en internet listo</span>
+                            <span>Tu negocio online</span>
                             <span className="hidden lg:inline"></span>
                         </span>
 
-                        {/* Line 2: mobile/tablet="listo para:" desktop="para + slider" */}
-                        <span className="flex flex-col lg:flex-row items-center justify-center w-full">
-                            <span className="lg:hidden">para</span>
-                            <span className="hidden lg:inline lg:mr-3">para</span>
+                        {/* Line 2: "listo para:" + Line 3: typewriter — stacked on all breakpoints */}
+                        <span className="flex flex-col items-center justify-center w-full">
+                            <span>listo para:</span>
 
                             {/* Animated Typewriter block (CSS Grid ensures perfect stability without duplicate layout jumps) */}
-                            <span className="grid place-items-center lg:place-items-start relative mt-1 lg:mt-0">
+                            <span className="grid place-items-center relative mt-1">
                                 {/* Spacer: reserves maximum width so "para" stays locked in place */}
                                 <span className="invisible italic whitespace-nowrap col-start-1 row-start-1"> aumentar tus ventas.<span className="inline-block w-[3px] lg:w-[5px] ml-1 sm:ml-2"></span></span>
 
@@ -272,8 +275,8 @@ const Hero = () => {
 
                 </div>
 
-                <p ref={textRef3} className="text-white/70 font-sans text-base sm:text-lg md:text-lg lg:text-lg max-w-2xl mx-auto font-medium mt-4">
-                    Creamos páginas web para negocios, profesionales y emprendedores que quieren conseguir más clientes desde internet.
+                <p ref={textRef3} className="text-white/70 font-sans text-sm sm:text-lg md:text-lg lg:text-lg max-w-2xl mx-auto font-medium mt-4">
+                    Creamos tu web desde cero. Vos solo contanos tu negocio y del resto, nos ocupamos nosotros!
                 </p>
 
                 <div ref={btnRef} className="mt-8 font-sans flex flex-col sm:flex-row items-center gap-4">
@@ -285,7 +288,7 @@ const Hero = () => {
                     >
                         <span className="absolute inset-0 bg-[#00D2D3] translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 z-0"></span>
                         <span className="relative z-10 flex items-center gap-2 text-white transition-colors duration-300 group-hover:text-black">
-                            Empezar ahora
+                            Quiero mi web
                             <svg
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -318,7 +321,7 @@ const Hero = () => {
                 {/* ─── Social Proof / Stats Strip ─── */}
                 <div
                     ref={statsRef}
-                    className="mt-10 md:mt-14 flex items-center justify-center gap-4 sm:gap-6 md:gap-10 font-sans text-white/40 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.15em] opacity-0"
+                    className="mt-10 md:mt-14 flex items-center justify-center gap-4 sm:gap-6 md:gap-10 font-sans text-white/40 text-[9px] sm:text-[10px] md:text-xs tracking-[0.15em] opacity-0"
                 >
                     <div className="flex items-center gap-1.5 sm:gap-2">
                         <span className="text-[#00D2D3] text-xs sm:text-sm md:text-base font-bold not-italic">24/7</span>
@@ -334,7 +337,6 @@ const Hero = () => {
             </div>
 
             {/* ─── Bottom gradient fade to surface ─── */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent z-[2] pointer-events-none"></div>
 
         </section>
 

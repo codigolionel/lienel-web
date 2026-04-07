@@ -80,10 +80,10 @@ const Contact = () => {
                 {/* Left Column: Contact Info */}
                 <div ref={infoRef} className="flex flex-col">
                     <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-serif italic text-[#FFFCF2] tracking-tight leading-tight mb-4 text-pretty">
-                        Contame tu proyecto
+                        Contanos tu idea
                     </h2>
                     <p className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl font-sans font-normal mb-12" style={{ opacity: 1 }}>
-                        Te ayudaremos a definir la mejor opción para tu Web.
+                        Respondemos en menos de 24 horas. Sin compromiso.
                     </p>
 
                     <div className="flex flex-col gap-6 text-white/80 font-mono text-[11px] sm:text-xs uppercase tracking-widest pl-4 border-l border-white/10">
@@ -109,7 +109,7 @@ const Contact = () => {
                     </div>
 
                     <div className="mt-12 pt-6 border-t border-white/10 flex items-center justify-between">
-                        <span className="font-sans font-bold text-xl tracking-tight text-white">Linel</span>
+                        <span className="font-sans font-bold text-lg tracking-tight text-white/60">Nuestras Redes</span>
                         <div className="flex items-center gap-3">
                             <a href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#00D2D3] hover:text-[#00D2D3]/80 hover:border-[#00D2D3] transition-all duration-300">
                                 <Facebook className="w-4 h-4" />
@@ -171,7 +171,7 @@ const Contact = () => {
                             <textarea
                                 id="mensaje"
                                 name="mensaje"
-                                placeholder="Dejanos tu Mensaje ..."
+                                placeholder="Dejanos tu Mensaje..."
                                 value={formData.mensaje}
                                 onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer resize-none"

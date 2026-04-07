@@ -85,12 +85,12 @@ const Archive = () => {
                 <div className="max-w-5xl w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center justify-between">
 
                     <div className="flex-1 text-center md:text-left">
-                        <h2 className="text-5xl sm:text-5xl md:text-6xl lg:text-[80px] font-serif italic font-normal text-[#FFFCF2] leading-[1.1] mb-6 text-pretty">
-                            Diseño Web,<br className="hidden md:block" /> <span className="text-[#00D2D3]">sin límites.</span>
+                        <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-[1.05] md:leading-[1] mb-5 text-pretty">
+                            Tu negocio tiene historia.<br className="hidden md:block" /> <span className="text-[#00D2D3]">Tu web tiene que contarla.</span>
                         </h2>
 
                         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-light leading-relaxed" style={{ opacity: 1 }}>
-                            Desarrollamos páginas escalables, seguras y fáciles de administrar garantizando la expansión y rendimiento a largo plazo.
+                            Hoy, si no aparecés online, perdés clientes que ni sabés que te buscaron. No importa cuántos años lleves trabajando. Cuando alguien no te conoce, lo primero que hace es buscarte en Google — y si no encontrás nada, busca a otro. Nosotros resolvemos eso.
                         </p>
                     </div>
 
