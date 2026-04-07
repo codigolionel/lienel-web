@@ -267,9 +267,9 @@ export default function AbautUs() {
                         </p>
 
                         <div className="mt-8 sm:mt-12 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-[32px] sm:rounded-full border border-white/10 bg-white/5 p-5 sm:p-3 sm:pr-8 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02]">
-                            <img 
-                                src={perfilAgus} 
-                                alt="Augusto Lionel Lastre" 
+                            <img
+                                src={perfilAgus}
+                                alt="Augusto Lionel Lastre"
                                 className="h-32 w-32 sm:h-[142px] sm:w-[142px] rounded-full object-cover ring-2 ring-[#00D2D3] p-1"
                             />
                             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -327,15 +327,15 @@ export default function AbautUs() {
                                 >
                                     <svg className="absolute inset-0 w-full h-full -rotate-90 rounded-full" viewBox="0 0 88 88">
                                         <circle cx="44" cy="44" r="43" stroke="currentColor" strokeWidth="2" fill="none" className="text-cyan-400/20" />
-                                        <circle 
-                                            cx="44" cy="44" r="43" 
-                                            stroke="currentColor" 
-                                            strokeWidth="2" 
-                                            fill="none" 
-                                            className="text-cyan-400 step-element overflow-visible" 
-                                            strokeDasharray="271" 
-                                            strokeDashoffset="271" 
-                                            strokeLinecap="round" 
+                                        <circle
+                                            cx="44" cy="44" r="43"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            fill="none"
+                                            className="text-cyan-400 step-element overflow-visible"
+                                            strokeDasharray="271"
+                                            strokeDashoffset="271"
+                                            strokeLinecap="round"
                                         />
                                     </svg>
                                     <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent relative z-10">
@@ -354,14 +354,14 @@ export default function AbautUs() {
                                                 </linearGradient>
                                             </defs>
                                             <line x1="0" y1="1" x2="100%" y2="1" stroke="currentColor" strokeWidth="2" className="text-white/10" />
-                                            <line 
-                                                x1="0" y1="1" x2="100%" y2="1" 
-                                                stroke={`url(#grad-${index})`} 
-                                                strokeWidth="2" 
-                                                strokeDasharray="1" 
-                                                strokeDashoffset="1" 
-                                                pathLength="1" 
-                                                className="step-element" 
+                                            <line
+                                                x1="0" y1="1" x2="100%" y2="1"
+                                                stroke={`url(#grad-${index})`}
+                                                strokeWidth="2"
+                                                strokeDasharray="1"
+                                                strokeDashoffset="1"
+                                                pathLength="1"
+                                                className="step-element"
                                             />
                                         </svg>
                                     </div>
@@ -396,7 +396,7 @@ export default function AbautUs() {
                     </div>
 
                     <div className="relative z-10 mx-auto max-w-3xl">
-                        <p className="mb-20 pt-10 text-2xl sm:text-3xl md:text-4xl lg:text-[60px] font-serif font-normal text-[#FFFCF2] leading-snug lg:leading-[75px]">
+                        <p className="mb-20 pt-10 text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-serif font-normal text-[#FFFCF2] leading-snug lg:leading-[75px]">
                             “La mayoría de tus clientes te va a buscar online antes de escribirte. ¿Qué van a encontrar?”
 
                         </p>
@@ -407,7 +407,7 @@ export default function AbautUs() {
                                 e.preventDefault();
                                 document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="inline-flex items-center gap-3 rounded-full bg-[#EE32A0] px-8 py-3 sm:px-10 sm:py-4 text-lg sm:text-xl md:text-2xl font-serif italic font-normal tracking-[0.04em] text-white transition duration-300 hover:-translate-y-0.5"
+                            className="inline-flex items-center gap-3 rounded-full bg-[#EE32A0] px-8 py-1 sm:px-10 sm:py-2 text-lg sm:text-xl md:text-2xl font-serif italic font-normal tracking-[0.04em] text-white transition duration-300 hover:-translate-y-0.5"
                         >
                             Quiero mi web
                         </a>

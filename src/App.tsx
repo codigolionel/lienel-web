@@ -8,6 +8,7 @@ import AbautUs from './components/AbautUs';
 import Service from './components/Service';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import FAQ from './components/FAQ';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <AbautUs />
         <Archive />
         <Pricing />
+        <FAQ />
         <Contact />
       </main>
 

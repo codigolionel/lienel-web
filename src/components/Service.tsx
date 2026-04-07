@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import bgImage from "../assets/background-violet-blue.webp";
+import peopleImage from "../assets/People.webp";
 import { MousePointer2, Activity, Layers, CodeXml } from "lucide-react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -372,6 +373,11 @@ export default function Service() {
                     </div>
                 </div>
 
+            </div>
+
+            {/* Image of People */}
+            <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-12 md:px-24 mt-24 sm:mt-32 mb-0 flex justify-center">
+                 <img src={peopleImage} alt="Team" className="w-full max-w-5xl rounded-[2rem] object-cover shadow-[0_0_50px_rgba(0,0,0,0.6)] border border-white/10" />
             </div>
 
             {/* Wave divider for smooth transition to AbautUs */}

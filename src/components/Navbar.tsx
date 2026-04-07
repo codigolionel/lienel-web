@@ -19,22 +19,19 @@ const Navbar = () => {
             start: 'top -50',
             end: 99999,
             onUpdate: (self) => {
-                if (self.direction === 1 && self.scroll() > 50 && !isMobileMenuOpen) {
+                if (!isMobileMenuOpen) {
+                    const isScrolled = self.scroll() > 50;
+                    const isScrollingDown = self.direction === 1 && isScrolled;
+
                     gsap.to(navRef.current, {
-                        yPercent: -150,
-                        duration: 0.4,
-                        ease: 'power3.inOut',
-                    });
-                } else if (!isMobileMenuOpen) {
-                    gsap.to(navRef.current, {
-                        yPercent: 0,
-                        duration: 0.4,
+                        yPercent: isScrollingDown ? -150 : 0,
+                        backgroundColor: isScrolled ? 'rgba(11, 11, 16, 0.95)' : 'transparent',
+                        backdropFilter: isScrolled ? 'blur(16px)' : 'blur(0px)',
+                        borderColor: isScrolled ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                        color: isScrolled ? '#FFFFFF' : 'var(--color-primary)',
+                        boxShadow: isScrolled ? '0 10px 40px -10px rgba(0,0,0,0.5)' : 'none',
+                        duration: 0.3,
                         ease: 'power3.out',
-                        backgroundColor: self.scroll() > 50 ? 'rgba(11, 11, 16, 0.9)' : 'transparent',
-                        backdropFilter: self.scroll() > 50 ? 'blur(16px)' : 'blur(0px)',
-                        borderColor: self.scroll() > 50 ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                        color: self.scroll() > 50 ? '#FFFFFF' : 'var(--color-primary)',
-                        boxShadow: self.scroll() > 50 ? '0 10px 40px -10px rgba(0,0,0,0.5)' : 'none',
                     });
                 }
             }

@@ -120,7 +120,7 @@ const Footer = () => {
 
 
                     {/* Contacto */}
-                    <div className="flex flex-col gap-5 text-md lg:col-span-4">
+                    <div className="flex flex-col gap-4 text-md lg:col-span-4">
 
                         <h4 className="text-[#00d3f3] font-mono text-xs uppercase tracking-widest mb-3 transition cursor-default">
                             Contacto
@@ -129,35 +129,33 @@ const Footer = () => {
                         <div className="flex gap-3 items-start group">
                             <MapPin className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
                             <p className="text-white/80 leading-relaxed">
-                                Ituzaingó | Castelar<br />
-                                Buenos Aires, Argentina
+                                Ituzaingó | Castelar, Buenos Aires, Argentina
                             </p>
                         </div>
 
-                        <div className="flex gap-3 items-start group">
-                            <Phone className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
+                        <div className="flex gap-3 items-center group">
+                            <Phone className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition" />
                             <p className="text-white/80">
                                 +54 9 11 6565-7291
-
                             </p>
                         </div>
 
-                        <div className="flex gap-3 items-start group">
-                            <MessageCircle className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
+                        <div className="flex gap-3 items-center group">
+                            <MessageCircle className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition" />
                             <p className="text-white/80">
                                 WhatsApp: 11 6565-7291
                             </p>
                         </div>
 
-                        <div className="flex gap-3 items-start group">
-                            <Clock className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
+                        <div className="flex gap-3 items-center group">
+                            <Clock className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition" />
                             <p className="text-white/80">
                                 Lun a Vie de 9 a 17hs
                             </p>
                         </div>
 
-                        <div className="flex gap-3 items-start group">
-                            <Mail className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition mt-1" />
+                        <div className="flex gap-3 items-center group">
+                            <Mail className="w-4 h-4 text-[#00D2D3] group-hover:text-[#00D2D3]/80 transition" />
                             <p className="text-white/80">
                                 proyectos.linel@gmail.com
                             </p>
