@@ -206,7 +206,7 @@ const Pricing = () => {
 
                 {/* TÍTULO PRINCIPAL */}
                 <div className="text-center mb-16 md:mb-20">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px] mb-6">
+                    <h2 className="text-5xl sm:text-5xl md:text-6xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px] mb-6">
                         Planes Web
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto font-medium opacity-90">
@@ -223,7 +223,7 @@ const Pricing = () => {
 
                 {/* TÍTULO SECUNDARIO: SERVICIOS ADICIONALES */}
                 <div className="text-center mb-12 md:mb-16">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif italic font-normal text-[#FFFCF2] leading-tight mb-4">
+                    <h3 className="text-4xl sm:text-4xl md:text-6xl font-serif italic font-normal text-[#FFFCF2] leading-tight mb-4">
                         Servicios <span className="text-[#00D2D3] opacity-90">Adicionales</span>
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-white/50 max-w-xl mx-auto">

@@ -187,7 +187,7 @@ export default function AbautUs() {
 
                 <div className="mb-20 grid items-center gap-8 md:grid-cols-2">
                     <div ref={addToRefs} className="text-center lg:text-left flex flex-col items-center lg:items-start">
-                        <h2 className="mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                        <h2 className="mb-5 text-4xl sm:text-4xl md:text-5xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                             Tu negocio, pero ahora
                             <span className="bg-[#00D2D3] to-pink-500 bg-clip-text text-transparent"> online.</span>
                         </h2>

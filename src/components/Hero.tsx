@@ -253,7 +253,7 @@ const Hero = () => {
                     Diseño Web
                 </div>
 
-                <div className="flex flex-col gap-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+                <div className="flex flex-col gap-4 text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
                     <div
                         ref={textRef1}
                         className="text-primary font-medium inline-flex flex-col items-center text-center mx-auto relative w-full pb-3 md:pb-5"
@@ -288,7 +288,7 @@ const Hero = () => {
 
                 <p
                     ref={textRef3}
-                    className="text-white/70 font-sans text-sm sm:text-lg md:text-lg lg:text-lg max-w-2xl mx-auto font-medium mt-4"
+                    className="text-white/70 font-sans text-base sm:text-lg md:text-lg lg:text-lg max-w-2xl mx-auto font-medium mt-4"
                 >
                     Creamos tu web desde cero. Vos solo contanos tu negocio y del resto, nos ocupamos nosotros!
                 </p>

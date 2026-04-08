@@ -166,7 +166,7 @@ const Archive = () => {
             {/* CARD 3 */}
             <div
                 ref={card3Ref}
-                className="min-h-[100dvh] w-full flex flex-col justify-start md:justify-center items-center p-6 md:p-8 bg-[#0B0B10] origin-top shadow-[0_-20px_50px_rgba(0,0,0,0.5)] pt-32 pb-20 md:py-8"
+                className="w-full flex flex-col justify-center items-center p-6 md:p-8 lg:p-8 bg-[#0B0B10] origin-top shadow-[0_-20px_50px_rgba(0,0,0,0.5)] pt-20 pb-16 md:py-24 lg:py-8 lg:min-h-[100dvh]"
             >
                 <div className="max-w-6xl w-full flex flex-col items-center text-center gap-6 md:gap-12">
 

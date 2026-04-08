@@ -344,7 +344,7 @@ export default function Service() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-md max-h-32 bg-gradient-to-r from-[#00D2D3]/20 to-[#EE32A0]/20 blur-[80px] pointer-events-none" />
 
                     <div className="relative z-10 text-center lg:text-left">
-                        <h3 className="text-5xl pb-7 sm:text-5xl md:text-5xl font-serif italic font-normal text-[#FFFFFF] mb-3">
+                        <h3 className="text-4xl pb-7 sm:text-5xl md:text-5xl font-serif italic font-normal text-[#FFFFFF] mb-3">
                             ¿No sabés cuál es la mejor opción para tu negocio?
                         </h3>
                         <p className="text-base sm:text-lg text-[#FFFFFF]/80">
@@ -377,7 +377,7 @@ export default function Service() {
 
             {/* Image of People */}
             <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-12 md:px-24 mt-24 sm:mt-32 mb-0 flex justify-center">
-                 <img src={peopleImage} alt="Team" className="w-full max-w-5xl rounded-[2rem] object-cover shadow-[0_0_50px_rgba(0,0,0,0.6)] border border-white/10" />
+                <img src={peopleImage} alt="Team" className="w-full max-w-5xl rounded-[2rem] object-cover shadow-[0_0_50px_rgba(0,0,0,0.6)] border border-white/10" />
             </div>
 
             {/* Wave divider for smooth transition to AbautUs */}
