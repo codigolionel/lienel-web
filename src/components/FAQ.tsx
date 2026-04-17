@@ -5,23 +5,19 @@ import faqBg from '../assets/FAQ.webp';
 const faqs = [
     {
         question: "¿Cuáles son los pasos para empezar?",
-        answer: "El proceso es simple: primero coordinamos una breve charla o nos contás tu idea por WhatsApp. Luego te enviamos una propuesta con el presupuesto. Una vez aprobado, empezamos con el diseño y desarrollo manteniéndote informado en cada avance hasta que publicamos tu web."
+        answer: "El proceso es simple: primero coordinamos una breve charla o nos contás tu idea por WhatsApp. Luego te asesoramos con el diseño (tipografias, colores, copywriter, etc)."
     },
     {
         question: "¿Se incluyen cambios en la web?",
-        answer: "Sí. Durante la etapa de diseño de tu sitio web incluimos instancias de revisión donde podrás pedir modificaciones estructurales o de texto. Nuestro objetivo es que la página quede tal y como te la imaginás."
+        answer: "Sí. Durante la etapa de diseño de tu sitio web incluimos instancias de revisión. Una vez entregada la web, podés solicitar modificaciones dentro del plazo acordado."
     },
     {
         question: "¿Cuál es el método de pago?",
         answer: "Aceptamos transferencias bancarias y Mercado Pago. Generalmente trabajamos con un anticipo del 50% al comenzar el proyecto y el 50% restante una vez que la página está lista y publicada."
     },
     {
-        question: "¿Necesito conocimientos técnicos para manejarla después?",
-        answer: "Para nada. Tu sitio estará optimizado para que no necesites tocar código una vez finalizado. Te entregamos la web funcionando al 100%."
-    },
-    {
-        question: "¿Tienen mantenimiento post-entrega?",
-        answer: "Sí. Ofrecemos como servicio adicional diferentes opciones de mantenimiento mensual para asegurarnos de que tu página esté siempre actualizada, rápida, segura y realizando periódicas copias de respaldo de todos tus datos."
+        question: "¿Qué pasa con mi pagina si no quiero renovar el servicio de hosting?",
+        answer: "Si no querés renovar el servicio de hosting, no te preocupes, porque nosotros al contratar nuestro servicio te vamos a dar tu pagina en un archivo .zip para que puedas tenerla en tu poder."
     }
 ];
 

@@ -1,0 +1,9 @@
+0x4AAAAAAC-EaTzblP9tpl8p Clave del sitio
+
+0x4AAAAAAC-EaTzp4eknnFlQMnCIer3kAzA Clave secreta
+
+Dónde va cada una
+En tu frontend (.env)
+VITE_TURNSTILE_SITE_KEY=TU_SITE_KEY
+En tu backend (config.php)
+'TURNSTILE_SECRET' => 'TU_SECRET_KEY',

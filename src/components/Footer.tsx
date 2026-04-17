@@ -180,6 +180,15 @@ const Footer = () => {
                             Linel.com.ar
                         </span>
                     </div>
+                    <span className="hidden sm:inline-block opacity-30">|</span>
+                    <a
+                        href="/privacidad.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                    >
+                        Política de privacidad
+                    </a>
                 </div>
 
             </div>
