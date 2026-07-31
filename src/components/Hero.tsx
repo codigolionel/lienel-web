@@ -169,9 +169,9 @@ const Hero = () => {
                     className="font-serif w-full"
                 >
                     <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[82px] font-medium leading-[1.04] tracking-[-0.02em] text-white">
-                        Tu negocio online
+                        Tu Página Web
                         <br />
-                        listo para:{" "}
+                        lista para:{" "}
                         <span className="relative inline-grid">
                             {/* Spacer keeps layout stable */}
                             <span className="invisible italic whitespace-nowrap col-start-1 row-start-1 text-[#00D2D3]">
