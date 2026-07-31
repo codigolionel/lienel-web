@@ -273,8 +273,8 @@ export default function AbautUs() {
                                 className="h-32 w-32 sm:h-[142px] sm:w-[142px] rounded-full object-cover ring-2 ring-[#00D2D3] p-1"
                             />
                             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                                <span className="text-base sm:text-lg font-bold text-white tracking-wide">AUGUSTO LIONEL LASTRE</span>
-                                <span className="text-xs sm:text-sm font-semibold text-[#00D2D3]">desarrollador Web FullStack.</span>
+                                <span className="text-base sm:text-lg font-bold text-white tracking-wide">Augusto Lionel Lastre</span>
+                                <span className="text-xs sm:text-sm font-semibold text-[#00D2D3]">Desarrollador Web FullStack.</span>
                             </div>
                         </div>
                     </div>
