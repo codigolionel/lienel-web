@@ -195,7 +195,7 @@ const Hero = () => {
                     ref={textRef3}
                     className="text-white/65 font-sans text-base sm:text-lg max-w-xl mx-auto font-normal mt-7 leading-relaxed"
                 >
-                    Creamos tu web desde cero. Vos solo contanos tu negocio y del resto, nos ocupamos nosotros.
+                    Creamos tu web desde cero. Vos solo contanos tu idea y del resto, nos ocupamos nosotros.
                 </p>
 
                 {/* CTAs */}
