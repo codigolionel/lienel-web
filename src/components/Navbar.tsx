@@ -191,7 +191,7 @@ const Navbar = () => {
                 <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-0 flex flex-col md:flex-row relative z-10 min-h-[100dvh]">
 
                     {/* Left Column */}
-                    <div className="flex-1 flex flex-col justify-center items-start md:border-r border-white/10 md:pr-12 lg:pr-24 pt-12 md:pt-0 pb-12 md:pb-0">
+                    <div className="flex-1 flex flex-col justify-center items-start md:border-r border-white/10 md:pr-12 lg:pr-24 pt-[10px] md:pt-0 pb-[10px] md:pb-0">
                         <ul className="flex flex-col items-start gap-4 sm:gap-6 w-full">
                             {mobileLinks.map((link, index) => (
                                 <li

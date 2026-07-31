@@ -199,12 +199,12 @@ const Hero = () => {
                 </p>
 
                 {/* CTAs */}
-                <div ref={btnRef} className="mt-9 font-sans flex flex-col sm:flex-row items-center gap-3">
+                <div ref={btnRef} className="mt-9 font-sans flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
                     <a
                         href="https://wa.me/5491165657291"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#EE32A0] px-7 py-3.5 md:px-8 md:py-4 text-sm md:text-base font-semibold text-white transition-all duration-300 hover:scale-[1.03] group shadow-[0_0_24px_rgba(238,50,160,0.35)] hover:shadow-[0_0_40px_rgba(238,50,160,0.55)]"
+                        className="w-[220px] relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#EE32A0] py-3.5 md:py-4 text-sm md:text-base font-semibold text-white transition-all duration-300 hover:scale-[1.03] group shadow-[0_0_24px_rgba(238,50,160,0.35)] hover:shadow-[0_0_40px_rgba(238,50,160,0.55)]"
                     >
                         <span className="absolute inset-0 bg-[#EE32A0]/80 translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 z-0" />
                         <span className="relative z-10 flex items-center gap-2">
@@ -230,7 +230,7 @@ const Hero = () => {
                             e.preventDefault()
                             document.querySelector("#proceso")?.scrollIntoView({ behavior: "smooth" })
                         }}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/12 px-6 py-3.5 text-sm font-medium text-white/70 transition-all duration-300 hover:bg-white/8 hover:border-white/20 hover:text-white/90"
+                        className="w-[220px] flex items-center justify-center gap-2 rounded-full border border-white/12 py-3.5 md:py-4 text-sm md:text-base font-medium text-white/70 transition-all duration-300 hover:bg-white/8 hover:border-white/20 hover:text-white/90"
                     >
                         Cómo trabajamos
                     </a>

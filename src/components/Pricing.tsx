@@ -129,11 +129,10 @@ const PlanCard = ({ plan }: { plan: PlanType }) => {
 
             {/* Badge */}
             {displayBadge && (
-                <div className={`absolute -top-3 right-6 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full ${
-                    displayBadge === 'Recurrente'
+                <div className={`absolute -top-3 right-6 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full ${displayBadge === 'Recurrente'
                         ? 'bg-[#0B0B12] border border-white/15 text-white/60'
                         : 'bg-[#00D2D3] text-black'
-                }`}>
+                    }`}>
                     {displayBadge}
                 </div>
             )}
@@ -222,7 +221,6 @@ const Pricing = () => {
                 {/* Social proof */}
                 <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
                     {[
-                        { stat: '+30', label: 'negocios con su web' },
                         { stat: '100%', label: 'satisfacción garantizada' },
                         { stat: '24/7', label: 'soporte incluido' },
                     ].map(({ stat, label }) => (

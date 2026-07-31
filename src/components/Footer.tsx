@@ -25,7 +25,7 @@ const Footer = () => {
                     {/* Marca */}
                     <div className="flex flex-col gap-6 lg:col-span-4 lg:pr-10">
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-0.5">
                             <img src={logoIcon} alt="Linel Logo" className="w-10 h-10 object-contain" />
                             <h3 className="text-xl font-bold tracking-wide text-white">Linel</h3>
                         </div>
@@ -176,7 +176,7 @@ const Footer = () => {
                         © {new Date().getFullYear()} Linel. Todos los derechos reservados.
                     </p>
                     <span className="hidden sm:inline-block opacity-30">|</span>
-                    <div className="flex items-center gap-2 text-white/40">
+                    <div className="flex items-center gap-0.5">
                         <img src={logoIcon} alt="Linel" className="w-6 h-6 opacity-70" />
                         <span className="text-xs sm:text-sm font-medium">
                             Linel.com.ar
