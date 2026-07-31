@@ -103,6 +103,7 @@ const Navbar = () => {
         { href: '#servicios', label: 'Servicios' },
         { href: '#proceso', label: 'Proceso' },
         { href: '#nosotros', label: 'Nosotros' },
+        { href: '#pricing', label: 'Precios' },
         { href: '#contacto', label: 'Contacto' },
     ];
 
@@ -133,6 +134,7 @@ const Navbar = () => {
                             { href: '#servicios', label: 'Servicios' },
                             { href: '#proceso', label: 'Proceso' },
                             { href: '#nosotros', label: 'Nosotros' },
+                            { href: '#pricing', label: 'Precios' },
                             { href: '#contacto', label: 'Contacto' },
                         ].map((item) => (
                             <li key={item.href}>

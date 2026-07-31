@@ -68,7 +68,7 @@ const differentiators: Differentiator[] = [
     },
     {
         title: "Para quienes empiezan desde cero",
-        text: "Esto ya  no es un problema.",
+        text: "Aunque no tengas logo, textos ni fotos, no es un problema. Empezamos con lo que tengas y te guíamos en cada paso del camino.",
         icon: (
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                 <path
@@ -176,9 +176,9 @@ export default function AbautUs() {
                         Quienes somos
                     </div>
 
-                    <h1 className="mb-5 text-4xl sm:text-4xl md:text-5xl lg:text-[70px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
+                    <h2 className="mb-5 text-4xl sm:text-4xl md:text-5xl lg:text-[70px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
                         Sobre Linel
-                    </h1>
+                    </h2>
 
                     <p className="mx-auto max-w-2xl text-sm sm:text-base leading-7 text-white md:text-lg md:leading-8" style={{ opacity: 1 }}>
                         Creamos páginas web claras, rápidas y pensadas para generar resultados.
@@ -338,7 +338,7 @@ export default function AbautUs() {
                                             strokeLinecap="round"
                                         />
                                     </svg>
-                                    <span className="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-2xl font-extrabold text-transparent relative z-10">
+                                    <span className="text-[#00D2D3] text-2xl font-extrabold relative z-10">
                                         {step.number}
                                     </span>
                                 </div>

@@ -214,7 +214,7 @@ export default function Service() {
                     <h2 className="text-4xl sm:text-5xl md:text-[60px] pt-20 font-serif italic font-normal text-[#FFFCF2] leading-tight md:leading-[1.1] mb-6">
                         Elegí el punto de partida para tu negocio
                     </h2>
-                    <p className="text-lg sm:text-xltext-[#FFFFFF]/80 leading-relaxed max-w-2xl">
+                    <p className="text-lg sm:text-xl text-[#FFFFFF]/80 leading-relaxed max-w-2xl">
                         Te ayudamos a elegir la mejor opción para tu negocio.
                     </p>
                 </div>

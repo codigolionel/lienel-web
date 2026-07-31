@@ -39,6 +39,7 @@ const Footer = () => {
 
                             <a
                                 href="https://www.facebook.com/linelDigital/?rdid=RL6EIKA1EUVzo1si" target="_blank" rel="noopener noreferrer"
+                                aria-label="Ir a Facebook de Linel"
                                 className="text-[#00D2D3] hover:text-white transition-colors"
                             >
                                 <Facebook className="w-5 h-5" />
@@ -46,6 +47,7 @@ const Footer = () => {
 
                             <a
                                 href="https://www.instagram.com/linel_digital?igsh=YWIxaXFobHFqdjFq" target="_blank" rel="noopener noreferrer"
+                                aria-label="Ir a Instagram de Linel"
                                 className="text-[#00D2D3] hover:text-white transition-colors"
                             >
                                 <Instagram className="w-5 h-5" />

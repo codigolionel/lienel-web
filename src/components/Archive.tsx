@@ -75,7 +75,7 @@ const Archive = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} id="servicios" className="relative w-full bg-surface">
+        <section ref={containerRef} id="propuesta" className="relative w-full bg-surface">
 
             {/* CARD 1 */}
             <div
@@ -152,7 +152,7 @@ const Archive = () => {
 
                     <div className="w-full md:flex-1 order-1 md:order-2 text-center md:text-left">
                         <h2 className="text-5xl sm:text-5xl md:text-6xl lg:text-[80px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px]">
-                            Velocidad y <br /><span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] font-normal">Rendimiento.</span>
+                            Velocidad y <br /><span className="font-serif italic text-[#00D2D3] font-normal">Rendimiento.</span>
                         </h2>
 
                         <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-7 text-white md:text-lg md:leading-8">
@@ -189,12 +189,26 @@ const Archive = () => {
 
                     <div className="pb-10 md:pb-0">
                         <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[80px] font-serif italic font-normal tracking-tight mb-6 md:mb-12 text-[#FFFCF2] leading-[1.1] text-pretty">
-                            Démosle vida a tu <br className="hidden md:block" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2D3] to-[#EE32A0] font-bold pr-2">negocio online.</span>
+                            Démosle vida a tu <br className="hidden md:block" /><span className="text-[#EE32A0] font-bold pr-2">negocio online.</span>
                         </h2>
 
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-sans font-light max-w-3xl mx-auto text-white/80 text-pretty px-4 leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-sans font-light max-w-3xl mx-auto text-white/80 text-pretty px-4 leading-relaxed mb-10">
                             No dejes pasar más tiempo. Animate a dar el primer paso digital y transformá tu idea en un negocio online.
                         </p>
+
+                        <a
+                            href="#contacto"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="inline-flex items-center gap-2 rounded-full bg-[#EE32A0] px-7 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(238,50,160,0.4)] group"
+                        >
+                            Quiero mi web
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 transition-transform group-hover:translate-x-1">
+                                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
                     </div>
 
                 </div>

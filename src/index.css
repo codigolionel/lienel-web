@@ -11,6 +11,11 @@
   --color-clay: #cb997e;
   /* clay */
 
+  /* ─── Dark surface scale ─── */
+  --color-bg-base: #0B0B10;      /* page background */
+  --color-bg-raised: #111118;    /* card / panel surface */
+  --color-bg-elevated: #1A1A24;  /* featured card */
+
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-outfit: 'Outfit', serif;
   --font-serif: 'Cormorant Garamond', serif;

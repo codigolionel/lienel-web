@@ -36,8 +36,9 @@ const Contact = () => {
     const [formData, setFormData] = useState({
         nombre: '',
         email: '',
+        telefono_real: '',
         mensaje: '',
-        telefono: '',
+        website: '',
     });
 
     const [turnstileToken, setTurnstileToken] = useState('');
@@ -48,16 +49,13 @@ const Contact = () => {
     const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '';
 
     useEffect(() => {
-        let attempts = 0;
+        const scriptId = 'cloudflare-turnstile-script';
+        let script = document.getElementById(scriptId) as HTMLScriptElement | null;
 
-        const tryRender = () => {
-            attempts += 1;
-
+        const loadWidget = () => {
             if (!turnstileContainerRef.current) return;
-
             if (window.turnstile && !widgetIdRef.current) {
                 turnstileContainerRef.current.innerHTML = '';
-
                 widgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
                     sitekey: TURNSTILE_SITE_KEY,
                     theme: 'dark',
@@ -74,18 +72,36 @@ const Contact = () => {
                         setErrorMessage('No se pudo cargar la verificación de seguridad.');
                     },
                 });
-
-                return;
-            }
-
-            if (attempts < 20) {
-                setTimeout(tryRender, 300);
-            } else {
-                setErrorMessage('No se pudo cargar la verificación de seguridad.');
             }
         };
 
-        tryRender();
+        if (window.turnstile) {
+            loadWidget();
+        } else if (!script) {
+            script = document.createElement('script');
+            script.id = scriptId;
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+            script.async = true;
+            script.defer = true;
+            script.onload = loadWidget;
+            script.onerror = () => {
+                setErrorMessage('No se pudo cargar la verificación de seguridad.');
+            };
+            document.body.appendChild(script);
+        } else {
+            script.addEventListener('load', loadWidget);
+        }
+
+        return () => {
+            if (widgetIdRef.current && window.turnstile) {
+                window.turnstile.reset(widgetIdRef.current);
+                widgetIdRef.current = null;
+            }
+            const scriptToRemove = document.getElementById(scriptId);
+            if (scriptToRemove && scriptToRemove.parentNode) {
+                scriptToRemove.parentNode.removeChild(scriptToRemove);
+            }
+        };
     }, [TURNSTILE_SITE_KEY]);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -93,7 +109,7 @@ const Contact = () => {
         setStatus('loading');
         setErrorMessage('');
 
-        if (formData.telefono.trim() !== '') {
+        if (formData.website.trim() !== '') {
             setStatus('error');
             setErrorMessage('No se pudo enviar el mensaje.');
             return;
@@ -112,6 +128,7 @@ const Contact = () => {
                 body: JSON.stringify({
                     name: formData.nombre,
                     contact: formData.email,
+                    phone: formData.telefono_real,
                     message: formData.mensaje,
                     token: turnstileToken,
                 }),
@@ -127,8 +144,9 @@ const Contact = () => {
             setFormData({
                 nombre: '',
                 email: '',
+                telefono_real: '',
                 mensaje: '',
-                telefono: '',
+                website: '',
             });
             setTurnstileToken('');
 
@@ -171,31 +189,32 @@ const Contact = () => {
         <section
             id="contacto"
             ref={containerRef}
-            className="relative w-full pt-16 pb-24 sm:pt-20 sm:pb-32 md:pt-24 md:pb-48 px-8 sm:px-12 md:px-24 bg-[#0B0B10] text-[#FFFFFF] overflow-hidden"
+            className="relative w-full pt-24 pb-28 sm:pt-32 sm:pb-36 md:pt-36 md:pb-48 px-6 sm:px-12 md:px-16 bg-[#0B0B10] text-[#FFFFFF] overflow-hidden"
         >
             <div
-                className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity will-change-transform"
+                className="absolute inset-0 z-0 opacity-60"
                 style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1551288049-bebda4e38f71")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(8px) brightness(0.5)',
+                    background: 'radial-gradient(ellipse at 20% 50%, rgba(0,210,211,0.07) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(238,50,160,0.07) 0%, transparent 55%)',
                 }}
             />
 
             <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0B0B10]/95 via-[#0B0B10]/80 to-black/95" />
 
-            <div className="relative z-10 max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div ref={infoRef} className="flex flex-col">
-                    <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-serif italic text-[#FFFCF2] tracking-tight leading-tight mb-4 text-pretty">
-                        Contanos tu idea
+            <div className="relative z-10 max-w-5xl mx-auto w-full">
+                {/* Section header */}
+                <div className="mb-16 md:mb-20">
+                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#00D2D3] mb-4">Contacto</p>
+                    <h2 className="text-4xl sm:text-5xl font-serif italic text-[#FFFCF2] tracking-tight leading-tight">
+                        Contános tu idea
                     </h2>
-
-                    <p className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl font-sans font-normal mb-12">
+                    <p className="text-white/45 text-base sm:text-lg font-normal mt-4 max-w-md leading-relaxed">
                         Respondemos en menos de 24 horas. Sin compromiso.
                     </p>
+                </div>
 
-                    <div className="flex flex-col gap-6 text-white/80 font-mono text-[11px] sm:text-xs uppercase tracking-widest pl-4 border-l border-white/10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div ref={infoRef} className="flex flex-col gap-8">
+                    <div className="flex flex-col gap-6 text-white/80 font-sans text-sm pl-4 border-l border-white/10">
                         <div className="group">
                             <span className="text-[10px] text-[#00D2D3] font-bold mb-1 block">Dirección</span>
                             <p className="group-hover:text-white transition-colors text-sm text-pretty">
@@ -259,56 +278,69 @@ const Contact = () => {
 
                 <form
                     ref={formRef}
-                    className="bg-white/5 backdrop-blur-xl border border-[#00D2D3]/20 p-8 sm:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden group/form"
+                    className="bg-[#0E0E18] border border-white/[0.08] p-8 sm:p-10 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative overflow-hidden"
                     onSubmit={handleSubmit}
                 >
                     <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00D2D3] to-transparent opacity-100" />
 
                     <input
                         type="text"
-                        name="telefono"
-                        value={formData.telefono}
-                        onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
+                        name="website"
+                        value={formData.website}
+                        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         className="hidden opacity-0 mx-[-9999px]"
                         tabIndex={-1}
                         autoComplete="off"
                     />
 
-                    <div className="flex flex-col gap-6 w-full">
-                        <div className="relative group/input">
+                    <div className="flex flex-col gap-5 w-full">
+                        <div>
                             <input
                                 type="text"
                                 id="nombre"
                                 name="nombre"
-                                placeholder="Nombre"
+                                placeholder="Nombre *"
                                 value={formData.nombre}
                                 onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer"
+                                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/40 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/25"
                                 required
                             />
                         </div>
 
-                        <div className="relative group/input">
+                        <div>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                placeholder="Correo electrónico"
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer"
+                                placeholder="Correo electrónico *"
+                                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/40 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/25"
                                 required
                             />
                         </div>
 
-                        <div className="relative group/input">
+                        <div>
+                            <input
+                                type="tel"
+                                id="telefono_real"
+                                name="telefono_real"
+                                value={formData.telefono_real}
+                                onChange={(e) => setFormData({ ...formData, telefono_real: e.target.value })}
+                                placeholder="Teléfono / WhatsApp (opcional)"
+                                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/40 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/25"
+                                autoComplete="tel"
+                            />
+                        </div>
+
+                        <div>
                             <textarea
                                 id="mensaje"
                                 name="mensaje"
                                 placeholder="Dejanos tu mensaje..."
                                 value={formData.mensaje}
                                 onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/50 focus:bg-white/10 transition-colors placeholder:text-white/40 peer resize-none"
+                                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-[#00D2D3]/40 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/25 resize-none"
                                 rows={4}
                                 required
                             />
@@ -336,22 +368,20 @@ const Contact = () => {
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="relative max-w-xs mx-auto w-full mt-4 flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-[#00D2D3] backdrop-blur-sm px-8 py-4 font-sans font-bold uppercase tracking-widest text-[13px] sm:text-sm text-black hover:text-white transition-colors duration-300 hover:scale-105 group/btn disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full mt-2 flex items-center justify-center gap-2 rounded-xl bg-[#00D2D3] px-8 py-4 font-sans font-semibold text-sm text-black hover:bg-[#00D2D3]/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(0,210,211,0.35)] disabled:opacity-50 disabled:cursor-not-allowed group/btn"
                         >
-                            <span className="absolute inset-0 bg-[#EE32A0] translate-y-full transition-transform duration-300 ease-in-out group-hover/btn:translate-y-0 z-0" />
-                            <span className="relative z-10 flex items-center gap-2">
-                                {status === 'loading' ? (
-                                    <>Enviando...</>
-                                ) : (
-                                    <>
-                                        <Send className="w-4 h-4 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
-                                        Enviar Mensaje
-                                    </>
-                                )}
-                            </span>
+                            {status === 'loading' ? (
+                                <>Enviando...</>
+                            ) : (
+                                <>
+                                    <Send className="w-4 h-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                                    Enviar Mensaje
+                                </>
+                            )}
                         </button>
                     </div>
                 </form>
+            </div>
             </div>
         </section>
     );

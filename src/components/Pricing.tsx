@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 const mainPlans = [
     {
         name: 'Tu primer paso online',
-        tagline: 'Tu primer paso online, ideal para Profesionales',
+        tagline: 'Ideal para profesionales y negocios que arrancan',
         price: '$ 215.000',
         priceNote: null,
         delivery: 'Entrega: 5–10 días',
@@ -71,7 +71,7 @@ const additionalServices = [
         name: 'A Medida',
         tagline: 'Para proyectos personalizados o más avanzados',
         price: 'Cotización personalizada',
-        priceStyle: 'custom', // For special rendering
+        priceStyle: 'custom',
         priceNote: null,
         delivery: null,
         featured: false,
@@ -86,7 +86,7 @@ const additionalServices = [
     },
     {
         name: 'Mantenimiento',
-        tagline: 'Disfruta tu tiempo libre',
+        tagline: 'Disfrutá tu tiempo libre',
         price: 'Depende del Servicio',
         priceNote: '',
         delivery: null,
@@ -106,7 +106,7 @@ const additionalServices = [
 
 type PlanType = typeof mainPlans[0] | typeof additionalServices[0];
 
-/* ─── TARJETA PRINCIPAL PARA PLANES Y SERVICIOS ─── */
+/* ─── TARJETA PRINCIPAL ─── */
 const PlanCard = ({ plan }: { plan: PlanType }) => {
     const isFeatured = plan.featured;
     const displayBadge = plan.badge;
@@ -115,140 +115,154 @@ const PlanCard = ({ plan }: { plan: PlanType }) => {
     return (
         <div
             className={`
-                relative rounded-3xl p-10 lg:p-8 flex flex-col flex-1 w-full h-full min-h-[440px]
-                transition-colors duration-500
+                relative rounded-2xl flex flex-col flex-1 w-full h-full min-h-[480px]
+                transition-all duration-300
                 ${isFeatured
-                    ? 'bg-[#1A1A2A] border-2 border-[#00D2D3]/60 shadow-[0_0_40px_rgba(0,210,211,0.15)] z-10'
-                    : 'bg-[#111118] border border-white/5 opacity-90'}
+                    ? 'bg-[#0E0E18] border border-[#00D2D3]/40 shadow-[0_0_0_1px_rgba(0,210,211,0.1),0_24px_48px_rgba(0,0,0,0.4)] scale-[1.02]'
+                    : 'bg-[#0B0B12] border border-white/[0.06] hover:border-white/[0.12] hover:bg-white/[0.02]'}
             `}
         >
+            {/* Featured highlight line */}
+            {isFeatured && (
+                <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-[#00D2D3]/60 to-transparent" />
+            )}
+
             {/* Badge */}
             {displayBadge && (
-                <div className={`absolute top-0 right-8 -translate-y-1/2 text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full ${displayBadge === 'Recurrente'
-                    ? 'bg-[#111118] border border-[#00D2D3] text-[#00D2D3]'
-                    : btnColor === 'magenta'
-                        ? 'bg-black border border-[#EE32A0] text-[#EE32A0]'
-                        : 'bg-[#00D2D3] text-black shadow-[0_0_15px_rgba(0,210,211,0.4)]'
-                    }`}>
+                <div className={`absolute -top-3 right-6 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full ${
+                    displayBadge === 'Recurrente'
+                        ? 'bg-[#0B0B12] border border-white/15 text-white/60'
+                        : 'bg-[#00D2D3] text-black'
+                }`}>
                     {displayBadge}
                 </div>
             )}
 
-            {/* Nombre y tagline */}
-            <div className="mb-8 lg:mb-6">
-                <h3 className="font-sans font-bold text-2xl sm:text-3xl lg:text-2xl mb-2 text-white tracking-tight">
-                    {plan.name}
-                </h3>
-                <p className="text-sm lg:text-xs text-white/50">
-                    {plan.tagline}
-                </p>
-            </div>
+            <div className="p-8 flex flex-col h-full gap-6">
+                {/* Name and tagline */}
+                <div>
+                    <h3 className="font-sans font-semibold text-xl mb-1.5 text-white tracking-tight">
+                        {plan.name}
+                    </h3>
+                    <p className="text-sm text-white/40 leading-relaxed">
+                        {plan.tagline}
+                    </p>
+                </div>
 
-            {/* Precio */}
-            <div className="mb-8 lg:mb-6 pb-8 lg:pb-6 border-b border-white/10">
-                {plan.price ? (
-                    <>
-                        <span className={`font-mono ${'priceStyle' in plan && plan.priceStyle === 'custom'
-                            ? 'font-normal text-2xl sm:text-3xl lg:text-3xl text-white/70 tracking-tight'
-                            : 'text-4xl sm:text-5xl lg:text-4xl font-bold text-white'}`}>
-                            {plan.price}
-                        </span>
-                        {plan.priceNote && (
-                            <span className="text-sm lg:text-xs italic ml-3 text-white/70">
-                                {plan.priceNote}
+                {/* Price */}
+                <div className="pb-6 border-b border-white/[0.07]">
+                    {plan.price ? (
+                        <>
+                            <span className={`font-mono ${'priceStyle' in plan && plan.priceStyle === 'custom'
+                                ? 'font-normal text-2xl text-white/50 tracking-tight'
+                                : 'text-4xl font-bold text-white tracking-tight'}`}>
+                                {plan.price}
                             </span>
-                        )}
-                        {plan.delivery && (
-                            <p className="text-xs lg:text-[10px] mt-3 lg:mt-2 text-white/60">
-                                {plan.delivery}
-                            </p>
-                        )}
-                    </>
-                ) : null}
+                            {plan.delivery && (
+                                <p className="text-xs mt-2 text-white/35 font-mono">
+                                    {plan.delivery}
+                                </p>
+                            )}
+                        </>
+                    ) : null}
+                </div>
+
+                {/* Features */}
+                <ul className="flex flex-col gap-3 mb-auto text-sm text-white/60">
+                    {plan.features.map((f, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                            <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#00D2D3]" />
+                            {f}
+                        </li>
+                    ))}
+                </ul>
+
+                {/* CTA */}
+                <a
+                    href="https://wa.me/5491165657291"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`
+                        mt-2 w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 block text-center
+                        ${btnColor === 'cyan'
+                            ? 'bg-[#00D2D3] text-black hover:bg-[#00D2D3]/90 hover:shadow-[0_0_24px_rgba(0,210,211,0.3)]'
+                            : 'bg-white/[0.06] border border-white/[0.1] text-white/80 hover:bg-white/[0.1] hover:border-white/20'}
+                    `}
+                >
+                    {plan.cta}
+                </a>
             </div>
-
-            {/* Features */}
-            <ul className="flex flex-col gap-4 lg:gap-3 mb-auto text-sm lg:text-xs text-white/80">
-                {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-3 lg:gap-2">
-                        <Check className="w-4 h-4 lg:w-3.5 lg:h-3.5 mt-0.5 flex-shrink-0 text-[#00D2D3]" />
-                        {f}
-                    </li>
-                ))}
-            </ul>
-
-            {/* CTA */}
-            <a
-                href="https://wa.me/5491165657291"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                    mt-10 lg:mt-6 w-full py-4 lg:py-3 rounded-xl font-bold transition-all block text-center
-                    ${btnColor === 'cyan'
-                        ? 'border border-[#00D2D3] text-[#00D2D3] bg-transparent hover:bg-[#00D2D3]/10 hover:shadow-[0_0_20px_rgba(0,210,211,0.2)] shadow-[0_0_15px_rgba(0,210,211,0.1)]'
-                        : 'border border-[#EE32A0]/30 text-[#EE32A0] hover:bg-[#EE32A0]/10 hover:border-[#EE32A0]/70'}
-                `}
-            >
-                {plan.cta}
-            </a>
         </div>
     );
 };
 
-/* ─── COMPONENTE PRINCIPAL ESTÁTICO ─── */
+/* ─── COMPONENTE PRINCIPAL ─── */
 const Pricing = () => {
     return (
-        <section id="pricing" className="relative w-full pt-8 pb-16 sm:pt-12 sm:pb-20 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
+        <section id="pricing" className="relative w-full pt-24 pb-20 sm:pt-32 sm:pb-28 px-4 sm:px-8 bg-[#0B0B10] text-[#FFFFFF]">
+
+            {/* Subtle top divider */}
+            <div className="max-w-6xl mx-auto mb-16 md:mb-20">
+                <div className="w-px h-12 bg-white/10 mx-auto" />
+            </div>
+
             <div className="max-w-6xl mx-auto relative z-10">
 
-                {/* DIVISOR DELICADO */}
-                <div className="w-24 sm:w-32 h-px bg-white/10 mx-auto mb-10 sm:mb-14"></div>
-
-                {/* TÍTULO PRINCIPAL */}
-                <div className="text-center mb-16 md:mb-20">
-                    <h2 className="text-5xl sm:text-5xl md:text-6xl lg:text-[60px] font-serif italic font-normal text-[#FFFCF2] leading-tight lg:leading-[75px] mb-6">
+                {/* Title */}
+                <div className="text-center mb-14 md:mb-16">
+                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#00D2D3] mb-5">Planes</p>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif italic font-normal text-[#FFFCF2] leading-tight mb-5">
                         Planes Web
                     </h2>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto font-medium opacity-90">
+                    <p className="text-base sm:text-lg text-white/50 max-w-lg mx-auto font-normal leading-relaxed">
                         Tres puntos de partida. Todos pensados para que empieces a conseguir clientes.
                     </p>
                 </div>
 
-                {/* GRILLA: PLANES PRINCIPALES (3 Columnas) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-24">
+                {/* Social proof */}
+                <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+                    {[
+                        { stat: '+30', label: 'negocios con su web' },
+                        { stat: '100%', label: 'satisfacción garantizada' },
+                        { stat: '24/7', label: 'soporte incluido' },
+                    ].map(({ stat, label }) => (
+                        <div key={label} className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/8 bg-white/[0.03]">
+                            <span className="text-[#00D2D3] text-sm font-bold font-mono">{stat}</span>
+                            <span className="text-white/40 text-xs">{label}</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Main plans grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch mb-20">
                     {mainPlans.map((plan) => (
                         <PlanCard key={plan.name} plan={plan} />
                     ))}
                 </div>
 
-                {/* TÍTULO SECUNDARIO: SERVICIOS ADICIONALES */}
-                <div className="text-center mb-12 md:mb-16">
-                    <h3 className="text-4xl sm:text-4xl md:text-6xl font-serif italic font-normal text-[#FFFCF2] leading-tight mb-4">
-                        Servicios <span className="text-[#00D2D3] opacity-90">Adicionales</span>
+                {/* Additional services */}
+                <div className="text-center mb-10">
+                    <h3 className="text-2xl sm:text-3xl font-serif italic font-normal text-[#FFFCF2] leading-tight mb-2">
+                        Servicios <span className="text-[#00D2D3]">Adicionales</span>
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base text-white/50 max-w-xl mx-auto">
-                        "Consulte para más información."
-                    </p>
+                    <p className="text-sm text-white/35">Consultá para más información.</p>
                 </div>
 
-                {/* GRILLA: SERVICIOS ADICIONALES (2 Columnas) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-4xl mx-auto mb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-stretch max-w-4xl mx-auto mb-16">
                     {additionalServices.map((service) => (
                         <PlanCard key={service.name} plan={service} />
                     ))}
                 </div>
 
-                {/* DISCLAIMER AL PIE */}
-                <div className="max-w-3xl mx-auto text-center bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
-                    <p className="text-xs sm:text-sm text-white/50 leading-relaxed">
-                        Todos los planes incluyen hosting y el dominio por el primer año. <span className="text-[#00D2D3]">SE ENTREGA "FACTURA TIPO C".</span>
+                {/* Disclaimer */}
+                <div className="max-w-2xl mx-auto text-center border-t border-white/[0.06] pt-8">
+                    <p className="text-xs text-white/30 leading-relaxed">
+                        Todos los planes incluyen hosting y dominio por el primer año.{' '}
+                        <span className="text-[#00D2D3]/70">Se entrega Factura Tipo C.</span>
                     </p>
                 </div>
 
             </div>
-
-            {/* Gradient transition to Contact */}
-            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-[#0B0B10] pointer-events-none" />
         </section>
     );
 };
